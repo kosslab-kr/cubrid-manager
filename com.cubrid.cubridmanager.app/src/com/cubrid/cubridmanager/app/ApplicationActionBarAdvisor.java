@@ -154,7 +154,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	 *
 	 * @param menuBar the menu bar manager
 	 */
-	\**
+	/**
 	 *[ 제 준 호 ]
 	 * JavaDoc 형식
 	 * 화이팅!!
