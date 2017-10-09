@@ -28,7 +28,7 @@
 /**
 * [제 준 호]
 * Java Doc 형식
-* 
+* 화이팅
 */
 package com.cubrid.cubridmanager.ui;
 
