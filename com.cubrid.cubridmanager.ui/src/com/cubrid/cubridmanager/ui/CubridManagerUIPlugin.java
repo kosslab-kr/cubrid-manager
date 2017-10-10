@@ -25,11 +25,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  */
-/**
-* [제 준 호]
-* Java Doc 형식
-* 화이팅
-*/
+
 package com.cubrid.cubridmanager.ui;
 
 import org.eclipse.core.runtime.Platform;
