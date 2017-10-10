@@ -25,11 +25,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  */
-/**
-*[제준호]
-*Java Doc 형식
-* !!!
-*/
+
 package com.cubrid.common.ui;
 
 import org.eclipse.core.runtime.Platform;
