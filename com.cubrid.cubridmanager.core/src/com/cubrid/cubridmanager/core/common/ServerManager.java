@@ -120,7 +120,14 @@ public final class ServerManager {
 			return serverInfos.put(hostAddress + ":" + port + ":" + userName, value);
 		}
 	}
-
+	
+	/**
+	 * [송승현]
+	 *
+	 * Disconnect all connections to all servers
+	 *
+	 * @return 
+	 */
 	public void disConnectAllServer() {
 		synchronized (this) {
 			if (serverInfos != null) {
