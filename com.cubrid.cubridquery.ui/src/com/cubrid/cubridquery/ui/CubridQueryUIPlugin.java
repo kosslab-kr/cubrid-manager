@@ -99,6 +99,14 @@ public class CubridQueryUIPlugin extends
 	 * @param path the path
 	 * @return the image descriptor
 	 */
+	/**
+	 * [민준]
+	 * JavaDoc 형식
+	 * - 화이팅!!
+	 *
+	 * @param path
+	 * @return
+	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		ImageDescriptor imageDesc = getDefault().getImageRegistry().getDescriptor(
 				path);
