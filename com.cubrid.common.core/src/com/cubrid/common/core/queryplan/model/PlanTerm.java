@@ -47,6 +47,12 @@ public class PlanTerm {
 	 * @author pcraft
 	 * @version 1.0 - 2009-12-29 created by pangqiren
 	 */
+	/**
+	 * [Lee Gayeon]
+	 * 
+	 * The plan tem type -> term type
+	 *
+	 */
 	public enum PlanTermType {
 		SARGS, EDGE, INDEX, FILTER
 	}
