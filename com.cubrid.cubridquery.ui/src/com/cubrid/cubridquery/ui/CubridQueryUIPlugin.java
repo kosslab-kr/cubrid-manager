@@ -37,7 +37,7 @@ import com.cubrid.common.core.util.ApplicationUtil;
 import com.cubrid.common.ui.CommonUIPlugin;
 
 /**
- * 
+ * [¹Ú¼º¿í] @JavaDoc
  * The activator class controls the plug-in life cycle
  * 
  * @author pangqiren
