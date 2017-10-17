@@ -49,6 +49,16 @@ import com.cubrid.cubridmanager.ui.spi.Version;
  * @author pangqiren
  * @version 1.0 - 2009-12-23 created by pangqiren
  */
+
+/**
+ * [GAYEON]
+ * written in 2017.10.10
+ * by GAYEON
+ *  
+ * @author GAYEON
+ *
+ */
+
 public class Application implements IApplication {
 	public Object start(IApplicationContext context) throws Exception {
 		ApplicationUtil.setApplicationType(ApplicationType.CUBRID_MANAGER);
