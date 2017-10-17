@@ -51,9 +51,9 @@ import com.cubrid.cubridmanager.ui.spi.Version;
  */
 
 /**
- * [±è°¡¿¬]
+ * [GAYEON]
  * written in 2017.10.10
- * by ±è°¡¿¬
+ * by GAYEON
  *  
  * @author GAYEON
  *
