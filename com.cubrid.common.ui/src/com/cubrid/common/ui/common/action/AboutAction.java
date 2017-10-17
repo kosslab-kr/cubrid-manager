@@ -41,6 +41,14 @@ import com.cubrid.common.ui.common.dialog.AboutDialog;
  * @version 1.0 - 2009-06-15 created by pangqiren
  * @version 1.1 - 2012-09-05 updated by Isaiah Choe
  */
+
+/**
+ * [±Ë«˝¿Œ]
+ *
+ * hyeinKim
+ * test for PR
+ * 
+ */
 public class AboutAction extends Action {
 	public static final String ID = AboutAction.class.getName();
 
