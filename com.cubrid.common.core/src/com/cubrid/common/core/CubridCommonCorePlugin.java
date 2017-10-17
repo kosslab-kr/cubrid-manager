@@ -31,6 +31,16 @@ import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
 
+/**
+ * Javadoc 형식
+ * 
+ * 화이팅입니다!
+ * 
+ * 
+ * @author root
+ *
+ */
+
 public class CubridCommonCorePlugin extends Plugin {
 	public static final String PLUGIN_ID = "com.cubrid.common.core";
 	private static CubridCommonCorePlugin plugin;
