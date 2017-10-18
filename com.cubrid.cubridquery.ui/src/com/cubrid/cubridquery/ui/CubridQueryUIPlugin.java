@@ -43,6 +43,11 @@ import com.cubrid.common.ui.CommonUIPlugin;
  * @author pangqiren
  * @version 1.0 - 2010-11-10 created by pangqiren
  */
+ /**
+  *[준호]
+  *JavaDoc 형식
+  *화이팅
+ */
 public class CubridQueryUIPlugin extends
 		AbstractUIPlugin {
 
