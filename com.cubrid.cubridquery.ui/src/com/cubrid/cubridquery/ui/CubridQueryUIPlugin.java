@@ -25,6 +25,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  */
+
+/*
+ +	*[김수정]
+ +	*JavaDoc 형식
+ +	*이게 맞겠죱..!?
+ +	*10.19.목
+ */
+
 package com.cubrid.cubridquery.ui;
 
 import org.eclipse.jface.dialogs.IDialogSettings;
