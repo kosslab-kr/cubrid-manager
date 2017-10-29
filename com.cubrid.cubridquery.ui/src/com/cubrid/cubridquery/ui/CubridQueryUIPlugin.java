@@ -43,6 +43,15 @@ import com.cubrid.common.ui.CommonUIPlugin;
  * @author pangqiren
  * @version 1.0 - 2010-11-10 created by pangqiren
  */
+
+/**
+* [Joonguk Bae]
+* JavaDoc
+* First PR
+* @param path
+* @return
+*/
+
 public class CubridQueryUIPlugin extends
 		AbstractUIPlugin {
 
