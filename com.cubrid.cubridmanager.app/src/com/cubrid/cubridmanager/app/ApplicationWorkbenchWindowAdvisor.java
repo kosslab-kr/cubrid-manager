@@ -404,6 +404,7 @@ public class ApplicationWorkbenchWindowAdvisor extends
 		}
 
 		
+
 		new Thread(new Runnable() {
 			public void run() {
 				timer = new Timer();
