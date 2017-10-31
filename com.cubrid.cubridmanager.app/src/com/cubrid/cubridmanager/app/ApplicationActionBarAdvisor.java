@@ -154,6 +154,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	 *
 	 * @param menuBar the menu bar manager
 	 */
+	
 	protected void fillMenuBar(IMenuManager menuManager) {
 		ActionManager manager = ActionManager.getInstance();
 
