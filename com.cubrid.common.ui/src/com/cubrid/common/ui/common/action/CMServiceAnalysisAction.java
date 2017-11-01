@@ -56,14 +56,11 @@ public class CMServiceAnalysisAction extends Action {
 	public void run() {
 		HaShardManager haShardManager = HaShardManager.getInstance();
 		
-		/*HaShardDemo.registerServiceAndConnect("192.168.1.60", 8001, "admin", 
-				"123456", "HA Master");*/
-		//HA node list
+
 		HaShardDemo demo = new HaShardDemo();
 		demo.registerServiceAndBuildInfo("192.168.1.119", 8001, "admin", 
 				"1111", "www.cubrid.org", "Broker Server 1", "dev-cub-ha-005.ncl");
-//		demo.registerServiceAndBuildInfo("192.168.1.250", 8001, "admin", 
-//				"1111", "www.cubrid.org", "HA Master", "dev-cub-ha-001.ncl");
+
 		demo.registerServiceAndBuildInfo("192.168.1.247", 8001, "admin", 
 				"1111", "www.cubrid.org", "HA Slave", "dev-cub-ha-002.ncl");
 		demo.registerServiceAndBuildInfo("192.168.1.82", 8001, "admin", 
