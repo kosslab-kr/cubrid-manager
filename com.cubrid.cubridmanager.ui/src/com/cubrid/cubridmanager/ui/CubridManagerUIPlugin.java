@@ -25,6 +25,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  */
+
 package com.cubrid.cubridmanager.ui;
 
 import org.eclipse.core.runtime.Platform;
