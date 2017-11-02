@@ -134,12 +134,14 @@ public class UserManagementDialog extends
 			userManageTable.getColumn(i).pack();
 		}
 
+		// activate or deactivate buttons according to user's selection
 		userManageTable.addSelectionListener(new SelectionAdapter() {
 			@SuppressWarnings("rawtypes")
 			public void widgetSelected(SelectionEvent event) {
 				if (userManageTable.getSelectionCount() > 0) {
 					StructuredSelection selection = (StructuredSelection) tableViewer.getSelection();
 					boolean isHasAdmin = false;
+					//check if the admin exits
 					if (selection != null && !selection.isEmpty()) {
 						Iterator it = selection.iterator();
 						while (it.hasNext()) {

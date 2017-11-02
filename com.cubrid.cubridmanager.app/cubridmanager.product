@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="CUBRID Manager" id="com.cubrid.cubridmanager.app.product" application="com.cubrid.cubridmanager.app.application" useFeatures="false" includeLaunchers="true">
+<product name="CUBRID Manager" id="com.cubrid.cubridmanager.app.product" application="com.cubrid.cubridmanager.app.application" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/com.cubrid.cubridmanager.app/icons/cubridmanager16.gif"/>
