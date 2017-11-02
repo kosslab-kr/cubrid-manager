@@ -152,7 +152,7 @@ public class UserManagementDialog extends
 							}
 						}
 					}
-					deleteButton.setEnabled(!isHasAdmin);
+					deleteButton.setEnabled(!isHasAdmin); //deactivate deleteButton when the selection contains admin
 				} else {
 					deleteButton.setEnabled(false);
 				}
