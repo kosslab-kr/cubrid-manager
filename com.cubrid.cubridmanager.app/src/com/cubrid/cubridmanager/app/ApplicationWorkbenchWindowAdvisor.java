@@ -363,23 +363,11 @@ public class ApplicationWorkbenchWindowAdvisor extends
 		}
 	}
 
-	private void showDashboard() {
-		try {
-			if (GeneralPreference.isCheckNewInfoOnStartUp()) {
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().openEditor(
-						new NoticeDashboardInput(CLIENT), NoticeDashboardEditor.ID);
-			}
-		} catch (Exception e) {
-			LOGGER.info("", e);
-		}
-	}
-
 	/**
 	 * Performs arbitrary actions after the window is opened.
 	 */
 	public void postWindowOpen() {
 		removePlatformDependencyActions();
-//		showDashboard();
 
 		/* Open the perspective */
 		String perspective = PerspectiveManager.getInstance().getSelectedPerspective();
