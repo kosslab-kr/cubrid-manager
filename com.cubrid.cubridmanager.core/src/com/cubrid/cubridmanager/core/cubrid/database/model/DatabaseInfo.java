@@ -59,7 +59,7 @@ import com.cubrid.cubridmanager.core.replication.model.ReplicationInfo;
 
 /**
  * 
- * This class is responsible to cache CUBRID dabase information
+ * This class is responsible to cache CUBRID database information
  * 
  * @author pangqiren
  * @version 1.0 - 2009-6-4 created by pangqiren
