@@ -146,7 +146,7 @@ public class UserManagementDialog extends
 						Iterator it = selection.iterator();
 						while (it.hasNext()) {
 							Map map = (Map) it.next();
-							if (map.get("0").equals("admin")) {
+							if (map.get("userName").equals("admin")) {
 								isHasAdmin = true;
 								break;
 							}
@@ -185,21 +185,21 @@ public class UserManagementDialog extends
 				if (returnCode == IDialogConstants.OK_ID) {
 					ServerUserInfo userInfo = userManagementWizard.getServerUserInfo();
 					Map<String, Object> map = new HashMap<String, Object>();
-					map.put("0", userInfo.getUserName());
+					map.put("userName", userInfo.getUserName());
 					if (serverType == ServerType.BOTH) {
-						map.put("1", userInfo.getDbCreateAuthType().getText());
-						map.put("2", userInfo.getCasAuth().getText());
-						map.put("3", userInfo.getStatusMonitorAuth().getText());
-						map.put("4", userInfo);
+						map.put("DBCreateAuth", userInfo.getDbCreateAuthType().getText());
+						map.put("CasAuth", userInfo.getCasAuth().getText());
+						map.put("statusMonitorAuth", userInfo.getStatusMonitorAuth().getText());
+						map.put("userInfo", userInfo);
 					}
 					if (serverType == ServerType.DATABASE) {
-						map.put("1", userInfo.getDbCreateAuthType().getText());
-						map.put("2", userInfo.getStatusMonitorAuth().getText());
-						map.put("3", userInfo);
+						map.put("DBCreateAuth", userInfo.getDbCreateAuthType().getText());
+						map.put("CasAuth", userInfo.getStatusMonitorAuth().getText());
+						map.put("statusMonitorAuth", userInfo);
 					} else if (serverType == ServerType.BROKER) {
-						map.put("1", userInfo.getCasAuth().getText());
-						map.put("2", userInfo.getStatusMonitorAuth().getText());
-						map.put("3", userInfo);
+						map.put("DBCreateAuth", userInfo.getCasAuth().getText());
+						map.put("CasAuth", userInfo.getStatusMonitorAuth().getText());
+						map.put("statusMonitorAuth", userInfo);
 					}
 
 					serverUserInfoTableList.add(map);
@@ -222,9 +222,9 @@ public class UserManagementDialog extends
 				if (selection != null && !selection.isEmpty()) {
 					Map map = (Map) selection.getFirstElement();
 					if (serverType == ServerType.BOTH) {
-						serverUserInfo = (ServerUserInfo) map.get("4");
+						serverUserInfo = (ServerUserInfo) map.get("userInfo");
 					} else {
-						serverUserInfo = (ServerUserInfo) map.get("3");
+						serverUserInfo = (ServerUserInfo) map.get("statusMonitorAuth");
 					}
 					UserManagementWizard userManagementWizard = new UserManagementWizard(
 							server, serverUserInfo, serverUserInfoList);
@@ -233,26 +233,26 @@ public class UserManagementDialog extends
 					int returnCode = dialog.open();
 					if (returnCode == IDialogConstants.OK_ID) {
 						ServerUserInfo userInfo = userManagementWizard.getServerUserInfo();
-						map.put("0", userInfo.getUserName());
+						map.put("userName", userInfo.getUserName());
 						if (serverType == ServerType.BOTH) {
-							map.put("1",
+							map.put("DBCreateAuth",
 									userInfo.getDbCreateAuthType().getText());
-							map.put("2", userInfo.getCasAuth().getText());
-							map.put("3",
+							map.put("CasAuth", userInfo.getCasAuth().getText());
+							map.put("statusMonitorAuth",
 									userInfo.getStatusMonitorAuth().getText());
-							map.put("4", userInfo);
+							map.put("userInfo", userInfo);
 						}
 						if (serverType == ServerType.DATABASE) {
-							map.put("1",
+							map.put("DBCreateAuth",
 									userInfo.getDbCreateAuthType().getText());
-							map.put("2",
+							map.put("CasAuth",
 									userInfo.getStatusMonitorAuth().getText());
-							map.put("3", userInfo);
+							map.put("statusMonitorAuth", userInfo);
 						} else if (serverType == ServerType.BROKER) {
-							map.put("1", userInfo.getCasAuth().getText());
-							map.put("2",
+							map.put("DBCreateAuth", userInfo.getCasAuth().getText());
+							map.put("CasAuth",
 									userInfo.getStatusMonitorAuth().getText());
-							map.put("3", userInfo);
+							map.put("statusMonitorAuth", userInfo);
 						}
 						tableViewer.refresh();
 						for (int i = 0; i < userManageTable.getColumnCount(); i++) {
@@ -308,21 +308,21 @@ public class UserManagementDialog extends
 				&& i < serverUserInfoList.size(); i++) {
 			ServerUserInfo userInfo = serverUserInfoList.get(i);
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("0", userInfo.getUserName());
+			map.put("userName", userInfo.getUserName());
 			if (serverType == ServerType.BOTH) {
-				map.put("1", userInfo.getDbCreateAuthType().getText());
-				map.put("2", userInfo.getCasAuth().getText());
-				map.put("3", userInfo.getStatusMonitorAuth().getText());
-				map.put("4", userInfo);
+				map.put("DBCreateAuth", userInfo.getDbCreateAuthType().getText());
+				map.put("CasAuth", userInfo.getCasAuth().getText());
+				map.put("statusMonitorAuth", userInfo.getStatusMonitorAuth().getText());
+				map.put("userInfo", userInfo);
 			}
 			if (serverType == ServerType.DATABASE) {
-				map.put("1", userInfo.getDbCreateAuthType().getText());
-				map.put("2", userInfo.getStatusMonitorAuth().getText());
-				map.put("3", userInfo);
+				map.put("DBCreateAuth", userInfo.getDbCreateAuthType().getText());
+				map.put("CasAuth", userInfo.getStatusMonitorAuth().getText());
+				map.put("statusMonitorAuth", userInfo);
 			} else if (serverType == ServerType.BROKER) {
-				map.put("1", userInfo.getCasAuth().getText());
-				map.put("2", userInfo.getStatusMonitorAuth().getText());
-				map.put("3", userInfo);
+				map.put("DBCreateAuth", userInfo.getCasAuth().getText());
+				map.put("CasAuth", userInfo.getStatusMonitorAuth().getText());
+				map.put("statusMonitorAuth", userInfo);
 			}
 			serverUserInfoTableList.add(map);
 		}
@@ -356,14 +356,14 @@ public class UserManagementDialog extends
 						DeleteCMUserTask deleteCMUserTask = (DeleteCMUserTask) task;
 						String userId = deleteCMUserTask.getUserId();
 						for (int i = 0; i < userInfoMapArr.length; i++) {
-							String id = (String) userInfoMapArr[i].get("0");
+							String id = (String) userInfoMapArr[i].get("userName");
 							if (userId.equals(id)) {
 								serverUserInfoTableList.remove(userInfoMapArr[i]);
 								ServerType serverType = server.getServerInfo().getServerType();
 								if (serverType == ServerType.BOTH) {
-									serverUserInfoList.remove(userInfoMapArr[i].get("4"));
+									serverUserInfoList.remove(userInfoMapArr[i].get("userInfo"));
 								} else {
-									serverUserInfoList.remove(userInfoMapArr[i].get("3"));
+									serverUserInfoList.remove(userInfoMapArr[i].get("statusMonitorAuth"));
 								}
 								break;
 							}
@@ -377,7 +377,7 @@ public class UserManagementDialog extends
 			DeleteCMUserTask deleteTask = new DeleteCMUserTask(
 					server.getServerInfo());
 			Map map = userInfoMapArr[i];
-			deleteTask.setUserId((String) map.get("0"));
+			deleteTask.setUserId((String) map.get("userName"));
 			taskExcutor.addTask(deleteTask);
 		}
 		new ExecTaskWithProgress(taskExcutor).exec(true, true);
@@ -457,8 +457,8 @@ class UserManagementTableViewerSorter extends
 		int rc = 0;
 		Map map1 = (Map) e1;
 		Map map2 = (Map) e2;
-		String userName1 = (String) map1.get("0");
-		String userName2 = (String) map2.get("0");
+		String userName1 = (String) map1.get("userName");
+		String userName2 = (String) map2.get("userName");
 		if ("admin".equals(userName1) || "admin".equals(userName2)) {
 			if ("admin".equals(userName1)) {
 				rc = -1;
