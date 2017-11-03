@@ -141,6 +141,7 @@ public class UserManagementDialog extends
 				if (userManageTable.getSelectionCount() > 0) {
 					StructuredSelection selection = (StructuredSelection) tableViewer.getSelection();
 					boolean isHasAdmin = false;
+					//check if the admin exists
 					if (selection != null && !selection.isEmpty()) {
 						Iterator it = selection.iterator();
 						while (it.hasNext()) {
@@ -151,7 +152,7 @@ public class UserManagementDialog extends
 							}
 						}
 					}
-					deleteButton.setEnabled(!isHasAdmin);
+					deleteButton.setEnabled(!isHasAdmin); //deactivate delete button if selection contains admin
 				} else {
 					deleteButton.setEnabled(false);
 				}
