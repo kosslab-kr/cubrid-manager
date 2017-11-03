@@ -83,7 +83,7 @@ public class DatabaseInfo implements IDatabaseSpec {
 	private List<ClassInfo> sysTableInfoList = null;
 	private List<ClassInfo> sysViewInfoList = null;
 	private Map<String, List<ClassInfo>> partitionedTableMap = null;
-	// all bakcup plan list
+	// all backup plan list
 	private List<BackupPlanInfo> backupPlanInfoList = null;
 	// all query plan list
 	private List<QueryPlanInfo> queryPlanInfoList = null;
