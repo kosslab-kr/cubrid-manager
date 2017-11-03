@@ -163,7 +163,8 @@ public class UserManagementDialog extends
 				}
 			}
 		});
-		// create button
+		
+		//create buttons
 		Composite buttonComp = new Composite(composite, SWT.NONE);
 		RowLayout rowLayout = new RowLayout();
 		rowLayout.spacing = 5;
