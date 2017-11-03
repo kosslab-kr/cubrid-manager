@@ -46,6 +46,16 @@ import com.cubrid.common.ui.spi.model.ICubridNode;
  * @author pangqiren
  * @version 1.0 - 2009-12-29 created by pangqiren
  */
+
+
+/** 
+ * [한진실]
+ * JavaDoc  형 식
+ * 첫 PR
+ * @param path
+ * @return
+ */
+ 
 public class CubridManagerUIPlugin extends
 		AbstractUIPlugin {
 
