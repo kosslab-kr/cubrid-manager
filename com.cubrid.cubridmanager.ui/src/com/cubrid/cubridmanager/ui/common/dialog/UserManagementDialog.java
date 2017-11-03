@@ -134,6 +134,7 @@ public class UserManagementDialog extends
 			userManageTable.getColumn(i).pack();
 		}
 
+		//activating or deactivating buttons according to user's selection
 		userManageTable.addSelectionListener(new SelectionAdapter() {
 			@SuppressWarnings("rawtypes")
 			public void widgetSelected(SelectionEvent event) {
