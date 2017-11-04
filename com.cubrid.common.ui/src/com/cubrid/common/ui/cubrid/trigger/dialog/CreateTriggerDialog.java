@@ -678,7 +678,6 @@ public class CreateTriggerDialog extends
 	 * @return the Trigger object
 	 */
 	private Trigger getNewTrigger() { // FIXME move this logic to core module
-		Trigger newTrigger = new Trigger();
 		String triggerName = triggerNameText.getText();
 
 		String triggerEventTargetTable = triggerTargetTableCombo.getText().trim();
@@ -700,24 +699,27 @@ public class CreateTriggerDialog extends
 		String triggerStatus = getStatus();
 		String strPriority = triggerPriorityText.getText();
 
-		newTrigger.setName(triggerName);
-		newTrigger.setEventType(eventType);
-		newTrigger.setTarget_class(triggerEventTargetTable);
-		newTrigger.setTarget_att(triggerEventTargetColumn);
-		newTrigger.setConditionTime(eventTime);
-
-		newTrigger.setAction(triggerActionContent);
-		newTrigger.setActionType(triggerActionType);
-		newTrigger.setActionTime(actionTime);
-		newTrigger.setCondition(triggerCondition);
-
-		newTrigger.setStatus(triggerStatus);
-		newTrigger.setPriority(strPriority);
-
+		String description = null;
+		
 		if (isCommentSupport) {
-			String description = triggerDescriptionText.getText();
-			newTrigger.setDescription(description);
+			description = triggerDescriptionText.getText();
 		}
+		
+		Trigger newTrigger = new Trigger
+			.Builder()
+			.name(triggerName)
+			.eventType(eventType)
+			.target_class(triggerEventTargetTable)
+			.target_attribute(triggerEventTargetColumn)
+			.conditionTime(eventTime)
+			.action(triggerActionContent)
+			.actionType(triggerActionType)
+			.actionTime(actionTime)
+			.condition(triggerCondition)
+			.status(triggerStatus)
+			.priority(strPriority)
+			.description(description)
+			.build();
 
 		return newTrigger;
 	}

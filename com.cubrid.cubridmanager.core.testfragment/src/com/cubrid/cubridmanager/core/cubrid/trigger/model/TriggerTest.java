@@ -55,20 +55,22 @@ public class TriggerTest extends
 		String action = "action";
 		String status = "status";
 		String priority = "2";
+		
+		Trigger trigger = new Trigger
+			.Builder()
+			.name(name)
+			.conditionTime(conditionTime)
+			.eventType(eventType)
+			.target_class(target_class)
+			.target_attribute(target_attribute)
+			.condition(condition)
+			.actionTime(actionTime)
+			.actionType(actionType)
+			.action(action)
+			.status(status)
+			.priority(priority)
+			.build();
 
-		Trigger trigger = new Trigger();
-		//test 	getters and setters	
-		trigger.setName(name);
-		trigger.setConditionTime(conditionTime);
-		trigger.setEventType(eventType);
-		trigger.setTarget_class(target_class);
-		trigger.setTarget_att(target_attribute);
-		trigger.setCondition(condition);
-		trigger.setActionTime(actionTime);
-		trigger.setActionType(actionType);
-		trigger.setAction(action);
-		trigger.setStatus(status);
-		trigger.setPriority(priority);
 		//test 	public int compareTo(Trigger obj)
 		assertNotNull(trigger.compareTo(trigger));
 		//test 	public boolean equals(Object obj)
@@ -77,12 +79,25 @@ public class TriggerTest extends
 		assertFalse(trigger.equals("other object"));
 		//test public int hashCode()
 		trigger.hashCode();
-		trigger.setAction("REJECT1");
-		trigger.setAction("INVALIDATE TRANSACTION1");
-		trigger.setAction("PRINT12");
-		trigger.setCondition(null);		
-		trigger.setCondition("if you");
 		
+		trigger = new Trigger
+			.Builder()
+			.name(name)
+			.conditionTime(conditionTime)
+			.eventType(eventType)
+			.target_class(target_class)
+			.target_attribute(target_attribute)
+			.condition(null)
+			.condition("if you")
+			.actionTime(actionTime)
+			.actionType(actionType)
+			.action("REJECT1")
+			.action("INVALIDATE TRANSACTION1")
+			.action("PRINT12")
+			.status(status)
+			.priority(priority)
+			.build();
+
 		assertEquals(trigger.getName(), name);
 		assertEquals(trigger.getConditionTime(), conditionTime);
 		assertEquals(trigger.getEventType(), eventType);
