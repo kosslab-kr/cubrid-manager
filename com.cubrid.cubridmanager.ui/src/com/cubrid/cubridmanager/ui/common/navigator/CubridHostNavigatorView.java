@@ -149,8 +149,6 @@ public class CubridHostNavigatorView extends CubridNavigatorView {
 		if (selection == null || selection.isEmpty()) {
 			ActionManager.addActionToManager(menuManager, AddHostAction.ID);
 			menuManager.add(new Separator());
-//			ActionManager.addActionToManager(menuManager, OpenSchemaEditorAction.ID);
-//			menuManager.add(new Separator());
 			return;
 		}
 
@@ -176,8 +174,6 @@ public class CubridHostNavigatorView extends CubridNavigatorView {
 			ActionManager.addActionToManager(menuManager, EditHostAction.ID);
 			ActionManager.addActionToManager(menuManager, DeleteHostAction.ID);
 			menuManager.add(new Separator());
-//			ActionManager.addActionToManager(menuManager, OpenSchemaEditorAction.ID);
-//			menuManager.add(new Separator());
 			ActionManager.addActionToManager(menuManager, ConnectionUrlExportAction.ID);
 			menuManager.add(new Separator());
 			ActionManager.addActionToManager(menuManager, ChangeManagerPasswordAction.ID);
