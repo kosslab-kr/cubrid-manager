@@ -121,6 +121,11 @@ public class NoticeDashboardEntity {
 		return statusCode;
 	}
 
+	/**
+	 * Save RSS to cacheFile.
+	 * 
+	 * @throws IOException
+	 */
 	private void saveRssToCache() {
 		ObjectOutputStream out = null;
 		try {
