@@ -239,6 +239,7 @@ public class CubridMenuProvider extends MenuProvider {
 			manager.add(new Separator());
 			addActionToManager(manager, getAction(PropertyAction.ID));
 			addActionToManager(manager, getAction(UnifyHostConfigAction.ID));
+			// create submenu of confActionGroup
 			IMenuManager configMenu = new MenuManager(Messages.confActionGroupName);
 			manager.add(configMenu);
 			addActionToManager(configMenu, getAction(EditCubridConfigAction.ID));
