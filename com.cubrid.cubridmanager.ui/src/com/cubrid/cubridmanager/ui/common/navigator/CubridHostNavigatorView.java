@@ -41,7 +41,6 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.contexts.IContextService;
-
 import com.cubrid.common.ui.common.action.ConnectionUrlExportAction;
 import com.cubrid.common.ui.common.action.ExpandTreeItemAction;
 import com.cubrid.common.ui.common.action.GroupSettingAction;
@@ -73,7 +72,6 @@ import com.cubrid.cubridmanager.ui.host.action.ChangeManagerPasswordAction;
 import com.cubrid.cubridmanager.ui.host.action.ConnectHostAction;
 import com.cubrid.cubridmanager.ui.host.action.CopyHostAction;
 import com.cubrid.cubridmanager.ui.host.action.DeleteHostAction;
-import com.cubrid.cubridmanager.ui.host.action.DisConnectHostAction;
 import com.cubrid.cubridmanager.ui.host.action.EditHostAction;
 import com.cubrid.cubridmanager.ui.host.action.PasteHostAction;
 import com.cubrid.cubridmanager.ui.host.action.RenameHostAction;
