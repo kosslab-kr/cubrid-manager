@@ -87,7 +87,7 @@ public class Trigger implements
 	// the trigger order
 	private final String priority;
 	// the trigger comment (Don't private final variable because AlterTriggerAction.java using setDescription function)
-	String description;
+	private String description;
 
 	public static class Builder {
 		private String name = null;
