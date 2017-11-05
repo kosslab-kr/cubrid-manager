@@ -161,25 +161,6 @@ public class CubridHostNavigatorView extends CubridNavigatorView {
 			return;
 		}
 
-		String type = node.getType();
-		if (CubridNodeType.SERVER.equals(type)) {
-			if (ConnectHostAction.isSupportedNode(obj)) {
-				ActionManager.addActionToManager(menuManager, ConnectHostAction.ID);
-			}
-			if (DisConnectHostAction.isSupportedNode(obj)) {
-				ActionManager.addActionToManager(menuManager, DisConnectHostAction.ID);
-			}
-			menuManager.add(new Separator());
-			ActionManager.addActionToManager(menuManager, AddHostAction.ID);
-			ActionManager.addActionToManager(menuManager, EditHostAction.ID);
-			ActionManager.addActionToManager(menuManager, DeleteHostAction.ID);
-			menuManager.add(new Separator());
-			ActionManager.addActionToManager(menuManager, ConnectionUrlExportAction.ID);
-			menuManager.add(new Separator());
-			ActionManager.addActionToManager(menuManager, ChangeManagerPasswordAction.ID);
-			menuManager.add(new Separator());
-		}
-
 		ActionManager.getInstance().setActionsMenu(menuManager);
 		if (CubridNodeTypeManager.isCanRefresh(node.getType())) {
 			menuManager.add(new Separator());
