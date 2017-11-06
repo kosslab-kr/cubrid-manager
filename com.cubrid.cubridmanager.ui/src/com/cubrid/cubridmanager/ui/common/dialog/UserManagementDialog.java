@@ -134,6 +134,7 @@ public class UserManagementDialog extends
 			userManageTable.getColumn(i).pack();
 		}
 
+		//activating or deactivating buttons according to user's selection
 		userManageTable.addSelectionListener(new SelectionAdapter() {
 			@SuppressWarnings("rawtypes")
 			public void widgetSelected(SelectionEvent event) {
@@ -150,7 +151,7 @@ public class UserManagementDialog extends
 							}
 						}
 					}
-					deleteButton.setEnabled(!isHasAdmin);
+					deleteButton.setEnabled(!isHasAdmin); //deactivate delete button if selection contains admin
 				} else {
 					deleteButton.setEnabled(false);
 				}
