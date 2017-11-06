@@ -82,7 +82,7 @@ public class TreeNode {
 
 	/**
 	 * 
-	 * Convert the given string to a certain format
+	 * Convert the given string to a certain fommat
 	 * 
 	 * @param tabstr String The given string
 	 * @return String
