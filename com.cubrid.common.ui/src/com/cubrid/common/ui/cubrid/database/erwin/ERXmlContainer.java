@@ -127,7 +127,7 @@ public class ERXmlContainer {
 	private void createTempDatabase() {
 		handler = new ERXmlDocumentHandler(doc);
 		List<String> filter = initFilter(subjectId);
-		parseEntities(filter);
+		parseEntitys(filter);
 	}
 
 	private List<String> initFilter(Node subjectId) {
@@ -242,12 +242,12 @@ public class ERXmlContainer {
 	 * parse the &lt;Entity&gt; node
 	 *
 	 * @param nodes
-	 * @param entities
+	 * @param entitys
 	 * @param filter
 	 */
-	private void parseEntities(List<String> filter) {
-		NodeList entities = doc.getElementsByTagName("Entity");
-		if (validateList(entities, Messages.errMissingEntity)) {
+	private void parseEntitys(List<String> filter) {
+		NodeList entitys = doc.getElementsByTagName("Entity");
+		if (validateList(entitys, Messages.errMissingEntity)) {
 			return;
 		}
 
