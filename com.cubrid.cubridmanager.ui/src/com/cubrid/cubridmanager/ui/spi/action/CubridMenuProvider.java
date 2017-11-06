@@ -104,11 +104,15 @@ import com.cubrid.cubridmanager.ui.cubrid.jobauto.action.EditBackupPlanAction;
 import com.cubrid.cubridmanager.ui.cubrid.jobauto.action.EditQueryPlanAction;
 import com.cubrid.cubridmanager.ui.cubrid.jobauto.action.QueryLogAction;
 import com.cubrid.cubridmanager.ui.host.action.AddHostAction;
+import com.cubrid.cubridmanager.ui.host.action.ChangeManagerPasswordAction;
 import com.cubrid.cubridmanager.ui.host.action.ConnectHostAction;
+import com.cubrid.cubridmanager.ui.host.action.DeleteHostAction;
+import com.cubrid.cubridmanager.ui.host.action.DisConnectHostAction;
 import com.cubrid.cubridmanager.ui.host.action.EditBrokerConfigAction;
 import com.cubrid.cubridmanager.ui.host.action.EditCmConfigAction;
 import com.cubrid.cubridmanager.ui.host.action.EditCubridConfigAction;
 import com.cubrid.cubridmanager.ui.host.action.EditHAConfigAction;
+import com.cubrid.cubridmanager.ui.host.action.EditHostAction;
 import com.cubrid.cubridmanager.ui.host.action.ExportBrokerConfigAction;
 import com.cubrid.cubridmanager.ui.host.action.ExportCmConfigAction;
 import com.cubrid.cubridmanager.ui.host.action.ExportCubridConfigAction;
@@ -170,6 +174,8 @@ import com.cubrid.cubridmanager.ui.shard.action.StopShardAction;
 import com.cubrid.cubridmanager.ui.shard.action.StopShardEnvAction;
 import com.cubrid.cubridmanager.ui.spi.Messages;
 import com.cubrid.cubridmanager.ui.spi.model.CubridNodeType;
+import com.cubrid.cubridmanager.ui.host.action.ConnectHostAction;
+import com.cubrid.cubridmanager.ui.host.action.DisConnectHostAction;
 
 /**
  * This menu provider provide the context menu and menu bar menu according to
@@ -197,6 +203,22 @@ public class CubridMenuProvider extends MenuProvider {
 
 		String type = node.getType();
 		if (CubridNodeType.SERVER.equals(type)) {
+			if (ConnectHostAction.isSupportedNode(node)) {
+				addActionToManager(manager, getAction(ConnectHostAction.ID));
+			}
+			if (DisConnectHostAction.isSupportedNode(node)) {
+				addActionToManager(manager, getAction(DisConnectHostAction.ID));
+			}
+			manager.add(new Separator());
+			addActionToManager(manager, getAction(AddHostAction.ID));
+			addActionToManager(manager, getAction(EditHostAction.ID));
+			manager.add(new Separator());
+			addActionToManager(manager, getAction(DeleteHostAction.ID));
+			manager.add(new Separator());
+			addActionToManager(manager, getAction(ConnectionUrlExportAction.ID));
+			manager.add(new Separator());
+			addActionToManager(manager, getAction(ChangeManagerPasswordAction.ID));
+			manager.add(new Separator());
 			addActionToManager(manager, getAction(HostDashboardAction.ID));
 			addActionToManager(manager, getAction(ViewServerVersionAction.ID));
 
@@ -215,9 +237,9 @@ public class CubridMenuProvider extends MenuProvider {
 //			}
 
 			manager.add(new Separator());
-
 			addActionToManager(manager, getAction(PropertyAction.ID));
 			addActionToManager(manager, getAction(UnifyHostConfigAction.ID));
+			// create submenu of confActionGroup
 			IMenuManager configMenu = new MenuManager(Messages.confActionGroupName);
 			manager.add(configMenu);
 			addActionToManager(configMenu, getAction(EditCubridConfigAction.ID));

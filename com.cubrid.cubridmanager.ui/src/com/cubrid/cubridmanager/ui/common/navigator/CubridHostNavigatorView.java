@@ -41,7 +41,6 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.contexts.IContextService;
-
 import com.cubrid.common.ui.common.action.ConnectionUrlExportAction;
 import com.cubrid.common.ui.common.action.ExpandTreeItemAction;
 import com.cubrid.common.ui.common.action.GroupSettingAction;
@@ -73,7 +72,6 @@ import com.cubrid.cubridmanager.ui.host.action.ChangeManagerPasswordAction;
 import com.cubrid.cubridmanager.ui.host.action.ConnectHostAction;
 import com.cubrid.cubridmanager.ui.host.action.CopyHostAction;
 import com.cubrid.cubridmanager.ui.host.action.DeleteHostAction;
-import com.cubrid.cubridmanager.ui.host.action.DisConnectHostAction;
 import com.cubrid.cubridmanager.ui.host.action.EditHostAction;
 import com.cubrid.cubridmanager.ui.host.action.PasteHostAction;
 import com.cubrid.cubridmanager.ui.host.action.RenameHostAction;
@@ -149,8 +147,6 @@ public class CubridHostNavigatorView extends CubridNavigatorView {
 		if (selection == null || selection.isEmpty()) {
 			ActionManager.addActionToManager(menuManager, AddHostAction.ID);
 			menuManager.add(new Separator());
-//			ActionManager.addActionToManager(menuManager, OpenSchemaEditorAction.ID);
-//			menuManager.add(new Separator());
 			return;
 		}
 
@@ -161,27 +157,6 @@ public class CubridHostNavigatorView extends CubridNavigatorView {
 		} else {
 			ActionManager.addActionToManager(menuManager, AddHostAction.ID);
 			return;
-		}
-
-		String type = node.getType();
-		if (CubridNodeType.SERVER.equals(type)) {
-			if (ConnectHostAction.isSupportedNode(obj)) {
-				ActionManager.addActionToManager(menuManager, ConnectHostAction.ID);
-			}
-			if (DisConnectHostAction.isSupportedNode(obj)) {
-				ActionManager.addActionToManager(menuManager, DisConnectHostAction.ID);
-			}
-			menuManager.add(new Separator());
-			ActionManager.addActionToManager(menuManager, AddHostAction.ID);
-			ActionManager.addActionToManager(menuManager, EditHostAction.ID);
-			ActionManager.addActionToManager(menuManager, DeleteHostAction.ID);
-			menuManager.add(new Separator());
-//			ActionManager.addActionToManager(menuManager, OpenSchemaEditorAction.ID);
-//			menuManager.add(new Separator());
-			ActionManager.addActionToManager(menuManager, ConnectionUrlExportAction.ID);
-			menuManager.add(new Separator());
-			ActionManager.addActionToManager(menuManager, ChangeManagerPasswordAction.ID);
-			menuManager.add(new Separator());
 		}
 
 		ActionManager.getInstance().setActionsMenu(menuManager);
