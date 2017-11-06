@@ -121,6 +121,11 @@ public class NoticeDashboardEntity {
 		return statusCode;
 	}
 
+	/**
+	 * Save RSS to cache file.
+	 * 
+	 * @throws IOException
+	 */
 	private void saveRssToCache() {
 		ObjectOutputStream out = null;
 		try {
@@ -135,6 +140,13 @@ public class NoticeDashboardEntity {
 		}
 	}
 
+	/**
+	 * Load RSS from saved cache file.
+	 * 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 * 
+	 */
 	@SuppressWarnings("unchecked")
 	private void loadRssFromCache() {
 		ObjectInputStream in = null;
