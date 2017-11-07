@@ -76,7 +76,7 @@ public class JDBCGetTriggerListTask extends JDBCTask {
 			//				FROM db_user u, TABLE(groups) AS t(g)  
 			//				WHERE u.name = d.name)
 			//			and d.name=CURRENT_USER
-			String sql = "SELECT t.*, c.target_class_name"
+			String sql = "SELECT t.*, c.targetClass_name"
 					+ " FROM db_trigger t, db_trig c"
 					+ " WHERE t.name=c.trigger_name";
 
@@ -89,7 +89,7 @@ public class JDBCGetTriggerListTask extends JDBCTask {
 					.name(rs.getString("name"))
 					.conditionTime(getConditionTime(rs.getInt("condition_time")))
 					.eventType(getEventType(rs.getInt("event")))
-					.target_class(rs.getString("target_class_name"))
+					.targetClass(rs.getString("targetClass_name"))
 					.target_attribute(rs.getString("target_attribute"))
 					.condition(rs.getString("condition"))
 					.actionTime(getActionTime(rs.getInt("action_time")))

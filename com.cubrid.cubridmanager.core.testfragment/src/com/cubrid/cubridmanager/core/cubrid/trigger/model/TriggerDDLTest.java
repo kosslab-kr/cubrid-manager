@@ -66,7 +66,7 @@ public class TriggerDDLTest extends
 		name = "name";
 		conditionTime = "conditionTime";
 		eventType = "eventType";
-		targetClass = "target_class";
+		targetClass = "targetClass";
 		targetAttribute = "target_attribute";
 		condition = "condition";
 		actionTime = "actionTime";
@@ -87,7 +87,7 @@ public class TriggerDDLTest extends
 			.name(null)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class("")
+			.targetClass("")
 			.target_attribute(targetAttribute)
 			.condition("")
 			.actionTime("")
@@ -103,7 +103,7 @@ public class TriggerDDLTest extends
 			.name(name)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition(condition)
 			.actionTime(actionTime)
@@ -119,7 +119,7 @@ public class TriggerDDLTest extends
 			.name(null)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class("")
+			.targetClass("")
 			.target_attribute(targetAttribute)
 			.condition("")
 			.actionTime("AFTER")
@@ -135,7 +135,7 @@ public class TriggerDDLTest extends
 			.name(name)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition(condition)
 			.actionTime(actionTime)
@@ -151,7 +151,7 @@ public class TriggerDDLTest extends
 			.name(name)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition(condition)
 			.actionTime(actionTime)
@@ -167,7 +167,7 @@ public class TriggerDDLTest extends
 			.name(name)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition(condition)
 			.actionTime(actionTime)
@@ -191,7 +191,7 @@ public class TriggerDDLTest extends
 			.name(name)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition(condition)
 			.actionTime(actionTime)
@@ -205,7 +205,7 @@ public class TriggerDDLTest extends
 			.name(null)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition("")
 			.actionTime("aaa")
@@ -221,7 +221,7 @@ public class TriggerDDLTest extends
 			.name(name)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition(condition)
 			.actionTime(actionTime)
@@ -235,7 +235,7 @@ public class TriggerDDLTest extends
 			.name(null)
 			.conditionTime(conditionTime)
 			.eventType(eventType)
-			.target_class(targetClass)
+			.targetClass(targetClass)
 			.target_attribute(targetAttribute)
 			.condition("")
 			.actionTime("aaa")

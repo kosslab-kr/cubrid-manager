@@ -72,7 +72,7 @@ public class Trigger implements
 	// insert,update,delete),commit,rollback
 	private final String eventType;
 	// the class or class attribute on which the trigger operates
-	private final String target_class;
+	private final String targetClass;
 	private final String target_attribute;
 	// the condition
 	private final String condition;
@@ -93,7 +93,7 @@ public class Trigger implements
 		private String name = null;
 		private String conditionTime = null;
 		private String eventType = null;
-		private String target_class = null;
+		private String targetClass = null;
 		private String target_attribute = null;
 		private String condition = null;
 		private String actionTime = null;
@@ -121,8 +121,8 @@ public class Trigger implements
 			return this;
 		}
 		
-		public Builder target_class(String target_class) {
-			this.target_class = target_class;
+		public Builder targetClass(String targetClass) {
+			this.targetClass = targetClass;
 			return this;
 		}
 		
@@ -232,7 +232,7 @@ public class Trigger implements
 		name = builder.name;
 		conditionTime = builder.conditionTime;
 		eventType = builder.eventType;
-		target_class = builder.target_class;
+		targetClass = builder.targetClass;
 		target_attribute = builder.target_attribute;
 		condition = builder.condition;
 		actionTime = builder.actionTime;
@@ -288,8 +288,8 @@ public class Trigger implements
 		return eventType;
 	}
 
-	public String getTarget_class() {
-		return target_class;
+	public String getTargetClass() {
+		return targetClass;
 	}
 
 	public String getTarget_att() {

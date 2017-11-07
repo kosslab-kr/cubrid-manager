@@ -473,7 +473,7 @@ public class CreateTriggerDialog extends
 		setTitle(Messages.triggerAlterMSGTitle);
 
 		triggerNameText.setText(trigger.getName());
-		String table = trigger.getTarget_class();
+		String table = trigger.getTargetClass();
 
 		if (null == table) {
 			triggerTargetTableCombo.setText("");
@@ -709,7 +709,7 @@ public class CreateTriggerDialog extends
 			.Builder()
 			.name(triggerName)
 			.eventType(eventType)
-			.target_class(triggerEventTargetTable)
+			.targetClass(triggerEventTargetTable)
 			.target_attribute(triggerEventTargetColumn)
 			.conditionTime(eventTime)
 			.action(triggerActionContent)
