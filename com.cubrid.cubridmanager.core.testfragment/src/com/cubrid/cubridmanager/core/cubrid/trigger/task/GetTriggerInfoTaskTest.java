@@ -68,7 +68,7 @@ public class GetTriggerInfoTaskTest extends
 		assertEquals("UPDATE", list.get(0).getEventType());
 		assertEquals(action, list.get(0).getAction());
 		assertEquals("resort", list.get(0).getTargetClass());
-		assertEquals("number_of_pools", list.get(0).getTarget_att());
+		assertEquals("number_of_pools", list.get(0).getTargetAttribute());
 		assertEquals("new.number_of_pools>0", list.get(0).getCondition());
 		assertEquals("BEFORE", list.get(0).getActionTime());
 		assertEquals("ACTIVE", list.get(0).getStatus());

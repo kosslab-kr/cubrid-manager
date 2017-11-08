@@ -73,7 +73,7 @@ public class Trigger implements
 	private final String eventType;
 	// the class or class attribute on which the trigger operates
 	private final String targetClass;
-	private final String target_attribute;
+	private final String targetAttribute;
 	// the condition
 	private final String condition;
 	// the time to take action
@@ -94,7 +94,7 @@ public class Trigger implements
 		private String conditionTime = null;
 		private String eventType = null;
 		private String targetClass = null;
-		private String target_attribute = null;
+		private String targetAttribute = null;
 		private String condition = null;
 		private String actionTime = null;
 		private String actionType = null;
@@ -126,8 +126,8 @@ public class Trigger implements
 			return this;
 		}
 		
-		public Builder target_attribute(String target_attribute) {
-			this.target_attribute = target_attribute;
+		public Builder targetAttribute(String targetAttribute) {
+			this.targetAttribute = targetAttribute;
 			return this;
 		}
 		
@@ -233,7 +233,7 @@ public class Trigger implements
 		conditionTime = builder.conditionTime;
 		eventType = builder.eventType;
 		targetClass = builder.targetClass;
-		target_attribute = builder.target_attribute;
+		targetAttribute = builder.targetAttribute;
 		condition = builder.condition;
 		actionTime = builder.actionTime;
 		actionType = builder.actionType;
@@ -292,8 +292,8 @@ public class Trigger implements
 		return targetClass;
 	}
 
-	public String getTarget_att() {
-		return target_attribute;
+	public String getTargetAttribute() {
+		return targetAttribute;
 	}
 
 	public String getCondition() {

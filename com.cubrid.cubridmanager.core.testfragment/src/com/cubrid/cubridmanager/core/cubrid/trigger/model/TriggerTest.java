@@ -48,7 +48,7 @@ public class TriggerTest extends
 		String conditionTime = "conditionTime";
 		String eventType = "eventType";
 		String targetClass = "targetClass";
-		String target_attribute = "target_attribute";
+		String targetAttribute = "targetAttribute";
 		String condition = "condition";
 		String actionTime = "actionTime";
 		String actionType = "actionType";
@@ -62,7 +62,7 @@ public class TriggerTest extends
 			.conditionTime(conditionTime)
 			.eventType(eventType)
 			.targetClass(targetClass)
-			.target_attribute(target_attribute)
+			.targetAttribute(targetAttribute)
 			.condition(condition)
 			.actionTime(actionTime)
 			.actionType(actionType)
@@ -86,7 +86,7 @@ public class TriggerTest extends
 			.conditionTime(conditionTime)
 			.eventType(eventType)
 			.targetClass(targetClass)
-			.target_attribute(target_attribute)
+			.targetAttribute(targetAttribute)
 			.condition(null)
 			.condition("if you")
 			.actionTime(actionTime)
@@ -102,7 +102,7 @@ public class TriggerTest extends
 		assertEquals(trigger.getConditionTime(), conditionTime);
 		assertEquals(trigger.getEventType(), eventType);
 		assertEquals(trigger.getTargetClass(), targetClass);
-		assertEquals(trigger.getTarget_att(), target_attribute);
+		assertEquals(trigger.getTargetAttribute(), targetAttribute);
 		assertEquals(trigger.getCondition(), "you");
 		assertEquals(trigger.getActionTime(), actionTime);
 		assertEquals(trigger.getActionType(), "PRINT");

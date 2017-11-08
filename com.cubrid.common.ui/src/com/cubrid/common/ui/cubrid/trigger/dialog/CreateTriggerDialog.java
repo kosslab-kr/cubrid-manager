@@ -484,7 +484,7 @@ public class CreateTriggerDialog extends
 			triggerTargetTableCombo.setText(table);
 		}
 
-		String column = trigger.getTarget_att();
+		String column = trigger.getTargetAttribute();
 		if (null == column) {
 			triggerTargetColumnCombo.setText("");
 		} else {
@@ -710,7 +710,7 @@ public class CreateTriggerDialog extends
 			.name(triggerName)
 			.eventType(eventType)
 			.targetClass(triggerEventTargetTable)
-			.target_attribute(triggerEventTargetColumn)
+			.targetAttribute(triggerEventTargetColumn)
 			.conditionTime(eventTime)
 			.action(triggerActionContent)
 			.actionType(triggerActionType)

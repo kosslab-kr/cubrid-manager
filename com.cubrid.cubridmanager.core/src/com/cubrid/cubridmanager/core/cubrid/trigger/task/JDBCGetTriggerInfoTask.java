@@ -91,7 +91,7 @@ public class JDBCGetTriggerInfoTask extends JDBCTask {
 					.conditionTime(JDBCGetTriggerListTask.getConditionTime(rs.getInt("condition_time")))
 					.eventType(JDBCGetTriggerListTask.getEventType(rs.getInt("event")))
 					.targetClass(rs.getString("targetClassName"))
-					.target_attribute(rs.getString("target_attribute"))
+					.targetAttribute(rs.getString("targetAttribute"))
 					.condition(rs.getString("condition"))
 					.actionTime(JDBCGetTriggerListTask.getActionTime(rs.getInt("action_time")))
 					.action(JDBCGetTriggerListTask.getAction(
