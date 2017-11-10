@@ -101,7 +101,7 @@ import com.cubrid.cubridmanager.ui.workspace.dialog.ChooseModeDialog;
  *
  * The workbench window advisor object is created in response to a workbench
  * window being created (one per window), and is used to configure the window.
- *
+ * -
  * @author pangqiren
  * @version 1.0 - 2009-12-23 created by pangqiren
  */
