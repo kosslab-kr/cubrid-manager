@@ -37,7 +37,7 @@ import com.cubrid.common.core.util.ApplicationUtil;
 import com.cubrid.common.ui.CommonUIPlugin;
 
 /**
- * 
+ * [¹Ú¼º¿í] @JavaDocdddd
  * The activator class controls the plug-in life cycle
  * 
  * @author pangqiren
@@ -45,7 +45,7 @@ import com.cubrid.common.ui.CommonUIPlugin;
  */
 public class CubridQueryUIPlugin extends
 		AbstractUIPlugin {
-
+	//[sungwook]
 	// The plug-in ID
 	public static final String PLUGIN_ID = ApplicationUtil.CQB_UI_PLUGIN_ID;
 
@@ -53,7 +53,7 @@ public class CubridQueryUIPlugin extends
 	private static CubridQueryUIPlugin plugin;
 
 	/**
-	 * The constructor
+	* The constructor
 	 */
 	public CubridQueryUIPlugin() {
 		//empty

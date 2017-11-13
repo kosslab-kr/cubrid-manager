@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.2"?>
-<plugin>
-   <extension
-         id="application"
-         point="org.eclipse.core.runtime.applications">
-      <application>
-         <run
-               class="com.cubrid.cubridmanager.app.Application">
-         </run>
-      </application>
-   </extension>
+<?eclipse version="3.0"?>
+<plugin
+>
    <extension
          id="product"
          point="org.eclipse.core.runtime.products">
@@ -17,88 +9,96 @@
             application="com.cubrid.cubridmanager.app.application"
             name="CUBRID Manager">
          <property
-               name="appName"
-               value="CUBRID Manager">
+               name="windowImages"
+               value="icons/cubridmanager16.gif,icons/cubridmanager32.gif,icons/cubridmanager48.gif,icons/cubridmanager64.gif">
          </property>
          <property
                name="aboutImage"
                value="icons/cubridmanager16.gif">
          </property>
          <property
+               name="startupForegroundColor"
+               value="C0C0C0">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,380,557,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="230,280,557,15">
+         </property>
+      </product>
+   </extension>
+</plugin><?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.cubrid.cubridmanager.app.application"
+            name="CUBRID Manager">
+         <property
                name="windowImages"
                value="icons/cubridmanager16.gif,icons/cubridmanager32.gif,icons/cubridmanager48.gif,icons/cubridmanager64.gif">
          </property>
-          <property
+         <property
+               name="aboutImage"
+               value="icons/cubridmanager16.gif">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="C0C0C0">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,380,557,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="230,280,557,15">
+         </property>
+         <property
+               name="preferenceCustomization">
+         </property>
+      </product>
+   </extension>
+</plugin><?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.cubrid.cubridmanager.app.application"
+            name="CUBRID Manager">
+         <property
+               name="windowImages"
+               value="icons/cubridmanager16.gif,icons/cubridmanager32.gif,icons/cubridmanager48.gif,icons/cubridmanager64.gif">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/cubridmanager16.gif">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="C0C0C0">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,380,557,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="230,280,557,15">
+         </property>
+         <property
                name="preferenceCustomization"
                value="plugin_customization.ini">
          </property>
-          <property
-                name="startupForegroundColor"
-                value="C0C0C0">
-          </property>
-          <property
-                name="startupMessageRect"
-                value="230,280,557,15">
-          </property>
-          <property
-                name="startupProgressRect"
-                value="5,380,557,15">
-          </property>
       </product>
    </extension>
-   <extension
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            name="%perspectiveName"
-            class="com.cubrid.cubridmanager.app.Perspective"
-            id="com.cubrid.cubridmanager.app.Perspective">
-      </perspective>
-   </extension>
-   <extension point="org.eclipse.ui.views">
-      <view
-        class="org.eclipse.ui.ExtensionFactory:progressView"
-        id="org.eclipse.ui.views.ProgressView"
-        icon="icons/progress.gif"
-        name="Progress"/>
-	</extension>
-    <extension
-         point="org.eclipse.ui.views">
-      <category
-            id="com.cubrid.cubridtools.ui.view.category"
-            name="%viewCategory"/>
-      <view
-            allowMultiple="false"
-            category="com.cubrid.cubridtools.ui.view.category"
-            name="%hostNavigatorViewName"
-            icon="icons/host.png"
-            class="com.cubrid.cubridmanager.ui.common.navigator.CubridHostNavigatorView"
-            id="com.cubrid.cubridmanager.host.navigator">
-      </view>
-    </extension>
-   <extension
-          point="org.eclipse.ui.preferencePages">
-       <page
-             class="com.cubrid.common.ui.common.preference.GeneralPreferencePage"
-             id="com.cubrid.common.ui.preference.general"
-             name="%prefTitleGeneral">
-			<keywordReference id="General.prompt"/>
-			<keywordReference id="General.information"/>
-			<keywordReference id="General.CUBRID"/>
-			<keywordReference id="General.update"/>
-			<keywordReference id="General.layout"/>
-			<keywordReference id="General.query"/>
-			<keywordReference id="General.editor"/>
-			<keywordReference id="General.completion"/>
-       </page>
-    </extension>
-	<extension point="org.eclipse.ui.keywords">
-  		<keyword label="prompt" id="General.prompt"/>
-		<keyword label="information" id="General.information"/>
-		<keyword label="CUBRID" id="General.CUBRID"/>
-		<keyword label="update" id="General.update"/>
-		<keyword label="layout" id="General.layout"/>
-		<keyword label="query" id="General.query"/>
-		<keyword label="editor" id="General.editor"/>
-		<keyword label="completion" id="General.completion"/>
-	</extension>   
 </plugin>
