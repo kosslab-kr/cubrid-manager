@@ -68,7 +68,7 @@ public class XlsxRowNumberHandler extends
 	private int numberAllRow;
 	// The item row in every sheet
 	private List<Integer> itemsNumberOfSheets;
-	private final List<String> firstRowLst = new ArrayList<String>();
+	private final List<String> firstRowList = new ArrayList<String>();
 
 	private SharedStringsTable sharedStringTable;
 
@@ -95,7 +95,7 @@ public class XlsxRowNumberHandler extends
 	 */
 	public void process() {
 		numberAllRow = 0;
-		firstRowLst.clear();
+		firstRowList.clear();
 		InputStream stream = null;
 		itemsNumberOfSheets = new ArrayList<Integer>();
 		try {
@@ -203,7 +203,7 @@ public class XlsxRowNumberHandler extends
 			}
 			value = "".equals(value) ? " " : value;
 
-			firstRowLst.add(cols, value);
+			firstRowList.add(cols, value);
 			cols++;
 		}
 	}
@@ -262,7 +262,7 @@ public class XlsxRowNumberHandler extends
 	 * @return List<String>
 	 */
 	public List<String> getHeadInfo() {
-		return firstRowLst;
+		return firstRowList;
 	}
 
 	/**
