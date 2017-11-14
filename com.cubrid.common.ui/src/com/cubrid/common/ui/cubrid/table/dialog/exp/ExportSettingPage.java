@@ -141,7 +141,7 @@ public class ExportSettingPage extends
 	private Text otherText;
 	private Combo dbCharsetCombo;
 	private Combo fileCharsetCombo;
-	private List<ICubridNode> tablesOrViewLst;
+	private List<ICubridNode> tablesOrViewList;
 	private String[] columnDelimeter = {",", "\t", "'" };
 	private String[] columnDelimeterName = {Messages.lblNameComma, Messages.lblNameTab,
 			Messages.lblNameQuote };
@@ -270,7 +270,7 @@ public class ExportSettingPage extends
 		selectAllBtn.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event) {
 				boolean selection = selectAllBtn.getSelection();
-				for (ICubridNode node : tablesOrViewLst) {
+				for (ICubridNode node : tablesOrViewList) {
 					treeViewer.setGrayed(node, false);
 					treeViewer.setChecked(node, selection);
 				}
@@ -685,11 +685,11 @@ public class ExportSettingPage extends
 	 */
 	private void init() {
 		initTableColumnInfo();
-		treeViewer.setInput(tablesOrViewLst);
+		treeViewer.setInput(tablesOrViewList);
 		if (getExportConfig().isHistory()) { // history
 			ExportConfig exportConfig = getExportConfig();
 			for (String table : exportConfig.getTableNameList()) {
-				for (ICubridNode node : tablesOrViewLst) {
+				for (ICubridNode node : tablesOrViewList) {
 					if (table.equalsIgnoreCase(node.getName())) {
 						treeViewer.setChecked(node, true);
 						String whereCondition = exportConfig.getWhereCondition(table);
@@ -795,7 +795,7 @@ public class ExportSettingPage extends
 			// initial check element
 			List<String> tableList = getExportDataWizardWizard().getTableNameList();
 			for (String table : tableList) {
-				for (ICubridNode node : tablesOrViewLst) {
+				for (ICubridNode node : tablesOrViewList) {
 					if (table.equalsIgnoreCase(node.getName())) {
 						treeViewer.setChecked(node, true);
 					}
@@ -843,7 +843,7 @@ public class ExportSettingPage extends
 			progress.run(true, true, new IRunnableWithProgress() {
 				public void run(IProgressMonitor monitor) throws InvocationTargetException {
 					monitor.beginTask(Messages.taskLoading, 2);
-					tablesOrViewLst = new ArrayList<ICubridNode>();
+					tablesOrViewList = new ArrayList<ICubridNode>();
 					Connection conn = null;
 					Statement stmt = null;
 					ResultSet rs = null;
@@ -890,7 +890,7 @@ public class ExportSettingPage extends
 
 							classNode.setContainer(true);
 							classNode.setType(NodeType.TABLE_COLUMN_FOLDER);
-							tablesOrViewLst.add(classNode);
+							tablesOrViewList.add(classNode);
 						}
 						QueryUtil.freeQuery(rs);
 						monitor.worked(1);
@@ -1326,7 +1326,7 @@ public class ExportSettingPage extends
 		for (Object o : objects) {
 			treeViewer.setChecked(o, false);
 		}
-		tablesOrViewLst.clear();
+		tablesOrViewList.clear();
 	}
 
 	private String getColumnDelimeter() {
