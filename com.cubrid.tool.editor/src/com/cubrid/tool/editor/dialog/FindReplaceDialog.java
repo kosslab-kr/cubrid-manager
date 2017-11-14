@@ -278,6 +278,17 @@ public class FindReplaceDialog extends
 	protected int findAndSelect(int start, FindReplaceOption option) {
 		int result = TextEditorFindReplaceMediator.findAndSelect(start, option.isForward(), option);
 		updateTextCombo(findText);
+		
+		if(result == -1) {
+			TextViewer st = TextEditorFindReplaceMediator.getCurrentTextEditor();
+			
+			if(option.isForward() == true) {
+				st.getTextWidget().setCaretOffset(st.getTopIndexStartOffset());
+			} else {
+				st.getTextWidget().setCaretOffset(st.getBottomIndexEndOffset()+1);
+			}
+		}
+			
 		return result;
 	}
 
