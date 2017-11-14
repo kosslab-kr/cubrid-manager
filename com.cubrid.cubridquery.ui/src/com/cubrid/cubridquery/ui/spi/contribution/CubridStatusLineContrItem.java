@@ -175,7 +175,6 @@ public class CubridStatusLineContrItem extends StatusLineContrItem {
 		if (window == null) {
 			return;
 		}
-		//window.setStatus("");
 		clearStatusLine();
 
 		updateStatusLineForRestoreQueryEditor();
@@ -202,7 +201,6 @@ public class CubridStatusLineContrItem extends StatusLineContrItem {
 			nodePath = parent.getLabel() + "/" + nodePath;
 			parent = parent.getParent();
 		}
-		//window.setStatus(nodePath);
 		if (window instanceof WorkbenchWindow) {
 			StatusLineManager statusLineManager = ((WorkbenchWindow) window).getStatusLineManager();
 			if (statusLineManager != null) {
