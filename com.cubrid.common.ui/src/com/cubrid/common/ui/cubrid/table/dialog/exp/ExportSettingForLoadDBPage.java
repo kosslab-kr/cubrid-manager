@@ -121,7 +121,7 @@ public class ExportSettingForLoadDBPage extends
 
 	private Button startValueButton;
 
-	private List<ICubridNode> tablesOrViewLst;
+	private List<ICubridNode> tablesOrViewList;
 
 	/**
 	 * The constructor
@@ -237,7 +237,7 @@ public class ExportSettingForLoadDBPage extends
 		selectAllBtn.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event) {
 				boolean selection = selectAllBtn.getSelection();
-				for (ICubridNode node : tablesOrViewLst) {
+				for (ICubridNode node : tablesOrViewList) {
 					ctv.setGrayed(node, false);
 					ctv.setChecked(node, selection);
 				}
@@ -429,11 +429,11 @@ public class ExportSettingForLoadDBPage extends
 	 */
 	private void init() {
 		initTableColumnInfo();
-		ctv.setInput(tablesOrViewLst);
+		ctv.setInput(tablesOrViewList);
 		if (getExportConfig().isHistory()) { //history
 			ExportConfig exportConfig = getExportConfig();
 			for (String table : exportConfig.getTableNameList()) {
-				for (ICubridNode node : tablesOrViewLst) {
+				for (ICubridNode node : tablesOrViewList) {
 					if (table.equalsIgnoreCase(node.getName())) {
 						ctv.setChecked(node, true);
 						String whereCondition = getExportConfig().getWhereCondition(table);
@@ -469,7 +469,7 @@ public class ExportSettingForLoadDBPage extends
 		} else {
 			List<String> tableList = ((ExportDataWizard) getWizard()).getTableNameList();
 			for (String table : tableList) {
-				for (ICubridNode node : tablesOrViewLst) {
+				for (ICubridNode node : tablesOrViewList) {
 					if (table.equalsIgnoreCase(node.getName())) {
 						ctv.setChecked(node, true);
 					}
@@ -516,7 +516,7 @@ public class ExportSettingForLoadDBPage extends
 			progress.run(true, true, new IRunnableWithProgress() {
 				public void run(IProgressMonitor monitor) throws InvocationTargetException {
 					monitor.beginTask(Messages.taskLoading, 2);
-					tablesOrViewLst = new ArrayList<ICubridNode>();
+					tablesOrViewList = new ArrayList<ICubridNode>();
 					List<String> tableNames = new ArrayList<String>();
 					Connection conn = null;
 					Statement stmt = null;
@@ -559,7 +559,7 @@ public class ExportSettingForLoadDBPage extends
 									iconPath);
 							classNode.setContainer(true);
 							classNode.setType(NodeType.TABLE_COLUMN_FOLDER);
-							tablesOrViewLst.add(classNode);
+							tablesOrViewList.add(classNode);
 							tableNames.add(tableName);
 						}
 						QueryUtil.freeQuery(rs);
@@ -928,6 +928,6 @@ public class ExportSettingForLoadDBPage extends
 		for (Object o : objects) {
 			ctv.setChecked(o, false);
 		}
-		tablesOrViewLst.clear();
+		tablesOrViewList.clear();
 	}
 }

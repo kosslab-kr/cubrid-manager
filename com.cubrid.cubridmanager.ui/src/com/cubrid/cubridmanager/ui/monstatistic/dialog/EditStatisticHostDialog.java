@@ -543,9 +543,9 @@ public class EditStatisticHostDialog extends
 			dbSpaceInfoTask.execute();
 			if (dbSpaceInfoTask.isSuccess()) {
 				dbSpaceInfo = dbSpaceInfoTask.getResultModel();
-				if (dbSpaceInfo.getSpaceinfo() != null
-						&& dbSpaceInfo.getSpaceinfo().size() > 0) {
-					List<DbSpaceInfo> spaceInfoList = dbSpaceInfo.getSpaceinfo();
+				if (dbSpaceInfo.getSpaceInfo() != null
+						&& dbSpaceInfo.getSpaceInfo().size() > 0) {
+					List<DbSpaceInfo> spaceInfoList = dbSpaceInfo.getSpaceInfo();
 					itemsVolName = new String[spaceInfoList.size()];
 					for (int i = 0; i < spaceInfoList.size(); i++) {
 						itemsVolName[i] = spaceInfoList.get(i).getSpacename();

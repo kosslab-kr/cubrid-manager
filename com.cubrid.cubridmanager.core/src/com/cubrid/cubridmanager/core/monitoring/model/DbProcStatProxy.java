@@ -129,11 +129,11 @@ public class DbProcStatProxy {
 		if ("".equalsIgnoreCase(dbname)) {
 			long cpuUserDlt = 0;
 			//	double cpuTotalDlt = 0d;
-			List<DbSysStat> dpsALst = dpsA.getDbProcLst();
-			if (dpsALst.isEmpty()) {
+			List<DbSysStat> dpsAList = dpsA.getDbProcList();
+			if (dpsAList.isEmpty()) {
 				return 0;
 			}
-			for (DbSysStat dssA : dpsA.getDbProcLst()) {
+			for (DbSysStat dssA : dpsA.getDbProcList()) {
 				DbSysStat dssB = getSubType(dssA.getDbname(), dpsB);
 				if (null == dssB) {
 					continue;
@@ -167,11 +167,11 @@ public class DbProcStatProxy {
 		if ("".equalsIgnoreCase(dbname)) {
 			long cpuKernelDlt = 0;
 
-			List<DbSysStat> dpsALst = dpsA.getDbProcLst();
-			if (dpsALst.isEmpty()) {
+			List<DbSysStat> dpsAList = dpsA.getDbProcList();
+			if (dpsAList.isEmpty()) {
 				return 0;
 			}
-			for (DbSysStat dssA : dpsA.getDbProcLst()) {
+			for (DbSysStat dssA : dpsA.getDbProcList()) {
 				DbSysStat dssB = getSubType(dssA.getDbname(), dpsB);
 				if (null == dssB) {
 					continue;
@@ -208,11 +208,11 @@ public class DbProcStatProxy {
 
 		if ("".equalsIgnoreCase(dbname)) {
 			long cpuUserDlt = 0;
-			List<DbSysStat> dpsALst = dpsA.getDbProcLst();
-			if (dpsALst.isEmpty()) {
+			List<DbSysStat> dpsAList = dpsA.getDbProcList();
+			if (dpsAList.isEmpty()) {
 				return 0;
 			}
-			for (DbSysStat dssA : dpsA.getDbProcLst()) {
+			for (DbSysStat dssA : dpsA.getDbProcList()) {
 				DbSysStat dssB = getSubType(dssA.getDbname(), dpsB);
 				if (null == dssB) {
 					continue;
@@ -254,11 +254,11 @@ public class DbProcStatProxy {
 			DbProcStat dpsB, DbProcStat dpsC) {
 		if ("".equalsIgnoreCase(dbname)) {
 			long cpuKernelDlt = 0;
-			List<DbSysStat> dpsALst = dpsA.getDbProcLst();
-			if (dpsALst.isEmpty()) {
+			List<DbSysStat> dpsAList = dpsA.getDbProcList();
+			if (dpsAList.isEmpty()) {
 				return 0;
 			}
-			for (DbSysStat dssA : dpsA.getDbProcLst()) {
+			for (DbSysStat dssA : dpsA.getDbProcList()) {
 				DbSysStat dssB = getSubType(dssA.getDbname(), dpsB);
 				if (null == dssB) {
 					continue;
@@ -301,11 +301,11 @@ public class DbProcStatProxy {
 	private long getMemPhysical(String dbname, DbProcStat dps) {
 		if ("".equals(dbname)) {
 			long memPhyLong = 0L;
-			List<DbSysStat> dpsALst = dps.getDbProcLst();
-			if (dpsALst.isEmpty()) {
+			List<DbSysStat> dpsAList = dps.getDbProcList();
+			if (dpsAList.isEmpty()) {
 				return 0;
 			}
-			for (DbSysStat dss : dps.getDbProcLst()) {
+			for (DbSysStat dss : dps.getDbProcList()) {
 				memPhyLong += Long.parseLong(dss.getMem_physical());
 			}
 			return memPhyLong;
@@ -330,11 +330,11 @@ public class DbProcStatProxy {
 	private long getMemVirtual(String dbname, DbProcStat dps) {
 		if ("".equals(dbname)) {
 			long memVirtualLong = 0L;
-			List<DbSysStat> dpsALst = dps.getDbProcLst();
-			if (dpsALst.isEmpty()) {
+			List<DbSysStat> dpsAList = dps.getDbProcList();
+			if (dpsAList.isEmpty()) {
 				return 0;
 			}
-			for (DbSysStat dss : dps.getDbProcLst()) {
+			for (DbSysStat dss : dps.getDbProcList()) {
 				memVirtualLong += Long.parseLong(dss.getMem_virtual());
 			}
 			return memVirtualLong;
@@ -356,7 +356,7 @@ public class DbProcStatProxy {
 	 * @return an instance of DbSysStat
 	 */
 	private DbSysStat getSubType(String dbname, DbProcStat dps) {
-		for (DbSysStat dss : dps.getDbProcLst()) {
+		for (DbSysStat dss : dps.getDbProcList()) {
 			if (dbname.equals(dss.getDbname())) {
 				return dss;
 			}

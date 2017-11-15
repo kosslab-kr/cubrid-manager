@@ -164,12 +164,12 @@ public class Messages extends NLS {
 	public static String refreshUnit;
 	public static String refreshEnvOnLbl;
 	public static String refreshEnvTitle;
-	public static String portOfBrokerLst;
-	public static String nameOfBrokerLst;
-	public static String brokerLstGroupName;
+	public static String portOfBrokerList;
+	public static String nameOfBrokerList;
+	public static String brokerListGroupName;
 	public static String generalInfoGroupName;
 	public static String refreshEnvOfTap;
-	public static String brokerLstOfTap;
+	public static String brokerListOfTap;
 	public static String editActionTxt;
 	public static String addActionTxt;
 	public static String delActionTxt;

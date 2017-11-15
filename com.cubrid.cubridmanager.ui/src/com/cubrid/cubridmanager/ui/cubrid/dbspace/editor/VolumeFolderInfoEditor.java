@@ -291,7 +291,7 @@ public class VolumeFolderInfoEditor extends
 					// virec = (VolumeInfo) Volinfo.get(i);
 					synchronized (cubridNode) {
 						if (database.getDatabaseInfo().getDbSpaceInfoList() != null
-								&& database.getDatabaseInfo().getDbSpaceInfoList().getSpaceinfo() != null) {
+								&& database.getDatabaseInfo().getDbSpaceInfoList().getSpaceInfo() != null) {
 							// calcColumnLength();
 							ArrayList<DbSpaceInfoList.FreeTotalSizeSpacename> volumeInfos = database.getDatabaseInfo().getDbSpaceInfoList().getVolumesInfoByType(volumeType);
 							for (DbSpaceInfoList.FreeTotalSizeSpacename info : volumeInfos) {

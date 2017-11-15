@@ -834,7 +834,7 @@ public class ServiceDashboardEditor extends CubridEditorPart {
 			DbSpaceInfoList dbSpaceInfoList = task.getResultModel();
 			if (dbSpaceInfoList != null && task.getErrorMsg()== null) {
 				freespaceOnStorage = ((long) dbSpaceInfoList.getFreespace()) * 1024l * 1024l;
-				for (DbSpaceInfo spaceInfo : dbSpaceInfoList.getSpaceinfo()) {
+				for (DbSpaceInfo spaceInfo : dbSpaceInfoList.getSpaceInfo()) {
 					String type = spaceInfo.getType();
 					if (type.equals(VolumeType.DATA.getText())) {
 						totalPageData += spaceInfo.getTotalpage();

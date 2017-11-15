@@ -56,7 +56,7 @@ public class DbProcStatTest extends
 //				   
 //						bean = task.getResultModel();
 //				      System.out.println(bean.getStatus());
-//				      System.out.println(bean.getDbProcLst());
+//				      System.out.println(bean.getDbProcList());
 
 	}
 
@@ -66,7 +66,7 @@ public class DbProcStatTest extends
 	 * .
 	 */
 	public void testDbProcStat() {
-		assertNotNull(bean.getDbProcLst());
+		assertNotNull(bean.getDbProcList());
 	}
 
 	/**
@@ -85,10 +85,10 @@ public class DbProcStatTest extends
 	 */
 	public void testAddDbstat() {
 		bean.addDbstat(null);
-		assertNotNull(bean.getDbProcLst());
+		assertNotNull(bean.getDbProcList());
 		DbSysStat dsp = new DbSysStat();
 		bean.addDbstat(dsp);
-		assertEquals(2, bean.getDbProcLst().size());
+		assertEquals(2, bean.getDbProcList().size());
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class DbProcStatTest extends
 		clone.addDbstat(new DbSysStat());
 		bean.copyFrom(clone);
 		assertEquals("dbname", bean.getDbname());
-		assertNotNull(bean.getDbProcLst());
+		assertNotNull(bean.getDbProcList());
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class DbProcStatTest extends
 		DbSysStat dsp = new DbSysStat();
 		bean.addDbstat(dsp);
 		bean.clearDbstat();
-		assertTrue(bean.getDbProcLst().isEmpty());
+		assertTrue(bean.getDbProcList().isEmpty());
 	}
 
 }

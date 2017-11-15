@@ -79,14 +79,14 @@ public class HistoryFileHelp {
 				LOGGER.error(ex.getMessage());
 			}
 		} else {
-			List<CounterType> counterLst = new ArrayList<CounterType>();
+			List<CounterType> counterList = new ArrayList<CounterType>();
 			for (String type : typeNames) {
 				CounterType counterType = new CounterType(type, true, false,
 						RangeType.INT);
-				counterLst.add(counterType);
+				counterList.add(counterType);
 
 			}
-			CounterType[] types = counterLst.toArray(new CounterType[counterLst.size()]);
+			CounterType[] types = counterList.toArray(new CounterType[counterList.size()]);
 			Properties props = new Properties();
 			try {
 				countFile = new BasicCounterFile(counter, types, maxCount,

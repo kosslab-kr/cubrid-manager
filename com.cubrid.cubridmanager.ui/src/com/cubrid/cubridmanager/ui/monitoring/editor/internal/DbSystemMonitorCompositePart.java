@@ -341,7 +341,7 @@ public class DbSystemMonitorCompositePart {
 		chartSettingDlg.setHistoryPath(historyPath);
 
 		// chart selection
-		chartSettingDlg.setChartSelectionLst(getSelectedCharts());
+		chartSettingDlg.setChartSelectionList(getSelectedCharts());
 
 		if (chartSettingDlg.open() == Dialog.OK) {
 			// plot appearance
@@ -409,7 +409,7 @@ public class DbSystemMonitorCompositePart {
 			memorySeriesPlot.setRangeGridlinePaint(rangeGridColor);
 
 			//chart Selection
-			fireChartSelection(chartSettingDlg.getChartSelectionLst());
+			fireChartSelection(chartSettingDlg.getChartSelectionList());
 		}
 	}
 
@@ -420,26 +420,26 @@ public class DbSystemMonitorCompositePart {
 	 * @return List<ChartShowingProp>
 	 */
 	private List<ChartShowingProp> getSelectedCharts() {
-		List<ChartShowingProp> chartSelectionLst = new ArrayList<ChartShowingProp>();
+		List<ChartShowingProp> chartSelectionList = new ArrayList<ChartShowingProp>();
 
 		boolean isSysInfoVisible = sysInfoComp.isVisible();
 		ChartShowingProp sysInfoShowingProp = new ChartShowingProp();
 		sysInfoShowingProp.setName(Messages.dbSelectedSysInfo);
 		sysInfoShowingProp.setShowing(isSysInfoVisible);
-		chartSelectionLst.add(sysInfoShowingProp);
+		chartSelectionList.add(sysInfoShowingProp);
 
 		boolean isCpuVisible = cpuChart.getBasicComposite().isVisible();
 		ChartShowingProp cpuShowingProp = new ChartShowingProp();
 		cpuShowingProp.setName(Messages.dbSelectedChartCpu);
 		cpuShowingProp.setShowing(isCpuVisible);
-		chartSelectionLst.add(cpuShowingProp);
+		chartSelectionList.add(cpuShowingProp);
 
 		boolean isMemoryVisible = memoryChart.getBasicComposite().isVisible();
 		ChartShowingProp memoryShowingProp = new ChartShowingProp();
 		memoryShowingProp.setName(Messages.dbSelectedChartMemory);
 		memoryShowingProp.setShowing(isMemoryVisible);
-		chartSelectionLst.add(memoryShowingProp);
-		return chartSelectionLst;
+		chartSelectionList.add(memoryShowingProp);
+		return chartSelectionList;
 	}
 
 	/**

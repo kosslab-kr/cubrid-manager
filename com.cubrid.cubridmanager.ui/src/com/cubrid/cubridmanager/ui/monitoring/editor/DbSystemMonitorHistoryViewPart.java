@@ -178,20 +178,20 @@ public class DbSystemMonitorHistoryViewPart extends
 
 		historyComposite.getQueryBtn().addSelectionListener(
 				new HistoryBtnSelectionListener(historyComposite));
-		List<String> databaseLst = new ArrayList<String>();
-		List<DatabaseInfo> databaseInfoLst = serverInfo.getLoginedUserInfo().getDatabaseInfoList();
-		for (DatabaseInfo databaseInfo : databaseInfoLst) {
+		List<String> databaseList = new ArrayList<String>();
+		List<DatabaseInfo> databaseInfoList = serverInfo.getLoginedUserInfo().getDatabaseInfoList();
+		for (DatabaseInfo databaseInfo : databaseInfoList) {
 			DbRunningType dbRunningType = databaseInfo.getRunningType();
 			if (dbRunningType == DbRunningType.CS) {
-				databaseLst.add(databaseInfo.getDbName());
+				databaseList.add(databaseInfo.getDbName());
 			}
 		}
 
 		dbCombo = new DbComboContribution("database");
-		dbCombo.setDatabaseLst(databaseLst);
-		if (!databaseLst.isEmpty()) {
-			databaseLst.add(0, ALL_DB_NAME);
-			dbCombo.setSelectedDb(databaseLst.get(0));
+		dbCombo.setDatabaseList(databaseList);
+		if (!databaseList.isEmpty()) {
+			databaseList.add(0, ALL_DB_NAME);
+			dbCombo.setSelectedDb(databaseList.get(0));
 		}
 		String selectDb = dbCombo.getSelectedDb();
 		if (ALL_DB_NAME.equals(selectDb)) {
@@ -323,7 +323,7 @@ public class DbSystemMonitorHistoryViewPart extends
 		chartSettingDlg.setPlotRangGridColor(plotRangGridColor);
 
 		// chart selection
-		chartSettingDlg.setChartSelectionLst(getSelectedCharts());
+		chartSettingDlg.setChartSelectionList(getSelectedCharts());
 		// history path
 		chartSettingDlg.setHistoryPath(historyPath);
 		chartSettingDlg.setHistoryFileName(historyFileName);
@@ -384,7 +384,7 @@ public class DbSystemMonitorHistoryViewPart extends
 			memorySeriesPlot.setRangeGridlinePaint(rangeGridColor);
 
 			//chart Selection
-			fireChartSelection(chartSettingDlg.getChartSelectionLst());
+			fireChartSelection(chartSettingDlg.getChartSelectionList());
 		}
 	}
 
@@ -395,20 +395,20 @@ public class DbSystemMonitorHistoryViewPart extends
 	 * @return List<ChartShowingProp>
 	 */
 	private List<ChartShowingProp> getSelectedCharts() {
-		List<ChartShowingProp> chartSelectionLst = new ArrayList<ChartShowingProp>();
+		List<ChartShowingProp> chartSelectionList = new ArrayList<ChartShowingProp>();
 		boolean isCpuVisible = cpuChart.getBasicComposite().isVisible();
 		ChartShowingProp cpuShowingProp = new ChartShowingProp();
 		cpuShowingProp.setName(Messages.dbSelectedChartCpu);
 		cpuShowingProp.setShowing(isCpuVisible);
-		chartSelectionLst.add(cpuShowingProp);
+		chartSelectionList.add(cpuShowingProp);
 
 		boolean isMemoryVisible = memoryChart.getBasicComposite().isVisible();
 		ChartShowingProp memoryShowingProp = new ChartShowingProp();
 		memoryShowingProp.setName(Messages.dbSelectedChartMemory);
 		memoryShowingProp.setShowing(isMemoryVisible);
-		chartSelectionLst.add(memoryShowingProp);
+		chartSelectionList.add(memoryShowingProp);
 
-		return chartSelectionLst;
+		return chartSelectionList;
 	}
 
 	/**
@@ -576,7 +576,7 @@ public class DbSystemMonitorHistoryViewPart extends
 	 */
 	public class DbComboContribution extends
 			ControlContribution {
-		private List<String> databaseLst;
+		private List<String> databaseList;
 		private int selected;
 		private String selectedDb;
 
@@ -595,8 +595,8 @@ public class DbSystemMonitorHistoryViewPart extends
 		protected Control createControl(Composite parent) {
 			final Combo dbCombo = new Combo(parent, SWT.DROP_DOWN | SWT.READ_ONLY);
 			dbCombo.setToolTipText(Messages.dbSelectTip);
-			if (databaseLst != null && !databaseLst.isEmpty()) {
-				dbCombo.setItems(databaseLst.toArray(new String[databaseLst.size()]));
+			if (databaseList != null && !databaseList.isEmpty()) {
+				dbCombo.setItems(databaseList.toArray(new String[databaseList.size()]));
 				dbCombo.select(0);
 				selected = dbCombo.getSelectionIndex();
 				selectedDb = dbCombo.getItem(selected);
@@ -645,17 +645,17 @@ public class DbSystemMonitorHistoryViewPart extends
 		/**
 		 * Get the database list
 		 *
-		 * @return the databaseLst
+		 * @return the databaseList
 		 */
-		public List<String> getDatabaseLst() {
-			return databaseLst;
+		public List<String> getDatabaseList() {
+			return databaseList;
 		}
 
 		/**
-		 * @param databaseLst the databaseLst to set
+		 * @param databaseList the databaseList to set
 		 */
-		public void setDatabaseLst(List<String> databaseLst) {
-			this.databaseLst = databaseLst;
+		public void setDatabaseList(List<String> databaseList) {
+			this.databaseList = databaseList;
 		}
 
 		/**

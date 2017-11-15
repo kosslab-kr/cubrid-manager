@@ -85,7 +85,7 @@ public class AddTableFileDialog extends CMTitleAreaDialog {
 	private final List<String> colNameList = new ArrayList<String>();
 	private final List<String> colTypeList = new ArrayList<String>();
 	private final List<String> fileColumnList = new ArrayList<String>();
-	private final List<String> firstRowColsLst = new ArrayList<String>();
+	private final List<String> firstRowColsList = new ArrayList<String>();
 	private int columnCount = 0;
 	private int totalLine;
 	private List<Integer> itemsNumberOfSheets;
@@ -186,7 +186,7 @@ public class AddTableFileDialog extends CMTitleAreaDialog {
 			if (config.isFirstRowAsColumn()) {
 				firstRowAsColumnBtn.setSelection(true);
 			}
-			if (firstRowColsLst.size() == 0) {
+			if (firstRowColsList.size() == 0) {
 				firstRowAsColumnBtn.setEnabled(false);
 			}
 
@@ -354,7 +354,7 @@ public class AddTableFileDialog extends CMTitleAreaDialog {
 			mappingComposite.removeClassNode(classNode);
 			ICubridNode node = mappingComposite.createClassNode(
 					classNode.getName(), firstRowAsColumnBtn.getSelection(),
-					firstRowColsLst, new ArrayList<String>(),
+					firstRowColsList, new ArrayList<String>(),
 					new ArrayList<String>());
 			node.setData(ImportObjectLabelProvider.IS_MAPPED, true);
 			node.setData(ImportObjectLabelProvider.FILE_PAHT,
@@ -375,7 +375,7 @@ public class AddTableFileDialog extends CMTitleAreaDialog {
 		fromList.removeAll();
 		fileColumnList.clear();
 		if (firstRowAsColumnBtn.getSelection()) {
-			for (String col : firstRowColsLst) {
+			for (String col : firstRowColsList) {
 				fromList.add(col == null ? "" : col);
 				fileColumnList.add(col == null ? "" : col);
 			}
@@ -434,7 +434,7 @@ public class AddTableFileDialog extends CMTitleAreaDialog {
 
 		List<String> columnNames;
 		if (firstRowAsColumnBtn.getSelection()) {
-			columnNames = firstRowColsLst;
+			columnNames = firstRowColsList;
 		} else {
 			columnNames = new ArrayList<String>();
 			for (int i = 0; i < columnCount; i++) {
@@ -504,10 +504,10 @@ public class AddTableFileDialog extends CMTitleAreaDialog {
 			ImportFileHandler importFileHandler = ImportFileHandlerFactory.getHandler(filePath, configModel);
 			ImportFileDescription ifd = importFileHandler.getSourceFileInfo();
 
-			firstRowColsLst.clear();
-			firstRowColsLst.addAll(ifd.getFirstRowCols());
+			firstRowColsList.clear();
+			firstRowColsList.addAll(ifd.getFirstRowCols());
 			totalLine = ifd.getTotalCount();
-			columnCount = firstRowColsLst.size();
+			columnCount = firstRowColsList.size();
 			itemsNumberOfSheets = ifd.getItemsNumberOfSheets();
 
 			if (firstRowAsColumnBtn.getSelection()) {

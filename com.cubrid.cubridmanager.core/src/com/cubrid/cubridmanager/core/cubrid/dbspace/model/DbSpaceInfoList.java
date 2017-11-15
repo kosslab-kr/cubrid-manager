@@ -71,7 +71,7 @@ public class DbSpaceInfoList implements
 	protected int logpagesize = 0;
 	protected int freespace = 0;
 	
-	protected List<DbSpaceInfo> spaceinfo = null;
+	protected List<DbSpaceInfo> spaceInfo = null;
 	private static final ServerVersion changedFormatVersion = new ServerVersion(10, 1);
 	
 	/***
@@ -80,9 +80,9 @@ public class DbSpaceInfoList implements
 	 * @return List<DbSpaceInfo> the list that encapsulates the instances of
 	 *         DbSpaceInfo
 	 */
-	public List<DbSpaceInfo> getSpaceinfo() {
+	public List<DbSpaceInfo> getSpaceInfo() {
 		synchronized (this) {
-			return spaceinfo;
+			return spaceInfo;
 		}
 	}
 
@@ -95,10 +95,10 @@ public class DbSpaceInfoList implements
 	public Map<String, DbSpaceInfo> getSpaceInfoMap() {
 		synchronized (this) {
 			Map<String, DbSpaceInfo> map = new TreeMap<String, DbSpaceInfo>();
-			if (spaceinfo == null) {
+			if (spaceInfo == null) {
 				return map;
 			}
-			for (DbSpaceInfo bean : spaceinfo) {
+			for (DbSpaceInfo bean : spaceInfo) {
 				String type = bean.getType().toUpperCase();
 				if (map.containsKey(type)) {
 					DbSpaceInfo model = map.get(type);
@@ -129,42 +129,42 @@ public class DbSpaceInfoList implements
 	 * Set a list that encapsulates the instances of DbSpaceInfo as a field of
 	 * this instance
 	 *
-	 * @param spaceinfoList List<DbSpaceInfo> A list that encapsulates the
+	 * @param spaceInfoList List<DbSpaceInfo> A list that encapsulates the
 	 *        instances of DbSpaceInfo
 	 */
-	public void setSpaceinfo(List<DbSpaceInfo> spaceinfoList) {
+	public void setSpaceInfo(List<DbSpaceInfo> spaceInfoList) {
 		synchronized (this) {
-			this.spaceinfo = spaceinfoList;
+			this.spaceInfo = spaceInfoList;
 		}
 	}
 
 	/**
-	 * Add a instance of DbSpaceInfo into the spaceinfo list in the current
+	 * Add a instance of DbSpaceInfo into the spaceInfo list in the current
 	 * instance
 	 *
 	 * @param info DbSpaceInfo A instance of DbSpaceInfo
 	 */
-	public void addSpaceinfo(DbSpaceInfo info) {
+	public void addSpaceInfo(DbSpaceInfo info) {
 		synchronized (this) {
-			if (spaceinfo == null) {
-				spaceinfo = new ArrayList<DbSpaceInfo>();
+			if (spaceInfo == null) {
+				spaceInfo = new ArrayList<DbSpaceInfo>();
 			}
-			if (!spaceinfo.contains(info)) {
-				spaceinfo.add(info);
+			if (!spaceInfo.contains(info)) {
+				spaceInfo.add(info);
 			}
 		}
 	}
 
 	/**
-	 * Remove a instance of DbSpaceInfo from sapceinfo list in the current
+	 * Remove a instance of DbSpaceInfo from sapceInfo list in the current
 	 * instance
 	 *
 	 * @param info DbSpaceInfo A instance of DbSpaceInfo
 	 */
-	public void removeSpaceinfo(DbSpaceInfo info) {
+	public void removeSpaceInfo(DbSpaceInfo info) {
 		synchronized (this) {
-			if (spaceinfo != null) {
-				spaceinfo.remove(info);
+			if (spaceInfo != null) {
+				spaceInfo.remove(info);
 			}
 		}
 	}
@@ -302,7 +302,7 @@ public class DbSpaceInfoList implements
 			purpose = fullType.substring(fullType.indexOf(" ")+1, fullType.lastIndexOf(" "));
 		}
 		
-		for (DbSpaceInfo bean : spaceinfo) {
+		for (DbSpaceInfo bean : spaceInfo) {
 			if (index < 0){
 				if (bean.getType().equals(fullType)){
 					info.add(new FreeTotalSizeSpacename(bean.getShortVolumeName(), bean.getFreepage(), bean.getTotalpage()));

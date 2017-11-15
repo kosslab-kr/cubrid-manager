@@ -118,17 +118,17 @@ public class DbStatusHistoryViewPart extends
 		}
 		chartPart = new ChartCompositePart(composite, map);
 		dbCombo = new DbComboContribution("database");
-		List<String> databaseLst = new ArrayList<String>();
-		List<DatabaseInfo> databaseInfoLst = serverInfo.getLoginedUserInfo().getDatabaseInfoList();
+		List<String> databaseList = new ArrayList<String>();
+		List<DatabaseInfo> databaseInfoList = serverInfo.getLoginedUserInfo().getDatabaseInfoList();
 
-		if (null != databaseInfoLst && !databaseInfoLst.isEmpty()) {
-			for (DatabaseInfo databaseInfo : databaseInfoLst) {
-				databaseLst.add(databaseInfo.getDbName());
+		if (null != databaseInfoList && !databaseInfoList.isEmpty()) {
+			for (DatabaseInfo databaseInfo : databaseInfoList) {
+				databaseList.add(databaseInfo.getDbName());
 			}
 
-			dbCombo.setDatabaseLst(databaseLst);
-			if (!databaseLst.isEmpty()) {
-				dbCombo.setSelectedDb(databaseLst.get(0));
+			dbCombo.setDatabaseList(databaseList);
+			if (!databaseList.isEmpty()) {
+				dbCombo.setSelectedDb(databaseList.get(0));
 			}
 		}
 
@@ -294,7 +294,7 @@ public class DbStatusHistoryViewPart extends
 	 */
 	private class DbComboContribution extends
 			ControlContribution {
-		private List<String> databaseLst;
+		private List<String> databaseList;
 		private int selected;
 		private String selectedDb;
 
@@ -314,8 +314,8 @@ public class DbStatusHistoryViewPart extends
 			final Combo dbCombo = new Combo(parent, SWT.DROP_DOWN
 					| SWT.READ_ONLY);
 			dbCombo.setToolTipText(Messages.dbSelectTip);
-			if (databaseLst != null && !databaseLst.isEmpty()) {
-				dbCombo.setItems(databaseLst.toArray(new String[databaseLst.size()]));
+			if (databaseList != null && !databaseList.isEmpty()) {
+				dbCombo.setItems(databaseList.toArray(new String[databaseList.size()]));
 				dbCombo.select(0);
 				selected = dbCombo.getSelectionIndex();
 				selectedDb = dbCombo.getItem(selected);
@@ -362,10 +362,10 @@ public class DbStatusHistoryViewPart extends
 		}
 
 		/**
-		 * @param databaseLst the databaseLst to set
+		 * @param databaseList the databaseList to set
 		 */
-		public void setDatabaseLst(List<String> databaseLst) {
-			this.databaseLst = databaseLst;
+		public void setDatabaseList(List<String> databaseList) {
+			this.databaseList = databaseList;
 		}
 
 		/**

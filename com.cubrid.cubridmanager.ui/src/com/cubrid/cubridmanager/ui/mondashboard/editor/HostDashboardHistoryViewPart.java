@@ -435,7 +435,7 @@ public class HostDashboardHistoryViewPart extends
 		chartSettingDlg.setHistoryFileName(historyFileName);
 
 		// chart selection
-		chartSettingDlg.setChartSelectionLst(getSelectedCharts());
+		chartSettingDlg.setChartSelectionList(getSelectedCharts());
 
 		if (chartSettingDlg.open() == Dialog.OK) {
 			// plot appearance
@@ -506,7 +506,7 @@ public class HostDashboardHistoryViewPart extends
 				brokerChartPart.updateSettingSeries();
 			}
 			//chart Selection
-			fireChartSelection(chartSettingDlg.getChartSelectionLst());
+			fireChartSelection(chartSettingDlg.getChartSelectionList());
 		}
 	}
 
@@ -517,31 +517,31 @@ public class HostDashboardHistoryViewPart extends
 	 * @return List<ChartShowingProp>
 	 */
 	private List<ChartShowingProp> getSelectedCharts() {
-		List<ChartShowingProp> chartSelectionLst = new ArrayList<ChartShowingProp>();
+		List<ChartShowingProp> chartSelectionList = new ArrayList<ChartShowingProp>();
 		boolean isCpuVisible = cpuChart.getBasicComposite().isVisible();
 		ChartShowingProp cpuShowingProp = new ChartShowingProp();
 		cpuShowingProp.setName(Messages.hostSelectedChartCpu);
 		cpuShowingProp.setShowing(isCpuVisible);
-		chartSelectionLst.add(cpuShowingProp);
+		chartSelectionList.add(cpuShowingProp);
 
 		boolean isMemoryVisible = memoryChart.getBasicComposite().isVisible();
 		ChartShowingProp memoryShowingProp = new ChartShowingProp();
 		memoryShowingProp.setName(Messages.hostSelectedChartMemory);
 		memoryShowingProp.setShowing(isMemoryVisible);
-		chartSelectionLst.add(memoryShowingProp);
+		chartSelectionList.add(memoryShowingProp);
 
 		boolean isIowaitVisible = iowaitChart.getBasicComposite().isVisible();
 		ChartShowingProp iowaitShowingProp = new ChartShowingProp();
 		iowaitShowingProp.setName(Messages.hostSelectedChartIowait);
 		iowaitShowingProp.setShowing(isIowaitVisible);
-		chartSelectionLst.add(iowaitShowingProp);
+		chartSelectionList.add(iowaitShowingProp);
 
 		boolean isBrokerVisible = brokerComp.isVisible();
 		ChartShowingProp brokerShowingProp = new ChartShowingProp();
 		brokerShowingProp.setName(Messages.hostSelectedChartBroker);
 		brokerShowingProp.setShowing(isBrokerVisible);
-		chartSelectionLst.add(brokerShowingProp);
-		return chartSelectionLst;
+		chartSelectionList.add(brokerShowingProp);
+		return chartSelectionList;
 	}
 
 	/**

@@ -282,7 +282,7 @@ public class DatabaseStatusEditor extends
 			control.dispose();
 		}
 		if (database.getDatabaseInfo().getDbSpaceInfoList() != null
-				&& database.getDatabaseInfo().getDbSpaceInfoList().getSpaceinfo() != null) {
+				&& database.getDatabaseInfo().getDbSpaceInfoList().getSpaceInfo() != null) {
 			Map<String, DbSpaceInfo> map = database.getDatabaseInfo().getDbSpaceInfoList().getSpaceInfoMap();
 
 			if (map.containsKey(VolumeType.GENERIC.toString().toUpperCase())) {

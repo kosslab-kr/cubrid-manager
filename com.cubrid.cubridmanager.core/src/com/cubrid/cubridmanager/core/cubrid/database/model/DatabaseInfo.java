@@ -705,7 +705,7 @@ public class DatabaseInfo implements IDatabaseSpec {
 			dbSpaceInfoList = new DbSpaceInfoList();
 			dbSpaceInfoList.setDbname(dbName);
 		}
-		dbSpaceInfoList.addSpaceinfo(spaceInfo);
+		dbSpaceInfoList.addSpaceInfo(spaceInfo);
 	}
 
 	/**
@@ -716,7 +716,7 @@ public class DatabaseInfo implements IDatabaseSpec {
 	 */
 	public void removeSpaceInfo(DbSpaceInfo spaceInfo) {
 		if (dbSpaceInfoList != null) {
-			dbSpaceInfoList.removeSpaceinfo(spaceInfo);
+			dbSpaceInfoList.removeSpaceInfo(spaceInfo);
 		}
 	}
 

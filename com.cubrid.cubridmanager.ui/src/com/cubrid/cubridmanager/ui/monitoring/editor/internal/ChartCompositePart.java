@@ -374,7 +374,7 @@ public class ChartCompositePart {
 				double time = avalueAxis.java2DToValue(xPos, rectangle2D, rectangleEdge1);
 
 				Second second = new Second(new Date((long) time));
-				List<String> tempLst = new ArrayList<String>();
+				List<String> tempList = new ArrayList<String>();
 				for (Map.Entry<String, String> entry : valueMap.entrySet()) {
 					String item = entry.getKey();
 					List<TimeSeries> list = timeseriescollection.getSeries();
@@ -386,16 +386,16 @@ public class ChartCompositePart {
 								continue;
 							}
 							int intVal = dataItem.getValue().intValue();
-							tempLst.add(String.valueOf(intVal));
+							tempList.add(String.valueOf(intVal));
 							found = true;
 							break;
 						}
 					}
 					if (!found) {
-						tempLst.add("0");
+						tempList.add("0");
 					}
 				}
-				String[] arrays = tempLst.toArray(new String[tempLst.size()]);
+				String[] arrays = tempList.toArray(new String[tempList.size()]);
 				String[] arrays2 = new String[arrays.length + 1];
 				arrays2[0] = "";
 				System.arraycopy(arrays, 0, arrays2, 1, arrays.length);
@@ -511,16 +511,16 @@ public class ChartCompositePart {
 			tblColumn.setToolTipText(entry.getKey());
 			tblColumn.setResizable(false);
 		}
-		List<String[]> chartTblLst = new ArrayList<String[]>();
+		List<String[]> chartTblList = new ArrayList<String[]>();
 		String[] arrays = valueMap.values().toArray(new String[valueMap.size()]);
 		String[] arrays2 = new String[arrays.length + 1];
 		arrays2[0] = "";
 		System.arraycopy(arrays, 0, arrays2, 1, arrays.length);
-		chartTblLst.add(arrays2);
+		chartTblList.add(arrays2);
 		ChartTableContentProvider chartTableContentProvider = new ChartTableContentProvider();
 		seriesTableViewer.setContentProvider(chartTableContentProvider);
 		seriesTableViewer.setLabelProvider(new ChartTableLabelProvider());
-		seriesTableViewer.setInput(chartTblLst);
+		seriesTableViewer.setInput(chartTblList);
 		int index = 0;
 		for (Map.Entry<String, ShowSetting> entry : settingMap.entrySet()) {
 			org.eclipse.swt.graphics.Color color = new org.eclipse.swt.graphics.Color(
@@ -1045,16 +1045,16 @@ public class ChartCompositePart {
 				LOGGER.error(ex.getMessage());
 			}
 		} else {
-			List<CounterType> counterLst = new ArrayList<CounterType>();
+			List<CounterType> counterList = new ArrayList<CounterType>();
 			for (T diagName : ts) {
 				String type = diagName.getName();
 				if (dbName != null) {
 					type = dbName + "_" + type;
 				}
 				CounterType counterType = new CounterType(type, true, false, RangeType.INT);
-				counterLst.add(counterType);
+				counterList.add(counterType);
 			}
-			CounterType[] types = counterLst.toArray(new CounterType[counterLst.size()]);
+			CounterType[] types = counterList.toArray(new CounterType[counterList.size()]);
 			Properties props = new Properties();
 			try {
 				countFile = new BasicCounterFile(counter, types, 36000, 3, 0, props);

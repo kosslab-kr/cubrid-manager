@@ -89,7 +89,7 @@ public class ShardsParameterPropertyPage extends PreferencePage {
 		composite.setLayout(layout);
 		composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-		createShardLstComp(composite);
+		createShardListComp(composite);
 
 		initial();
 		return composite;
@@ -102,7 +102,7 @@ public class ShardsParameterPropertyPage extends PreferencePage {
 	 *            the parent composite
 	 * @return the composite
 	 */
-	private Control createShardLstComp(Composite parent) {
+	private Control createShardListComp(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
 		composite.setLayout(layout);

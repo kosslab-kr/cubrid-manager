@@ -234,7 +234,7 @@ public class CubridDbSpaceFolderLoader extends
 
 			dbSpaceInfoList = task.getResultModel();
 			List<DbSpaceInfo> spaceInfoList = dbSpaceInfoList == null ? null
-					: dbSpaceInfoList.getSpaceinfo();
+					: dbSpaceInfoList.getSpaceInfo();
 			
 			for (int i = 0; spaceInfoList != null && i < spaceInfoList.size(); i++) {
 				DbSpaceInfo spaceInfo = spaceInfoList.get(i);

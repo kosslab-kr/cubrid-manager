@@ -113,7 +113,7 @@ public class ImportDataFromFileDialog extends
 	private final List<PstmtDataTask> taskList = new ArrayList<PstmtDataTask>();
 	private long beginTimestamp;
 	private Text jdbcCharsetText;
-	private final List<String> firstRowColsLst = new ArrayList<String>();
+	private final List<String> firstRowColsList = new ArrayList<String>();
 
 	private final String[] filterExts = ImportFileConstants.getFilterExts();
 	private final String[] filterNames = ImportFileConstants.getFilterNames();
@@ -480,8 +480,8 @@ public class ImportDataFromFileDialog extends
 
 			ImportFileDescription ifd = importFileHandler.getSourceFileInfo();
 			itemsNumberOfSheets = ifd.getItemsNumberOfSheets();
-			firstRowColsLst.clear();
-			firstRowColsLst.addAll(ifd.getFirstRowCols());
+			firstRowColsList.clear();
+			firstRowColsList.addAll(ifd.getFirstRowCols());
 			totalLinesText.setText(String.valueOf(ifd.getTotalCount()));
 			if (firstRowAsColumnBtn.getSelection()) {
 				handleSelectEventForFirstRowAsColBtn();
@@ -527,11 +527,11 @@ public class ImportDataFromFileDialog extends
 		}
 		fileColumnList.clear();
 		if (firstRowAsColumnBtn.getSelection()) {
-			for (String col : firstRowColsLst) {
+			for (String col : firstRowColsList) {
 				fileColumnList.add(col == null ? "" : col);
 			}
 		} else {
-			int columnCount = firstRowColsLst.size();
+			int columnCount = firstRowColsList.size();
 			for (int i = 0; i < columnCount; i++) {
 				fileColumnList.add("Column " + i); //$NON-NLS-1$
 			}

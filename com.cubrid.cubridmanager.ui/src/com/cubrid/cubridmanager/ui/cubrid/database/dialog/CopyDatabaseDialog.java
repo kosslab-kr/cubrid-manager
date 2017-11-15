@@ -572,7 +572,7 @@ public class CopyDatabaseDialog extends
 	private void initial() {
 
 		String cubridDirectory = database.getDatabaseInfo().getDbDir();
-		volumeList = dbSpaceInfo.getSpaceinfo();
+		volumeList = dbSpaceInfo.getSpaceInfo();
 		String srcLogDir = "";
 		if (spaceInfoList == null) {
 			spaceInfoList = new ArrayList<Map<String, String>>();

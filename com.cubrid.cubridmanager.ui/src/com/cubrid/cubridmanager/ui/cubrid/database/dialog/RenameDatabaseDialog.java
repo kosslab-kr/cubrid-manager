@@ -543,7 +543,7 @@ public class RenameDatabaseDialog extends CMTitleAreaDialog implements ModifyLis
 		if (spaceInfoList == null) {
 			spaceInfoList = new ArrayList<Map<String, String>>();
 			if (this.dbSpaceInfoList != null) {
-				List<DbSpaceInfo> list = this.dbSpaceInfoList.getSpaceinfo();
+				List<DbSpaceInfo> list = this.dbSpaceInfoList.getSpaceInfo();
 				for (int i = 0; list != null && i < list.size(); i++) {
 					Map<String, String> map = new HashMap<String, String>();
 					DbSpaceInfo spaceInfo = list.get(i);

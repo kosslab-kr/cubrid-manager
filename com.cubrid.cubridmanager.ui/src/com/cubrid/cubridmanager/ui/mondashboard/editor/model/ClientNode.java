@@ -112,12 +112,12 @@ public class ClientNode extends
 		if (BrokerNode.PROP_BROKER_STATUS.equals(evt.getPropertyName())) {
 			BrokerStatusInfos bsi = brokerNode.getBrokerStatusInfos();
 			clientList.clear();
-			if (bsi == null || bsi.getAsinfo() == null
-					|| bsi.getAsinfo().isEmpty()) {
+			if (bsi == null || bsi.getAsInfo() == null
+					|| bsi.getAsInfo().isEmpty()) {
 				fireStructureChange(PROP_CLIENT_LIST, clientList);
 				return;
 			}
-			for (ApplyServerInfo asi : bsi.getAsinfo()) {
+			for (ApplyServerInfo asi : bsi.getAsInfo()) {
 				if (StringUtil.isEmpty(asi.getAsClientIp())
 						|| clientList.contains(asi.getAsClientIp())) {
 					continue;

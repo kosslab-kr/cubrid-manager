@@ -66,8 +66,8 @@ import com.cubrid.cubridmanager.ui.mondashboard.editor.BrokerBasicInfoLabelProvi
  */
 public class BrokerSatusTablePart {
 	private ServerInfo serverInfo;
-	private List<ApplyServerInfo> asinfoLst;
-	private List<JobInfo> jobinfoLst;
+	private List<ApplyServerInfo> asInfoList;
+	private List<JobInfo> jobInfoList;
 	private boolean isAppendDiag;
 
 	/**
@@ -144,8 +144,8 @@ public class BrokerSatusTablePart {
 		basicTableViewer.setContentProvider(new BrokerBasicInfoContentProvider());
 		BrokerBasicInfoLabelProvider basicInfoLabelProvider = new BrokerBasicInfoLabelProvider();
 		basicTableViewer.setLabelProvider(basicInfoLabelProvider);
-		List<String> basicInfoLst = new ArrayList<String>();
-		basicTableViewer.setInput(basicInfoLst);
+		List<String> basicInfoList = new ArrayList<String>();
+		basicTableViewer.setInput(basicInfoList);
 		return basicTableViewer;
 	}
 
@@ -239,7 +239,7 @@ public class BrokerSatusTablePart {
 
 		asTableViewer.setContentProvider(new ApplyServerContentProvider());
 		asTableViewer.setLabelProvider(new ApplyServerLabelProvider());
-		asTableViewer.setInput(asinfoLst);
+		asTableViewer.setInput(asInfoList);
 		return asTableViewer;
 	}
 
@@ -328,7 +328,7 @@ public class BrokerSatusTablePart {
 
 		jqTableViewer.setContentProvider(new JobContentProvider());
 		jqTableViewer.setLabelProvider(new JobLabelProvider());
-		jqTableViewer.setInput(jobinfoLst);
+		jqTableViewer.setInput(jobInfoList);
 		return jqTableViewer;
 	}
 
@@ -363,35 +363,35 @@ public class BrokerSatusTablePart {
 	}
 
 	/**
-	 * Get the asinfoLst
+	 * Get the asInfoList
 	 * 
-	 * @return the asinfoLst
+	 * @return the asInfoList
 	 */
-	public List<ApplyServerInfo> getAsinfoLst() {
-		return asinfoLst;
+	public List<ApplyServerInfo> getAsInfoList() {
+		return asInfoList;
 	}
 
 	/**
-	 * @param asinfoLst the asinfoLst to set
+	 * @param asInfoList the asInfoList to set
 	 */
-	public void setAsinfoLst(List<ApplyServerInfo> asinfoLst) {
-		this.asinfoLst = asinfoLst;
+	public void setAsInfoList(List<ApplyServerInfo> asInfoList) {
+		this.asInfoList = asInfoList;
 	}
 
 	/**
-	 * Get the jobinfoLst
+	 * Get the jobInfoList
 	 * 
-	 * @return the jobinfoLst
+	 * @return the jobInfoList
 	 */
-	public List<JobInfo> getJobinfoLst() {
-		return jobinfoLst;
+	public List<JobInfo> getJobInfoList() {
+		return jobInfoList;
 	}
 
 	/**
-	 * @param jobinfoLst the jobinfoLst to set
+	 * @param jobInfoList the jobInfoList to set
 	 */
-	public void setJobinfoLst(List<JobInfo> jobinfoLst) {
-		this.jobinfoLst = jobinfoLst;
+	public void setJobInfoList(List<JobInfo> jobInfoList) {
+		this.jobInfoList = jobInfoList;
 	}
 
 	/**

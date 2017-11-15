@@ -120,7 +120,7 @@ public class XLSXImportFileHandler implements
 
 				List<Integer> itemsNumberOfSheets = null;
 				int totalRowCount = 0;
-				List<String> colsLst = xlsxRowNumberHandler.getHeadInfo();
+				List<String> colsList = xlsxRowNumberHandler.getHeadInfo();
 				if (xlsxRowNumberHandler.isCancel()) {
 					throw new InterruptedException();
 				} else {
@@ -132,7 +132,7 @@ public class XLSXImportFileHandler implements
 					sheetNum = itemsNumberOfSheets.size();
 				}
 				importFileDescription = new ImportFileDescription(
-						totalRowCount, sheetNum, colsLst);
+						totalRowCount, sheetNum, colsList);
 				importFileDescription.setItemsNumberOfSheets(itemsNumberOfSheets);
 			}
 			return importFileDescription;

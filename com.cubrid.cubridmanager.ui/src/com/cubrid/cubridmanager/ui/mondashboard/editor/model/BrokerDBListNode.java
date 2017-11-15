@@ -112,12 +112,12 @@ public class BrokerDBListNode extends
 		if (BrokerNode.PROP_BROKER_STATUS.equals(evt.getPropertyName())) {
 			BrokerStatusInfos bsi = brokerNode.getBrokerStatusInfos();
 			dbList.clear();
-			if (bsi == null || bsi.getAsinfo() == null
-					|| bsi.getAsinfo().isEmpty()) {
+			if (bsi == null || bsi.getAsInfo() == null
+					|| bsi.getAsInfo().isEmpty()) {
 				fireStructureChange(PROP_DB_LIST, dbList);
 				return;
 			}
-			for (ApplyServerInfo asi : bsi.getAsinfo()) {
+			for (ApplyServerInfo asi : bsi.getAsInfo()) {
 				if ("IDLE".equals(asi.getAsStatus())
 						|| StringUtil.isEmpty(asi.getAsDbName())
 						|| dbList.contains(asi.getAsDbName())) {

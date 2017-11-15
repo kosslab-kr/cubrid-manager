@@ -98,12 +98,12 @@ public class BrokersParameterPropertyPage extends
 	private final String refreshUnit = Messages.refreshUnit;
 	private final String refreshOnLbl = Messages.refreshEnvOnLbl;
 	private final String refreshEnvTitle = Messages.refreshEnvTitle;
-	private final String portOfBrokerLst = Messages.portOfBrokerLst;
-	private final String nameOfBrokerLst = Messages.nameOfBrokerLst;
-	private static final String BROKER_LIST = Messages.brokerLstGroupName;
+	private final String portOfBrokerList = Messages.portOfBrokerList;
+	private final String nameOfBrokerList = Messages.nameOfBrokerList;
+	private static final String BROKER_LIST = Messages.brokerListGroupName;
 	private static final String GENERAL_INFO = Messages.generalInfoGroupName;
 	private static final String REFRESHENVOFTAP = Messages.refreshEnvOfTap;
-	private static final String BROKERLSTOFTAP = Messages.brokerLstOfTap;
+	private static final String BROKERLSTOFTAP = Messages.brokerListOfTap;
 	private static final String RESTART_BROKER_MSG = Messages.restartBrokerMsg;
 	private final String editActionTxt = Messages.editActionTxt;
 	private final String addActionTxt = Messages.addActionTxt;
@@ -121,7 +121,7 @@ public class BrokersParameterPropertyPage extends
 	private Map<String, Map<String, String>> newConfParaMap;
 	private Map<String, BrokerIntervalSetting> oldIntervalSettingMap;
 	private Map<String, BrokerIntervalSetting> newIntervalSettingMap;
-	private final List<String> deletedBrokerLst = new ArrayList<String>();
+	private final List<String> deletedBrokerList = new ArrayList<String>();
 
 	private static final String MASTER_SHMID_LBL_NAME = "MASTER_SHM_ID:";
 	private static final String ADMIN_LOG_LBL_NAME = "ADMIN_LOG_FILE:";
@@ -165,7 +165,7 @@ public class BrokersParameterPropertyPage extends
 
 		TabItem item = new TabItem(tabFolder, SWT.NONE);
 		item.setText(BROKERLSTOFTAP);
-		item.setControl(createBrokerLstComp(tabFolder));
+		item.setControl(createBrokerListComp(tabFolder));
 
 		item = new TabItem(tabFolder, SWT.NONE);
 		item.setText(REFRESHENVOFTAP);
@@ -266,7 +266,7 @@ public class BrokersParameterPropertyPage extends
 	 * @param parent the parent composite
 	 * @return the composite
 	 */
-	private Control createBrokerLstComp(Composite parent) {
+	private Control createBrokerListComp(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout();
 		composite.setLayout(layout);
@@ -274,13 +274,13 @@ public class BrokersParameterPropertyPage extends
 
 		createBasicGroup(composite);
 
-		Group brokerLstGroup = new Group(composite, SWT.NONE);
-		brokerLstGroup.setText(BROKER_LIST);
-		brokerLstGroup.setLayout(new GridLayout(2, false));
-		brokerLstGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
-		String[] columnNameArrs = new String[] {nameOfBrokerLst,
-				portOfBrokerLst };
-		brokersTableViewer = CommonUITool.createCommonTableViewer(brokerLstGroup,
+		Group brokerListGroup = new Group(composite, SWT.NONE);
+		brokerListGroup.setText(BROKER_LIST);
+		brokerListGroup.setLayout(new GridLayout(2, false));
+		brokerListGroup.setLayoutData(new GridData(GridData.FILL_BOTH));
+		String[] columnNameArrs = new String[] {nameOfBrokerList,
+				portOfBrokerList };
+		brokersTableViewer = CommonUITool.createCommonTableViewer(brokerListGroup,
 				null, columnNameArrs, CommonUITool.createGridData(
 						GridData.FILL_BOTH, 1, 1, -1, 200));
 		Table brokersTable = brokersTableViewer.getTable();
@@ -289,7 +289,7 @@ public class BrokersParameterPropertyPage extends
 		tlayout.addColumnData(new ColumnWeightData(120, 100, true));
 		brokersTable.setLayout(tlayout);
 
-		createDealButton(brokerLstGroup);
+		createDealButton(brokerListGroup);
 		return composite;
 	}
 
@@ -506,7 +506,7 @@ public class BrokersParameterPropertyPage extends
 		if (isTableChange()) {
 			CommonTaskExec taskExec = new CommonTaskExec(
 					Messages.setBrokerConfParametersTaskName);
-			for (String bname : deletedBrokerLst) {
+			for (String bname : deletedBrokerList) {
 				DeleteBrokerTask task = new DeleteBrokerTask(serverInfo);
 				task.setBrokerName(bname);
 				taskExec.addTask(task);
@@ -799,7 +799,7 @@ public class BrokersParameterPropertyPage extends
 			String serverName = node.getServer().getLabel();
 			String brokerName = brokerMap.get("0");
 			newIntervalSettingMap.remove(serverName + "_" + brokerMap.get("0"));
-			deletedBrokerLst.add(brokerName);
+			deletedBrokerList.add(brokerName);
 		}
 
 		/**
@@ -851,9 +851,9 @@ public class BrokersParameterPropertyPage extends
 		@SuppressWarnings("unchecked")
 		public void run() {
 			String sMasterShmId = masterShmIdTxt.getText().trim();
-			List<Map<String, String>> brokerLst2Dialog = (List<Map<String, String>>) brokersTableViewer.getInput();
+			List<Map<String, String>> brokerList2Dialog = (List<Map<String, String>>) brokersTableViewer.getInput();
 			BrokerParameterDialog brokerParameterDialog = new BrokerParameterDialog(
-					getShell(), AddEditType.EDIT, node, brokerLst2Dialog,
+					getShell(), AddEditType.EDIT, node, brokerList2Dialog,
 					sMasterShmId, brokerMap, brokerIntervalSetting);
 			if (brokerParameterDialog.open() == Dialog.OK) {
 				BrokerIntervalSetting brokerIntervalSetting = brokerParameterDialog.getBrokerIntervalSetting();
@@ -901,9 +901,9 @@ public class BrokersParameterPropertyPage extends
 		@SuppressWarnings("unchecked")
 		public void run() {
 			String sMasterShmId = masterShmIdTxt.getText().trim();
-			List<Map<String, String>> brokerLst2Dialog = (List<Map<String, String>>) brokersTableViewer.getInput();
+			List<Map<String, String>> brokerList2Dialog = (List<Map<String, String>>) brokersTableViewer.getInput();
 			BrokerParameterDialog brokerParameterDialog = new BrokerParameterDialog(
-					getShell(), AddEditType.ADD, node, brokerLst2Dialog,
+					getShell(), AddEditType.ADD, node, brokerList2Dialog,
 					sMasterShmId);
 			if (brokerParameterDialog.open() == Dialog.OK) {
 				Map<String, String> brokerMap = brokerParameterDialog.getBrokerMap();

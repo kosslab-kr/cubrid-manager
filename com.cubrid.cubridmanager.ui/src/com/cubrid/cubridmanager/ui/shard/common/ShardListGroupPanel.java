@@ -232,11 +232,11 @@ public class ShardListGroupPanel extends AbstractModulePanel<Shards> {
 		@SuppressWarnings("unchecked")
 		public void run() {
 			// String sMasterShmId = "aaa";
-			// List<Map<String, String>> brokerLst2Dialog = (List<Map<String,
+			// List<Map<String, String>> brokerList2Dialog = (List<Map<String,
 			// String>>) brokersTableViewer.getInput();
 			// BrokerParameterDialog brokerParameterDialog = new
 			// BrokerParameterDialog(getShell(), AddEditType.ADD, node,
-			// brokerLst2Dialog, sMasterShmId);
+			// brokerList2Dialog, sMasterShmId);
 			// if (brokerParameterDialog.open() == Dialog.OK) {
 			// Map<String, String> brokerMap =
 			// brokerParameterDialog.getBrokerMap();
@@ -281,11 +281,11 @@ public class ShardListGroupPanel extends AbstractModulePanel<Shards> {
 		@SuppressWarnings("unchecked")
 		public void run() {
 			// String sMasterShmId = masterShmIdTxt.getText().trim();
-			// List<Map<String, String>> brokerLst2Dialog = (List<Map<String,
+			// List<Map<String, String>> brokerList2Dialog = (List<Map<String,
 			// String>>) shardsTableViewer.getInput();
 			// BrokerParameterDialog brokerParameterDialog = new
 			// BrokerParameterDialog(getShell(), AddEditType.EDIT, node,
-			// brokerLst2Dialog, sMasterShmId, shardMap, brokerIntervalSetting);
+			// brokerList2Dialog, sMasterShmId, shardMap, brokerIntervalSetting);
 			// if (brokerParameterDialog.open() == Dialog.OK) {
 			// BrokerIntervalSetting brokerIntervalSetting =
 			// brokerParameterDialog.getBrokerIntervalSetting();

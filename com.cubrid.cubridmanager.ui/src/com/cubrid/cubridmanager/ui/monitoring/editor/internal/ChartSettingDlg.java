@@ -120,7 +120,7 @@ public class ChartSettingDlg extends
 	private String historyPath;
 	private String historyFileName;
 	//chart selection
-	private java.util.List<ChartShowingProp> chartSelectionLst;
+	private java.util.List<ChartShowingProp> chartSelectionList;
 	private Button[] chartSelectBtns;
 
 	// Constructor
@@ -598,14 +598,14 @@ public class ChartSettingDlg extends
 		tabComp.setLayoutData(new GridData(GridData.FILL_BOTH));
 		chartSelectionItem.setControl(tabComp);
 
-		if (null == chartSelectionLst) {
+		if (null == chartSelectionList) {
 			return;
 		}
-		chartSelectBtns = new Button[chartSelectionLst.size()];
+		chartSelectBtns = new Button[chartSelectionList.size()];
 		int buttonNum = 0;
 		int showingCount = 0;
 		int soleSelection = 0;
-		for (ChartShowingProp prop : chartSelectionLst) {
+		for (ChartShowingProp prop : chartSelectionList) {
 			chartSelectBtns[buttonNum] = new Button(tabComp, SWT.CHECK
 					| SWT.RIGHT);
 			chartSelectBtns[buttonNum].setText(prop.getName());
@@ -694,7 +694,7 @@ public class ChartSettingDlg extends
 			for (Button button : chartSelectBtns) {
 				String key = button.getText();
 				boolean selection = button.getSelection();
-				for (ChartShowingProp prop : chartSelectionLst) {
+				for (ChartShowingProp prop : chartSelectionList) {
 					if (prop.getName().equals(key)) {
 						prop.setShowing(selection);
 					}
@@ -1078,20 +1078,20 @@ public class ChartSettingDlg extends
 	}
 
 	/**
-	 * Get the chartSelectionLst
+	 * Get the chartSelectionList
 	 * 
-	 * @return the chartSelectionLst
+	 * @return the chartSelectionList
 	 */
-	public java.util.List<ChartShowingProp> getChartSelectionLst() {
-		return chartSelectionLst;
+	public java.util.List<ChartShowingProp> getChartSelectionList() {
+		return chartSelectionList;
 	}
 
 	/**
-	 * @param chartSelectionLst the chartSelectionLst to set
+	 * @param chartSelectionList the chartSelectionList to set
 	 */
-	public void setChartSelectionLst(
-			java.util.List<ChartShowingProp> chartSelectionLst) {
-		this.chartSelectionLst = chartSelectionLst;
+	public void setChartSelectionList(
+			java.util.List<ChartShowingProp> chartSelectionList) {
+		this.chartSelectionList = chartSelectionList;
 	}
 
 }

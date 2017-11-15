@@ -589,7 +589,7 @@ public class FileToTableMappingComposite extends Composite {
 					monitor.subTask(Messages.bind(Messages.taskParsingFile, fileName));
 
 					List<String> fileColumnList = new ArrayList<String>();
-					List<String> firstRowColsLst = new ArrayList<String>();
+					List<String> firstRowColsList = new ArrayList<String>();
 					List<String> colNameList = new ArrayList<String>();
 					List<String> colTypeList = new ArrayList<String>();
 					int totalLine = 0;
@@ -603,18 +603,18 @@ public class FileToTableMappingComposite extends Composite {
 							file.getAbsolutePath(), importConfig);
 					ImportFileDescription ifd = getFileDescription(importFileHandler);
 
-					firstRowColsLst.addAll(ifd.getFirstRowCols());
+					firstRowColsList.addAll(ifd.getFirstRowCols());
 					totalLine = ifd.getTotalCount();
 					itemsNumberOfSheets = ifd.getItemsNumberOfSheets();
 
 					boolean isFirstLineAsColumnName = isFirstLineAsColumnName(tableName);
-					fillInFromList(fileColumnList, firstRowColsLst,
+					fillInFromList(fileColumnList, firstRowColsList,
 							isFirstLineAsColumnName);
 
 					if (isFirstLineAsColumnName) {
 						handleSelectEventForFirstRowAsColBtn(
 								itemsNumberOfSheets, fileColumnList,
-								firstRowColsLst, totalLine,
+								firstRowColsList, totalLine,
 								isFirstLineAsColumnName);
 					}
 
@@ -636,12 +636,12 @@ public class FileToTableMappingComposite extends Composite {
 							removeClassNode(classNode);
 							classNode = createClassNode(tableName,
 									isFirstLineAsColumnName(tableName),
-									firstRowColsLst, colNameList, colTypeList);
+									firstRowColsList, colNameList, colTypeList);
 						}
 					} else if (importConfig.isCreateTableAccordingData()) {
 						classNode = createClassNode(tableName,
 								isFirstLineAsColumnName(tableName),
-								firstRowColsLst, colNameList, colTypeList);
+								firstRowColsList, colNameList, colTypeList);
 					} else {
 						failedFileList.add(file.getAbsolutePath());
 						continue;
@@ -710,16 +710,16 @@ public class FileToTableMappingComposite extends Composite {
 	}
 
 	public ICubridNode createClassNode(String tableName,
-			boolean isFirstRowAsColumnName, List<String> firstRowColsLst,
+			boolean isFirstRowAsColumnName, List<String> firstRowColsList,
 			List<String> colNameList, List<String> colTypeList) { // FIXME move this logic to core module
-		int columnCount = firstRowColsLst.size();
+		int columnCount = firstRowColsList.size();
 		String iconPath = "icons/navigator/schema_table_item.png";
 		ICubridNode classNode = new DefaultSchemaNode(tableName, tableName,
 				iconPath);
 		classNode.setContainer(true);
 		List<String> columnNames;
 		if (isFirstRowAsColumnName) {
-			columnNames = firstRowColsLst;
+			columnNames = firstRowColsList;
 		} else {
 			columnNames = new ArrayList<String>();
 			for (int i = 0; i < columnCount; i++) {
@@ -797,7 +797,7 @@ public class FileToTableMappingComposite extends Composite {
 	 */
 	private void handleSelectEventForFirstRowAsColBtn(
 			List<Integer> itemsNumberOfSheets, List<String> fileColumnList,
-			List<String> firstRowColsLst, int totalLine,
+			List<String> firstRowColsList, int totalLine,
 			boolean isFirstLineAsColumnName) {
 		int noEmptySheetNum = 0;
 		if (itemsNumberOfSheets != null) {
@@ -813,7 +813,7 @@ public class FileToTableMappingComposite extends Composite {
 			totalLine = totalLine + noEmptySheetNum;
 		}
 
-		fillInFromList(fileColumnList, firstRowColsLst, isFirstLineAsColumnName);
+		fillInFromList(fileColumnList, firstRowColsList, isFirstLineAsColumnName);
 	}
 
 	private ImportFileDescription getFileDescription(final ImportFileHandler importFileHandler) {
@@ -861,14 +861,14 @@ public class FileToTableMappingComposite extends Composite {
 	 * set the "from" column
 	 */
 	private void fillInFromList(List<String> fileColumnList,
-			List<String> firstRowColsLst, boolean isFirstLineAsColumnName) {
+			List<String> firstRowColsList, boolean isFirstLineAsColumnName) {
 		fileColumnList.clear();
 		if (isFirstLineAsColumnName) {
-			for (String col : firstRowColsLst) {
+			for (String col : firstRowColsList) {
 				fileColumnList.add(col == null ? "" : col);
 			}
 		} else {
-			for (int i = 0; i < firstRowColsLst.size(); i++) {
+			for (int i = 0; i < firstRowColsList.size(); i++) {
 				fileColumnList.add("Column " + i); //$NON-NLS-1$
 			}
 		}
