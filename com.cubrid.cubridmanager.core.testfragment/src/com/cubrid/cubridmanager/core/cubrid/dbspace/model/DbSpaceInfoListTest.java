@@ -63,7 +63,7 @@ public class DbSpaceInfoListTest extends
 		dbSpaceInfo.setTotalPageStr("1M");
 		dbSpaceInfo.setTotalSizeStr("256M");
 		
-		bean.addSpaceinfo(dbSpaceInfo);
+		bean.addSpaceInfo(dbSpaceInfo);
 		
 		dbSpaceInfo = new DbSpaceInfo();
 		dbSpaceInfo.setType("GENERIC");
@@ -73,7 +73,7 @@ public class DbSpaceInfoListTest extends
 		dbSpaceInfo.setTotalpage(1024);
 		dbSpaceInfo.setTotalPageStr("1M");
 		dbSpaceInfo.setTotalSizeStr("256M");
-		bean.addSpaceinfo(dbSpaceInfo);
+		bean.addSpaceInfo(dbSpaceInfo);
 	}
 
 	/**
@@ -114,12 +114,12 @@ public class DbSpaceInfoListTest extends
 
 	/**
 	 * Test method for
-	 * {@link com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfoList#getSpaceinfo()}
+	 * {@link com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfoList#getSpaceInfo()}
 	 * .
 	 */
-	public void testGetSpaceinfo() {
-		bean.setSpaceinfo(null);
-		assertEquals(bean.getSpaceinfo(), null);
+	public void testGetSpaceInfo() {
+		bean.setSpaceInfo(null);
+		assertEquals(bean.getSpaceInfo(), null);
 	}
 
 	/**
@@ -133,22 +133,22 @@ public class DbSpaceInfoListTest extends
 
 	/**
 	 * Test method for
-	 * {@link com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfoList#addSpaceinfo(com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfo)}
+	 * {@link com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfoList#addSpaceInfo(com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfo)}
 	 * .
 	 */
 	@SuppressWarnings("unchecked")
-	public void testAddSpaceinfo() {
-		bean.addSpaceinfo(new DbSpaceInfo());
-		assertEquals(bean.getSpaceinfo() instanceof List, true);
+	public void testAddSpaceInfo() {
+		bean.addSpaceInfo(new DbSpaceInfo());
+		assertEquals(bean.getSpaceInfo() instanceof List, true);
 	}
 
 	/**
 	 * Test method for
-	 * {@link com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfoList#removeSpaceinfo(com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfo)}
+	 * {@link com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfoList#removeSpaceInfo(com.cubrid.cubridmanager.core.cubrid.dbspace.model.DbSpaceInfo)}
 	 * .
 	 */
-	public void testRemoveSpaceinfo() {
-		bean.removeSpaceinfo(new DbSpaceInfo());
+	public void testRemoveSpaceInfo() {
+		bean.removeSpaceInfo(new DbSpaceInfo());
 	}
 
 	/**

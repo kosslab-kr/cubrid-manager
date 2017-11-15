@@ -205,7 +205,7 @@ public class DeleteDatabaseDialog extends
 
 		dbNameText.setText(database.getName());
 		List<Map<String, Object>> volumeTableListData = new ArrayList<Map<String, Object>>();
-		for (DbSpaceInfo bean : dbSpaceInfo.getSpaceinfo()) {
+		for (DbSpaceInfo bean : dbSpaceInfo.getSpaceInfo()) {
 			if (!bean.getType().equals("GENERIC")
 					&& !bean.getType().equals("DATA")
 					&& !bean.getType().equals("TEMP")

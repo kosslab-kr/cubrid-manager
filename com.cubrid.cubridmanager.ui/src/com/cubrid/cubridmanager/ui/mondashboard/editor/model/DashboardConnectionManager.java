@@ -109,9 +109,9 @@ public class DashboardConnectionManager {
 			BrokerStatusInfos brokerStatusInfos = broker.getBrokerStatusInfos();
 			List<DatabaseNode> dbList2Connect = new ArrayList<DatabaseNode>();
 			if (null != brokerStatusInfos
-					&& null != brokerStatusInfos.getAsinfo()
-					&& !brokerStatusInfos.getAsinfo().isEmpty()) {
-				List<ApplyServerInfo> asList = brokerStatusInfos.getAsinfo();
+					&& null != brokerStatusInfos.getAsInfo()
+					&& !brokerStatusInfos.getAsInfo().isEmpty()) {
+				List<ApplyServerInfo> asList = brokerStatusInfos.getAsInfo();
 
 				for (ApplyServerInfo asi : asList) {
 					if ("IDLE".equals(asi.getAsStatus())) {

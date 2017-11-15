@@ -12,8 +12,8 @@ public class ClientSocketTest extends
 
 	public void testSendRequest() {
 		getautoaddvollog();
-		dbspaceinfoFailed();
-		dbspaceinfoSuccess();
+		dbSpaceInfoFailed();
+		dbSpaceInfoSuccess();
 	}
 
 	public void testParseResponse() throws Exception {
@@ -136,7 +136,7 @@ public class ClientSocketTest extends
 
 	}
 
-	private void dbspaceinfoFailed() {
+	private void dbSpaceInfoFailed() {
 		String datebasename = "xxxxxxxxxxx";
 		ClientSocket cs = new ClientSocket(serverInfo.getHostAddress(), jpport,
 				serverInfo.getUserName());
@@ -154,7 +154,7 @@ public class ClientSocketTest extends
 
 	}
 
-	private void dbspaceinfoSuccess() {
+	private void dbSpaceInfoSuccess() {
 
 		String datebasename = testDbName;
 		ClientSocket cs = new ClientSocket(serverInfo.getHostAddress(), jpport,

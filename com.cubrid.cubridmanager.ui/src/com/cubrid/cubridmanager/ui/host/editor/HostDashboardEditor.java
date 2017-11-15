@@ -705,7 +705,7 @@ public class HostDashboardEditor extends
 							dbVolumeSpaceInfoList.add(dbSpaceInfo);
 
 							if (dbSpaceInfoList != null) {
-								for (DbSpaceInfo spaceInfo : dbSpaceInfoList.getSpaceinfo()) {
+								for (DbSpaceInfo spaceInfo : dbSpaceInfoList.getSpaceInfo()) {
 									dbSpaceInfo.addVolumeSpaceInfo(spaceInfo);
 								}
 							}

@@ -61,48 +61,48 @@ public class BrokerStatusInfosTest extends
 
 	/**
 	 * Test method for
-	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#getAsinfo()}
+	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#getAsInfo()}
 	 * .
 	 */
-	public void testGetAsinfo() {
-		assertNotNull(bsi.getAsinfo());
+	public void testGetAsInfo() {
+		assertNotNull(bsi.getAsInfo());
 	}
 
 	/**
 	 * Test method for
-	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#addAsinfo(com.cubrid.cubridmanager.core.broker.model.ApplyServerInfo)}
+	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#addAsInfo(com.cubrid.cubridmanager.core.broker.model.ApplyServerInfo)}
 	 * .
 	 */
-	public void testAddAsinfo() {
+	public void testAddAsInfo() {
 		ApplyServerInfo asi = new ApplyServerInfo();
-		bsi.addAsinfo(asi);
-		List<ApplyServerInfo> list = bsi.getAsinfo();
+		bsi.addAsInfo(asi);
+		List<ApplyServerInfo> list = bsi.getAsInfo();
 		assertFalse(list.isEmpty());
 		list = null;
-		bsi.addAsinfo(asi);
-		List<ApplyServerInfo> listNew = bsi.getAsinfo();
+		bsi.addAsInfo(asi);
+		List<ApplyServerInfo> listNew = bsi.getAsInfo();
 		assertFalse(listNew.isEmpty());
 	}
 
 	/**
 	 * Test method for
-	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#getJobinfo()}
+	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#getJobInfo()}
 	 * .
 	 */
-	public void testGetJobinfo() {
-		assertNull(bsi.getJobinfo());
+	public void testGetJobInfo() {
+		assertNull(bsi.getJobInfo());
 	}
 
 	/**
 	 * Test method for
-	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#addJobinfo(com.cubrid.cubridmanager.core.broker.model.JobInfo)}
+	 * {@link com.cubrid.cubridmanager.core.broker.model.BrokerStatusInfos#addJobInfo(com.cubrid.cubridmanager.core.broker.model.JobInfo)}
 	 * .
 	 */
-	public void testAddJobinfo() {
+	public void testAddJobInfo() {
 		JobInfo ji = new JobInfo();
-		bsi.addJobinfo(ji);
-		bsi.addJobinfo(ji);
-		List<JobInfo> list = bsi.getJobinfo();
+		bsi.addJobInfo(ji);
+		bsi.addJobInfo(ji);
+		List<JobInfo> list = bsi.getJobInfo();
 		assertTrue(!list.isEmpty());
 	}
 

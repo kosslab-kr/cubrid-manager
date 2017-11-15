@@ -192,7 +192,7 @@ public class QueryEditorUtil {
 		statisTask.execute();
 		brokerStatusInfos = statisTask.getResultModel();
 		if (brokerStatusInfos != null) {
-			List<ApplyServerInfo> casInfos = brokerStatusInfos.getAsinfo();
+			List<ApplyServerInfo> casInfos = brokerStatusInfos.getAsInfo();
 			for (ApplyServerInfo casInfo : casInfos) {
 				if (casInfo.getAsStatus().equals("BUSY")
 						|| casInfo.getAsStatus().equals("CLIENT WAIT")) {

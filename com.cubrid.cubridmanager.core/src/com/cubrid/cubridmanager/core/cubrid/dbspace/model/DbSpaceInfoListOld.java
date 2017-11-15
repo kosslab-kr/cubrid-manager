@@ -9,7 +9,7 @@ public class DbSpaceInfoListOld extends DbSpaceInfoList{
 	
 	public int getTotalSize(){
 		int totalSize = 0;
-		for (DbSpaceInfo bean : spaceinfo) {
+		for (DbSpaceInfo bean : spaceInfo) {
 			if (!bean.getType().equals("GENERIC")
 					&& !bean.getType().equals("DATA")
 					&& !bean.getType().equals("TEMP")
@@ -24,7 +24,7 @@ public class DbSpaceInfoListOld extends DbSpaceInfoList{
 
 	public int getFreeSize(){
 		int freeSize = 0;
-		for (DbSpaceInfo bean : spaceinfo) {
+		for (DbSpaceInfo bean : spaceInfo) {
 			if (!bean.getType().equals("GENERIC")
 					&& !bean.getType().equals("DATA")
 					&& !bean.getType().equals("TEMP")

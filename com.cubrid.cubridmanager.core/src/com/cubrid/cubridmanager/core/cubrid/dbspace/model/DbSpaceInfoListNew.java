@@ -127,7 +127,7 @@ public class DbSpaceInfoListNew extends DbSpaceInfoList{
 	}
 
 	/**
-	 * Add a instance of DbSpaceInfo into the spaceinfo list in the current
+	 * Add a instance of DbSpaceInfo into the spaceInfo list in the current
 	 * instance
 	 *
 	 * @param info DbSpaceInfo A instance of DbSpaceInfo
@@ -144,7 +144,7 @@ public class DbSpaceInfoListNew extends DbSpaceInfoList{
 	}
 
 	/**
-	 * Remove a instance of DbSpaceInfo from sapceinfo list in the current
+	 * Remove a instance of DbSpaceInfo from sapceInfo list in the current
 	 * instance
 	 *
 	 * @param info DbSpaceInfo A instance of DbSpaceInfo
@@ -164,7 +164,7 @@ public class DbSpaceInfoListNew extends DbSpaceInfoList{
 	}
 
 	/**
-	 * Add a instance of DbSpaceInfo into the spaceinfo list in the current
+	 * Add a instance of DbSpaceInfo into the spaceInfo list in the current
 	 * instance
 	 *
 	 * @param info DbSpaceInfo A instance of DbSpaceInfo
@@ -181,7 +181,7 @@ public class DbSpaceInfoListNew extends DbSpaceInfoList{
 	}
 
 	/**
-	 * Remove a instance of DbSpaceInfo from sapceinfo list in the current
+	 * Remove a instance of DbSpaceInfo from spaceInfo list in the current
 	 * instance
 	 *
 	 * @param info DbSpaceInfo A instance of DbSpaceInfo
@@ -197,7 +197,7 @@ public class DbSpaceInfoListNew extends DbSpaceInfoList{
 	
 	public int getTotalSize(){
 		int totalSize = 0;
-		for (DbSpaceInfo bean : spaceinfo) {
+		for (DbSpaceInfo bean : spaceInfo) {
 			if (!bean.getType().equals("PERMANENT")
 					&& !bean.getType().equals("TEMPORARY")) {
 				continue;
@@ -210,7 +210,7 @@ public class DbSpaceInfoListNew extends DbSpaceInfoList{
 
 	public int getFreeSize(){
 		int freeSize = 0;
-		for (DbSpaceInfo bean : spaceinfo) {
+		for (DbSpaceInfo bean : spaceInfo) {
 			if (!bean.getType().equals("PERMANENT")
 					&& !bean.getType().equals("TEMPORARY")) {
 				continue;
@@ -250,7 +250,7 @@ public class DbSpaceInfoListNew extends DbSpaceInfoList{
 	}
 	
 	public void createVolumeDescriptionData(List<Map<String, String>> volumeDescriptionData){
-		for(DbSpaceInfo d : spaceinfo){
+		for(DbSpaceInfo d : spaceInfo){
 			Map<String, String> line = new HashMap<String, String>();
 			line.put("0", String.valueOf(d.getVolid()));
 			line.put("1", d.getType());

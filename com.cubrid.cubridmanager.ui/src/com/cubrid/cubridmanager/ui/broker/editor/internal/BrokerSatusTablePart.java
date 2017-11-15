@@ -66,8 +66,8 @@ import com.cubrid.cubridmanager.ui.mondashboard.editor.BrokerBasicInfoLabelProvi
  */
 public class BrokerSatusTablePart {
 	private ServerInfo serverInfo;
-	private List<ApplyServerInfo> asinfoList;
-	private List<JobInfo> jobinfoList;
+	private List<ApplyServerInfo> asInfoList;
+	private List<JobInfo> jobInfoList;
 	private boolean isAppendDiag;
 
 	/**
@@ -239,7 +239,7 @@ public class BrokerSatusTablePart {
 
 		asTableViewer.setContentProvider(new ApplyServerContentProvider());
 		asTableViewer.setLabelProvider(new ApplyServerLabelProvider());
-		asTableViewer.setInput(asinfoList);
+		asTableViewer.setInput(asInfoList);
 		return asTableViewer;
 	}
 
@@ -328,7 +328,7 @@ public class BrokerSatusTablePart {
 
 		jqTableViewer.setContentProvider(new JobContentProvider());
 		jqTableViewer.setLabelProvider(new JobLabelProvider());
-		jqTableViewer.setInput(jobinfoList);
+		jqTableViewer.setInput(jobInfoList);
 		return jqTableViewer;
 	}
 
@@ -363,35 +363,35 @@ public class BrokerSatusTablePart {
 	}
 
 	/**
-	 * Get the asinfoList
+	 * Get the asInfoList
 	 * 
-	 * @return the asinfoList
+	 * @return the asInfoList
 	 */
-	public List<ApplyServerInfo> getAsinfoList() {
-		return asinfoList;
+	public List<ApplyServerInfo> getAsInfoList() {
+		return asInfoList;
 	}
 
 	/**
-	 * @param asinfoList the asinfoList to set
+	 * @param asInfoList the asInfoList to set
 	 */
-	public void setAsinfoList(List<ApplyServerInfo> asinfoList) {
-		this.asinfoList = asinfoList;
+	public void setAsInfoList(List<ApplyServerInfo> asInfoList) {
+		this.asInfoList = asInfoList;
 	}
 
 	/**
-	 * Get the jobinfoList
+	 * Get the jobInfoList
 	 * 
-	 * @return the jobinfoList
+	 * @return the jobInfoList
 	 */
-	public List<JobInfo> getJobinfoList() {
-		return jobinfoList;
+	public List<JobInfo> getJobInfoList() {
+		return jobInfoList;
 	}
 
 	/**
-	 * @param jobinfoList the jobinfoList to set
+	 * @param jobInfoList the jobInfoList to set
 	 */
-	public void setJobinfoList(List<JobInfo> jobinfoList) {
-		this.jobinfoList = jobinfoList;
+	public void setJobInfoList(List<JobInfo> jobInfoList) {
+		this.jobInfoList = jobInfoList;
 	}
 
 	/**

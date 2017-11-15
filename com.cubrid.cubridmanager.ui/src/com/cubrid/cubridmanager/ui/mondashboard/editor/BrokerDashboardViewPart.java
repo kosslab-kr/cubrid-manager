@@ -413,27 +413,27 @@ public class BrokerDashboardViewPart extends
 			basicColumnList.add(basicTableList);
 			basicTableViewer.setInput(basicColumnList);
 			basicTableViewer.refresh();
-			List<ApplyServerInfo> asinfoList = null;
-			List<JobInfo> jobinfoList = null;
+			List<ApplyServerInfo> asInfoList = null;
+			List<JobInfo> jobInfoList = null;
 
 			if (brokerStatusInfos == null) {
-				asinfoList = new ArrayList<ApplyServerInfo>();
-				jobinfoList = new ArrayList<JobInfo>();
+				asInfoList = new ArrayList<ApplyServerInfo>();
+				jobInfoList = new ArrayList<JobInfo>();
 			} else {
-				asinfoList = brokerStatusInfos.getAsinfo();
-				jobinfoList = brokerStatusInfos.getJobinfo();
+				asInfoList = brokerStatusInfos.getAsInfo();
+				jobInfoList = brokerStatusInfos.getJobInfo();
 
-				if (asinfoList == null) {
-					asinfoList = new ArrayList<ApplyServerInfo>();
+				if (asInfoList == null) {
+					asInfoList = new ArrayList<ApplyServerInfo>();
 
 				}
-				if (jobinfoList == null) {
-					jobinfoList = new ArrayList<JobInfo>();
+				if (jobInfoList == null) {
+					jobInfoList = new ArrayList<JobInfo>();
 				}
 			}
-			asTableViewer.setInput(asinfoList);
+			asTableViewer.setInput(asInfoList);
 			asTableViewer.refresh();
-			jqTableViewer.setInput(jobinfoList);
+			jqTableViewer.setInput(jobInfoList);
 			jqTableViewer.refresh();
 
 		}

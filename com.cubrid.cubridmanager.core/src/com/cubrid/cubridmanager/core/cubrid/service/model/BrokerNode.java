@@ -120,7 +120,7 @@ public class BrokerNode extends
 	public Set<String> getHostSet() {
 		Set<String> hostSet = new HashSet<String>();
 		for (BrokerStatusInfos bStatusInfos : brokerStatusMap.values()) {
-			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsinfo();
+			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsInfo();
 			if (asInfoList == null) {
 				continue;
 			}
@@ -138,7 +138,7 @@ public class BrokerNode extends
 	/*public Set<String> getDbSet(){
 		Set<String> dbSet = new HashSet<String>();
 		for(BrokerStatusInfos bStatusInfos : brokerStatusMap.values()){
-			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsinfo();
+			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsInfo();
 			if(asInfoList == null){
 				continue;
 			}
@@ -162,7 +162,7 @@ public class BrokerNode extends
 		}
 		Map<List<String>, Set<String>> accessedHostDbMap = new HashMap<List<String>, Set<String>>();
 		for (BrokerStatusInfos bStatusInfos : brokerStatusMap.values()) {
-			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsinfo();
+			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsInfo();
 			if (asInfoList == null) {
 				continue;
 			}
@@ -206,7 +206,7 @@ public class BrokerNode extends
 		}
 		Set<String> accessedHosts = new HashSet<String>();
 		for (BrokerStatusInfos bStatusInfos : brokerStatusMap.values()) {
-			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsinfo();
+			List<ApplyServerInfo> asInfoList = bStatusInfos.getAsInfo();
 			if (asInfoList == null) {
 				continue;
 			}
