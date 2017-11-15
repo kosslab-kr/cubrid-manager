@@ -36,6 +36,7 @@ import java.util.List;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IDialogSettings;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.text.IFindReplaceTarget;
 import org.eclipse.jface.text.TextViewer;
 import org.eclipse.swt.SWT;
@@ -287,6 +288,8 @@ public class FindReplaceDialog extends
 			} else {
 				st.getTextWidget().setCaretOffset(st.getBottomIndexEndOffset()+1);
 			}
+			
+			MessageDialog.openInformation(this.getShell(), "안내", "해당 방향으로 검색 중 검색 영역의 끝에 도달하였습니다.");
 		}
 			
 		return result;
