@@ -52,7 +52,7 @@ import com.cubrid.cubridmanager.ui.monitoring.editor.DbStatusDumpMonitorViewPart
  */
 public class DbComboContribution extends
 		ControlContribution {
-	private List<String> databaseLst;
+	private List<String> databaseList;
 	private int selected;
 	private String selectedDb;
 	private final DbStatusDumpMonitorViewPart dbStatDumpView;
@@ -74,8 +74,8 @@ public class DbComboContribution extends
 	protected Control createControl(Composite parent) {
 		final Combo dbCombo = new Combo(parent, SWT.DROP_DOWN | SWT.READ_ONLY);
 		dbCombo.setToolTipText(Messages.dbSelectTip);
-		if (databaseLst != null && !databaseLst.isEmpty()) {
-			dbCombo.setItems(databaseLst.toArray(new String[databaseLst.size()]));
+		if (databaseList != null && !databaseList.isEmpty()) {
+			dbCombo.setItems(databaseList.toArray(new String[databaseList.size()]));
 			dbCombo.select(0);
 			selected = dbCombo.getSelectionIndex();
 			selectedDb = dbCombo.getItem(selected);
@@ -128,17 +128,17 @@ public class DbComboContribution extends
 	/**
 	 * Get the database list
 	 * 
-	 * @return the databaseLst
+	 * @return the databaseList
 	 */
-	public List<String> getDatabaseLst() {
-		return databaseLst;
+	public List<String> getDatabaseList() {
+		return databaseList;
 	}
 
 	/**
-	 * @param databaseLst the databaseLst to set
+	 * @param databaseList the databaseList to set
 	 */
-	public void setDatabaseLst(List<String> databaseLst) {
-		this.databaseLst = databaseLst;
+	public void setDatabaseList(List<String> databaseList) {
+		this.databaseList = databaseList;
 	}
 
 	/**

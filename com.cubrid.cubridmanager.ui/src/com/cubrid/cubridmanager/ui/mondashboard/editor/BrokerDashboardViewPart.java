@@ -372,68 +372,68 @@ public class BrokerDashboardViewPart extends
 			BrokerDiagData brokerDiagData = dataChangedEvent.getBrokerDiagDataMap().get(
 					brokerName);
 
-			List<String> basicTableLst = new ArrayList<String>();
+			List<String> basicTableList = new ArrayList<String>();
 			if (brokerInfos == null) {
 				for (int i = 0; i < 10; i++) {
-					basicTableLst.add("");
+					basicTableList.add("");
 				}
 			} else {
 				BrokerInfoList brokerInfoList = brokerInfos.getBorkerInfoList();
 				if (brokerInfoList.getBrokerInfoList().isEmpty()) {
 					for (int i = 0; i < 10; i++) {
-						basicTableLst.add("");
+						basicTableList.add("");
 					}
 				}
 				for (BrokerInfo bi : brokerInfoList.getBrokerInfoList()) {
 					if (brokerName.equals(bi.getName())) {
-						basicTableLst.add(bi.getPid());
-						basicTableLst.add(bi.getPort());
-						basicTableLst.add(bi.getJq());
-						basicTableLst.add(bi.getAuto());
-						basicTableLst.add(bi.getSqll());
-						basicTableLst.add(bi.getLong_tran_time());
-						basicTableLst.add(bi.getLong_query_time());
-						basicTableLst.add(bi.getSes());
-						basicTableLst.add(bi.getKeep_conn());
-						basicTableLst.add(bi.getAccess_mode());
+						basicTableList.add(bi.getPid());
+						basicTableList.add(bi.getPort());
+						basicTableList.add(bi.getJq());
+						basicTableList.add(bi.getAuto());
+						basicTableList.add(bi.getSqll());
+						basicTableList.add(bi.getLong_tran_time());
+						basicTableList.add(bi.getLong_query_time());
+						basicTableList.add(bi.getSes());
+						basicTableList.add(bi.getKeep_conn());
+						basicTableList.add(bi.getAccess_mode());
 					}
 				}
 			}
 			if (brokerDiagData == null) {
 				for (int i = 0; i < 3; i++) {
-					basicTableLst.add("");
+					basicTableList.add("");
 				}
 			} else {
-				basicTableLst.add(brokerDiagData.getCas_mon_active());
-				basicTableLst.add(brokerDiagData.getCas_mon_session());
-				basicTableLst.add(brokerDiagData.getCas_mon_tran());
+				basicTableList.add(brokerDiagData.getCas_mon_active());
+				basicTableList.add(brokerDiagData.getCas_mon_session());
+				basicTableList.add(brokerDiagData.getCas_mon_tran());
 			}
 			//test
-			List<List<String>> basicColumnLst = new ArrayList<List<String>>();
-			basicColumnLst.add(basicTableLst);
-			basicTableViewer.setInput(basicColumnLst);
+			List<List<String>> basicColumnList = new ArrayList<List<String>>();
+			basicColumnList.add(basicTableList);
+			basicTableViewer.setInput(basicColumnList);
 			basicTableViewer.refresh();
-			List<ApplyServerInfo> asinfoLst = null;
-			List<JobInfo> jobinfoLst = null;
+			List<ApplyServerInfo> asinfoList = null;
+			List<JobInfo> jobinfoList = null;
 
 			if (brokerStatusInfos == null) {
-				asinfoLst = new ArrayList<ApplyServerInfo>();
-				jobinfoLst = new ArrayList<JobInfo>();
+				asinfoList = new ArrayList<ApplyServerInfo>();
+				jobinfoList = new ArrayList<JobInfo>();
 			} else {
-				asinfoLst = brokerStatusInfos.getAsinfo();
-				jobinfoLst = brokerStatusInfos.getJobinfo();
+				asinfoList = brokerStatusInfos.getAsinfo();
+				jobinfoList = brokerStatusInfos.getJobinfo();
 
-				if (asinfoLst == null) {
-					asinfoLst = new ArrayList<ApplyServerInfo>();
+				if (asinfoList == null) {
+					asinfoList = new ArrayList<ApplyServerInfo>();
 
 				}
-				if (jobinfoLst == null) {
-					jobinfoLst = new ArrayList<JobInfo>();
+				if (jobinfoList == null) {
+					jobinfoList = new ArrayList<JobInfo>();
 				}
 			}
-			asTableViewer.setInput(asinfoLst);
+			asTableViewer.setInput(asinfoList);
 			asTableViewer.refresh();
-			jqTableViewer.setInput(jobinfoLst);
+			jqTableViewer.setInput(jobinfoList);
 			jqTableViewer.refresh();
 
 		}

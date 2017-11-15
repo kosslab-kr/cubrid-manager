@@ -56,17 +56,17 @@ public class BackUpErrorLogListTest extends
 		errorLog.setBackupid("ccc");
 		errorLog.setError_desc("descdesc");
 		errorLog.setError_time("20090506");
-		List<BackUpErrorLog> errorLogLst = new ArrayList<BackUpErrorLog>();
+		List<BackUpErrorLog> errorLogList = new ArrayList<BackUpErrorLog>();
 		bean = new BackUpErrorLogList();
-		bean.setErrorLogList(errorLogLst);
+		bean.setErrorLogList(errorLogList);
 
 		assertNotNull(bean.getErrorLogList());
 		assertEquals(bean.getErrorLogList().size(), 0);
 		bean.addError(errorLog);
 		assertNotNull(bean.getErrorLogList());
 		assertEquals(bean.getErrorLogList().size(), 1);
-		List<BackUpErrorLog> resultLst = bean.getErrorLogList();
-		BackUpErrorLog resultLog = resultLst.get(0);
+		List<BackUpErrorLog> resultList = bean.getErrorLogList();
+		BackUpErrorLog resultLog = resultList.get(0);
 		assertEquals(resultLog.getDbname(), "demodb");
 		assertEquals(resultLog.getBackupid(), "ccc");
 		assertEquals(resultLog.getError_desc(), "descdesc");
@@ -101,8 +101,8 @@ public class BackUpErrorLogListTest extends
 		bean.addError(errorLog);
 		assertNotNull(bean.getErrorLogList());
 		assertEquals(bean.getErrorLogList().size(), 2);
-		List<BackUpErrorLog> resultLst = bean.getErrorLogList();
-		BackUpErrorLog resultLog = resultLst.get(0);
+		List<BackUpErrorLog> resultList = bean.getErrorLogList();
+		BackUpErrorLog resultLog = resultList.get(0);
 		assertEquals(resultLog.getDbname(), "demodb");
 		assertEquals(resultLog.getBackupid(), "ccc");
 		assertEquals(resultLog.getError_desc(), "descdesc");

@@ -42,13 +42,13 @@ public class BrokerStatusInfos implements
 		IModel {
 
 	private String bname = null;
-	private List<ApplyServerInfo> asinfoLst;
-	private List<JobInfo> jobinfoLst;
+	private List<ApplyServerInfo> asinfoList;
+	private List<JobInfo> jobinfoList;
 	private final List<BrokerStatusInfos> subBrokerStatusInfos;
 
 	public BrokerStatusInfos() {
 		subBrokerStatusInfos = new ArrayList<BrokerStatusInfos>();
-		asinfoLst = new ArrayList<ApplyServerInfo>();
+		asinfoList = new ArrayList<ApplyServerInfo>();
 	}
 
 	public String getTaskName() {
@@ -56,7 +56,7 @@ public class BrokerStatusInfos implements
 	}
 
 	public List<ApplyServerInfo> getAsinfo() {
-		return asinfoLst;
+		return asinfoList;
 	}
 
 	/**
@@ -65,11 +65,11 @@ public class BrokerStatusInfos implements
 	 * @param asinfo ApplyServerInfo
 	 */
 	public void addAsinfo(ApplyServerInfo asinfo) {
-		if (asinfoLst == null) {
-			asinfoLst = new ArrayList<ApplyServerInfo>();
+		if (asinfoList == null) {
+			asinfoList = new ArrayList<ApplyServerInfo>();
 		}
-		if (!asinfoLst.contains(asinfo)) {
-			asinfoLst.add(asinfo);
+		if (!asinfoList.contains(asinfo)) {
+			asinfoList.add(asinfo);
 		}
 	}
 
@@ -88,7 +88,7 @@ public class BrokerStatusInfos implements
 	 * @return List<JobInfo>
 	 */
 	public List<JobInfo> getJobinfo() {
-		return jobinfoLst;
+		return jobinfoList;
 	}
 
 	/**
@@ -97,11 +97,11 @@ public class BrokerStatusInfos implements
 	 * @param jobinfo JobInfo
 	 */
 	public void addJobinfo(JobInfo jobinfo) {
-		if (jobinfoLst == null) {
-			jobinfoLst = new ArrayList<JobInfo>();
+		if (jobinfoList == null) {
+			jobinfoList = new ArrayList<JobInfo>();
 		}
-		if (!jobinfoLst.contains(jobinfo)) {
-			jobinfoLst.add(jobinfo);
+		if (!jobinfoList.contains(jobinfo)) {
+			jobinfoList.add(jobinfo);
 		}
 	}
 

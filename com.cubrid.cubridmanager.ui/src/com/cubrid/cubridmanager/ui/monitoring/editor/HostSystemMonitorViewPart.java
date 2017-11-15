@@ -123,11 +123,11 @@ public class HostSystemMonitorViewPart extends
 			historyFileHelp = new HistoryFileHelp();
 			historyFileHelp.setHistoryPath(historyPath);
 
-			List<String> typeLst = new ArrayList<String>();
+			List<String> typeList = new ArrayList<String>();
 			for (HostStatEnum hostEnum : HostStatEnum.values()) {
-				typeLst.add(hostEnum.getName());
+				typeList.add(hostEnum.getName());
 			}
-			typeNames = typeLst.toArray(new String[typeLst.size()]);
+			typeNames = typeList.toArray(new String[typeList.size()]);
 		}
 	}
 

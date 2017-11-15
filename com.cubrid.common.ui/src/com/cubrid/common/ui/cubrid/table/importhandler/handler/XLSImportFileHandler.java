@@ -98,9 +98,9 @@ public class XLSImportFileHandler implements
 	public ImportFileDescription getSourceFileInfo() throws Exception { // FIXME move this logic to core module
 		synchronized (this) {
 			if (importFileDescription == null) {
-				final List<String> colsLst = new ArrayList<String>();
+				final List<String> colsList = new ArrayList<String>();
 				final List<Integer> itemsNumberOfSheets = new ArrayList<Integer>();
-				importFileDescription = new ImportFileDescription(0, 0, colsLst);
+				importFileDescription = new ImportFileDescription(0, 0, colsList);
 
 				IRunnableWithProgress runnable = new IRunnableWithProgress() {
 					public void run(final IProgressMonitor monitor) {
@@ -127,7 +127,7 @@ public class XLSImportFileHandler implements
 										&& j < columnCount; j++) {
 									Cell cell = workbook.getSheet(0).getCell(j,
 											0);
-									colsLst.add(cell == null ? "" : cell.getContents()); //$NON-NLS-1$
+									colsList.add(cell == null ? "" : cell.getContents()); //$NON-NLS-1$
 								}
 							}
 							for (int i = 0; !monitor.isCanceled()
@@ -145,7 +145,7 @@ public class XLSImportFileHandler implements
 						} finally {
 							importFileDescription.setSheetNum(sheetNum);
 							importFileDescription.setTotalCount(totalRowCount);
-							importFileDescription.setFirstRowCols(colsLst);
+							importFileDescription.setFirstRowCols(colsList);
 							importFileDescription.setItemsNumberOfSheets(itemsNumberOfSheets);
 							if (workbook != null) {
 								workbook.close();

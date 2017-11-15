@@ -107,17 +107,17 @@ public class BrokerStatusView extends
 	private TableViewer jqTableViewer;
 	private Composite composite;
 
-	private List<ApplyServerInfo> asinfoLst;
-	private List<JobInfo> jobinfoLst;
+	private List<ApplyServerInfo> asinfoList;
+	private List<JobInfo> jobinfoList;
 	private CubridBroker brokerNode;
 	private boolean runflag = false;
 	private String nodeName;
 	private boolean isRunning = true;
 	private boolean isFirstLoaded = true;
-	private List<ApplyServerInfo> oldAsInfoLst;
+	private List<ApplyServerInfo> oldAsInfoList;
 	private String serverName;
 	private String port;
-	private List<BrokerInfo> basicInfoLst;
+	private List<BrokerInfo> basicInfoList;
 	private TableViewer basicTableViewer;
 	private boolean isSupportNewBrokerParamPropery;
 
@@ -187,14 +187,14 @@ public class BrokerStatusView extends
 		if (null != brokerInfos) {
 			BrokerInfoList list = brokerInfos.getBorkerInfoList();
 			if (list != null && list.getBrokerInfoList() != null) {
-				basicInfoLst = list.getBrokerInfoList();
+				basicInfoList = list.getBrokerInfoList();
 			}
 		}
 
 		brokerStatusInfos = statisTask.getResultModel();
 		if (brokerStatusInfos != null) {
-			asinfoLst = brokerStatusInfos.getAsinfo();
-			jobinfoLst = brokerStatusInfos.getJobinfo();
+			asinfoList = brokerStatusInfos.getAsinfo();
+			jobinfoList = brokerStatusInfos.getJobinfo();
 		}
 
 	}
@@ -306,7 +306,7 @@ public class BrokerStatusView extends
 		BrokerBasicInfoLabelProvider basicInfoLabelProvider = new BrokerBasicInfoLabelProvider();
 		basicInfoLabelProvider.setServerInfo(serverInfo);
 		basicTableViewer.setLabelProvider(basicInfoLabelProvider);
-		basicTableViewer.setInput(basicInfoLst);
+		basicTableViewer.setInput(basicInfoList);
 	}
 
 	/**
@@ -399,7 +399,7 @@ public class BrokerStatusView extends
 
 		asTableViewer.setContentProvider(new ApplyServerContentProvider());
 		asTableViewer.setLabelProvider(new ApplyServerLabelProvider());
-		asTableViewer.setInput(asinfoLst);
+		asTableViewer.setInput(asinfoList);
 
 		MenuManager menuManager = new MenuManager();
 		menuManager.setRemoveAllWhenShown(true);
@@ -500,7 +500,7 @@ public class BrokerStatusView extends
 
 		jqTableViewer.setContentProvider(new JobContentProvider());
 		jqTableViewer.setLabelProvider(new JobLabelProvider());
-		jqTableViewer.setInput(jobinfoLst);
+		jqTableViewer.setInput(jobinfoList);
 	}
 
 	/**
@@ -634,12 +634,12 @@ public class BrokerStatusView extends
 
 		brokerStatusInfos = task.getResultModel();
 
-		asinfoLst = brokerStatusInfos.getAsinfo();
-		jobinfoLst = brokerStatusInfos.getJobinfo();
+		asinfoList = brokerStatusInfos.getAsinfo();
+		jobinfoList = brokerStatusInfos.getJobinfo();
 
-		asTableViewer.setInput(asinfoLst);
+		asTableViewer.setInput(asinfoList);
 		asTableViewer.refresh();
-		jqTableViewer.setInput(jobinfoLst);
+		jqTableViewer.setInput(jobinfoList);
 		jqTableViewer.refresh();
 	}
 
@@ -660,11 +660,11 @@ public class BrokerStatusView extends
 		if (null != brokerInfos) {
 			BrokerInfoList list = brokerInfos.getBorkerInfoList();
 			if (list != null && list.getBrokerInfoList() != null) {
-				basicInfoLst = list.getBrokerInfoList();
+				basicInfoList = list.getBrokerInfoList();
 			}
 		}
 		if (basicTableViewer != null) {
-			basicTableViewer.setInput(basicInfoLst);
+			basicTableViewer.setInput(basicInfoList);
 			basicTableViewer.refresh();
 		}
 	}
@@ -695,22 +695,22 @@ public class BrokerStatusView extends
 
 		//job queue
 		if (brokerStatusInfos != null) {
-			jobinfoLst = brokerStatusInfos.getJobinfo();
-			jqTableViewer.setInput(jobinfoLst);
+			jobinfoList = brokerStatusInfos.getJobinfo();
+			jqTableViewer.setInput(jobinfoList);
 			jqTableViewer.refresh();
 		}
 
 		//apply server
-		List<ApplyServerInfo> newAsInfoLst = null;
+		List<ApplyServerInfo> newAsInfoList = null;
 		if (null != brokerStatusInfos) {
-			newAsInfoLst = brokerStatusInfos.getAsinfo();
+			newAsInfoList = brokerStatusInfos.getAsinfo();
 		}
-		List<ApplyServerInfo> changedAsInfoLst = new ArrayList<ApplyServerInfo>();
-		for (int i = 0; newAsInfoLst != null && i < newAsInfoLst.size(); i++) {
-			ApplyServerInfo newAsInfo = newAsInfoLst.get(i);
+		List<ApplyServerInfo> changedAsInfoList = new ArrayList<ApplyServerInfo>();
+		for (int i = 0; newAsInfoList != null && i < newAsInfoList.size(); i++) {
+			ApplyServerInfo newAsInfo = newAsInfoList.get(i);
 			ApplyServerInfo changedAsInfo = newAsInfo.clone();
-			for (int j = 0; oldAsInfoLst != null && j < oldAsInfoLst.size(); j++) {
-				ApplyServerInfo oldAsInfo = oldAsInfoLst.get(j);
+			for (int j = 0; oldAsInfoList != null && j < oldAsInfoList.size(); j++) {
+				ApplyServerInfo oldAsInfo = oldAsInfoList.get(j);
 				if (newAsInfo.getAsId().equalsIgnoreCase(oldAsInfo.getAsId())) {
 					long newQuery = StringUtil.intValue(newAsInfo.getAsNumQuery());
 					long newTran = StringUtil.intValue(newAsInfo.getAsNumTran());
@@ -743,20 +743,20 @@ public class BrokerStatusView extends
 					break;
 				}
 			}
-			changedAsInfoLst.add(changedAsInfo);
+			changedAsInfoList.add(changedAsInfo);
 		}
-		oldAsInfoLst = newAsInfoLst;
+		oldAsInfoList = newAsInfoList;
 		if (isUpdateTable) {
 			if (isRefreshChanged) {
-				asTableViewer.setInput(changedAsInfoLst);
+				asTableViewer.setInput(changedAsInfoList);
 			} else {
-				asTableViewer.setInput(oldAsInfoLst);
+				asTableViewer.setInput(oldAsInfoList);
 			}
 		}
 		asTableViewer.refresh();
 		//job queue
-		jobinfoLst = brokerStatusInfos.getJobinfo();
-		jqTableViewer.setInput(jobinfoLst);
+		jobinfoList = brokerStatusInfos.getJobinfo();
+		jqTableViewer.setInput(jobinfoList);
 		jqTableViewer.refresh();
 	}
 

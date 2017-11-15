@@ -137,12 +137,12 @@ public class DbStatusDumpMonitorViewPart extends
 		composite.setLayout(new FillLayout());
 
 		serverInfo = cubridNode.getServer().getServerInfo();
-		List<String> databaseLst = new ArrayList<String>();
-		List<DatabaseInfo> databaseInfoLst = serverInfo.getLoginedUserInfo().getDatabaseInfoList();
-		for (DatabaseInfo databaseInfo : databaseInfoLst) {
+		List<String> databaseList = new ArrayList<String>();
+		List<DatabaseInfo> databaseInfoList = serverInfo.getLoginedUserInfo().getDatabaseInfoList();
+		for (DatabaseInfo databaseInfo : databaseInfoList) {
 			DbRunningType dbRunningType = databaseInfo.getRunningType();
 			if (dbRunningType == DbRunningType.CS) {
-				databaseLst.add(databaseInfo.getDbName());
+				databaseList.add(databaseInfo.getDbName());
 			}
 		}
 		DbStatDumpData dbStatDumpData = new DbStatDumpData();
@@ -150,11 +150,11 @@ public class DbStatusDumpMonitorViewPart extends
 
 		chartPart = new ChartCompositePart(composite, map);
 		dbCombo = new DbComboContribution("database", this);
-		dbCombo.setDatabaseLst(databaseLst);
-		if (databaseLst.isEmpty()) {
+		dbCombo.setDatabaseList(databaseList);
+		if (databaseList.isEmpty()) {
 			runflag = false;
 		} else {
-			dbCombo.setSelectedDb(databaseLst.get(0));
+			dbCombo.setSelectedDb(databaseList.get(0));
 		}
 		String hostAddress = serverInfo.getHostAddress();
 		int monPort = serverInfo.getHostMonPort();

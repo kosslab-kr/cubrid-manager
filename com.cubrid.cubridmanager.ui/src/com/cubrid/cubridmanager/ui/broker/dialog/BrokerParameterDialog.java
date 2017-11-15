@@ -94,7 +94,7 @@ public class BrokerParameterDialog extends
 	private BrokerIntervalSetting brokerIntervalSetting;
 	private ICubridNode cubridNode;
 	private boolean isOkenable[];
-	private List<Map<String, String>> brokerLst;
+	private List<Map<String, String>> brokerList;
 
 	private AddEditType operation;
 	private ServerUserInfo userInfo;
@@ -110,18 +110,18 @@ public class BrokerParameterDialog extends
 	 * @param parentShell
 	 * @param operation
 	 * @param node
-	 * @param brokerLst
+	 * @param brokerList
 	 * @param masterShmId
 	 */
 	public BrokerParameterDialog(Shell parentShell, AddEditType operation,
-			ICubridNode node, List<Map<String, String>> brokerLst,
+			ICubridNode node, List<Map<String, String>> brokerList,
 			String masterShmId) {
 		super(parentShell);
 		this.operation = operation;
 		isOkenable = new boolean[3];
 		this.masterShmId = masterShmId;
 		cubridNode = node;
-		this.brokerLst = brokerLst;
+		this.brokerList = brokerList;
 		serverInfo = node.getServer().getServerInfo();
 		userInfo = serverInfo.getLoginedUserInfo();
 		isQueryOrTransTimeUseMs = CompatibleUtil.isQueryOrTransTimeUseMs(serverInfo);
@@ -133,10 +133,10 @@ public class BrokerParameterDialog extends
 	 * @param parentShell
 	 */
 	public BrokerParameterDialog(Shell parentShell, AddEditType operation,
-			ICubridNode node, List<Map<String, String>> brokerLst,
+			ICubridNode node, List<Map<String, String>> brokerList,
 			String masterShmId, Map<String, String> map,
 			BrokerIntervalSetting brokerIntervalSetting) {
-		this(parentShell, operation, node, brokerLst, masterShmId);
+		this(parentShell, operation, node, brokerList, masterShmId);
 		this.brokerMap = map;
 		this.brokerIntervalSetting = brokerIntervalSetting;
 		if (null == brokerIntervalSetting) {
@@ -225,8 +225,8 @@ public class BrokerParameterDialog extends
 					isOkenable[0] = false;
 				} else {
 					boolean hasName = false;
-					if (brokerLst != null) {
-						for (Map<String, String> brokerInfo : brokerLst) {
+					if (brokerList != null) {
+						for (Map<String, String> brokerInfo : brokerList) {
 							if (content.equalsIgnoreCase(brokerInfo.get("0"))) {
 								hasName = true;
 								break;
@@ -693,10 +693,10 @@ public class BrokerParameterDialog extends
 							Messages.errUseMasterShmId, paramValue));
 				}
 				if (result) {
-					if (null == brokerLst || brokerLst.isEmpty()) {
+					if (null == brokerList || brokerList.isEmpty()) {
 						isOkenable[2] = true;
 					} else {
-						for (Map<String, String> brokerMap : brokerLst) {
+						for (Map<String, String> brokerMap : brokerList) {
 							if (operation == AddEditType.EDIT
 									&& brokerMap.get("0").equals(
 											nameTxt.getText())) {
@@ -741,10 +741,10 @@ public class BrokerParameterDialog extends
 			}
 			if (result) {
 				String paramValue = value.toString().trim();
-				if (null == brokerLst || brokerLst.isEmpty()) {
+				if (null == brokerList || brokerList.isEmpty()) {
 					isOkenable[1] = true;
 				} else {
-					for (Map<String, String> brokerMap : brokerLst) {
+					for (Map<String, String> brokerMap : brokerList) {
 						if (operation == AddEditType.EDIT
 								&& brokerMap.get("0").equals(nameTxt.getText())) {
 							isOkenable[1] = true;

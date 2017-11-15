@@ -173,7 +173,7 @@ public class DatabaseDashboardEditor extends
 	private final List<Map<String, String>> brokerInfoListData = new ArrayList<Map<String, String>>();
 	private final List<Map<String, String>> lockAndTransactionListData = new ArrayList<Map<String, String>>();
 
-	private List<HashMap<String, ApplyServerInfo>> asinfoLst = new ArrayList<HashMap<String, ApplyServerInfo>>();
+	private List<HashMap<String, ApplyServerInfo>> asinfoList = new ArrayList<HashMap<String, ApplyServerInfo>>();
 
 	private static DbProcStat dbProcOldOneStatusResult = new DbProcStat();
 	private static DbProcStat dbProcOldTwoStatusResult = new DbProcStat();
@@ -670,12 +670,12 @@ public class DatabaseDashboardEditor extends
 				if (taskExecutor.isSuccess()) {
 					// refresh
 					brokerInfoListData.clear();
-					asinfoLst.clear();
+					asinfoList.clear();
 					brokerInfoTable.remove(i);
 					loadBrokerInfo();
 					//recompute database's qps
 					long qps = 0;
-					for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoLst) {
+					for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoList) {
 						for (Entry<String, ApplyServerInfo> entry : brokerValueMap.entrySet()) {
 							ApplyServerInfo applyServerInfo = entry.getValue();
 							qps += Long.valueOf(applyServerInfo.getAsNumQuery());
@@ -963,7 +963,7 @@ public class DatabaseDashboardEditor extends
 				//if database is stop, clear db table data and stop thread
 				if (database.getRunningType() != DbRunningType.CS) {
 					finishThreadFlag = true;
-					asinfoLst.clear();
+					asinfoList.clear();
 					dbInfoListData.clear();
 					Display.getDefault().syncExec(new Runnable() {
 						public void run() {
@@ -1042,7 +1042,7 @@ public class DatabaseDashboardEditor extends
 				//if database is stop, clear db table data and stop thread
 				if (database.getRunningType() != DbRunningType.CS) {
 					stopAutoRefreshData();
-					asinfoLst.clear();
+					asinfoList.clear();
 					dbInfoListData.clear();
 					Display.getDefault().syncExec(new Runnable() {
 						public void run() {
@@ -1218,7 +1218,7 @@ public class DatabaseDashboardEditor extends
 			}
 
 			private void process() {
-				asinfoLst.clear();
+				asinfoList.clear();
 				brokerInfoListData.clear();
 
 				BrokerInfos brokerInfos = brokerInfosTask.getResultModel();
@@ -1243,7 +1243,7 @@ public class DatabaseDashboardEditor extends
 										HashMap<String, ApplyServerInfo> valueMap = new HashMap<String, ApplyServerInfo>();
 										valueMap.put(brokerInfo.getName(),
 												applyServerInfo);
-										asinfoLst.add(valueMap);
+										asinfoList.add(valueMap);
 									}
 								}
 							}
@@ -1253,7 +1253,7 @@ public class DatabaseDashboardEditor extends
 				}
 
 				//set task obejct to table view
-				for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoLst) {
+				for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoList) {
 					for (Entry<String, ApplyServerInfo> entry : brokerValueMap.entrySet()) {
 						String brokerName = entry.getKey();
 						ApplyServerInfo applyServerInfo = entry.getValue();
@@ -1411,7 +1411,7 @@ public class DatabaseDashboardEditor extends
 		dbMap.put("1", "0M /0M");
 		//compute Qps
 		long qps = 0;
-		for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoLst) {
+		for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoList) {
 			for (Entry<String, ApplyServerInfo> entry : brokerValueMap.entrySet()) {
 				ApplyServerInfo applyServerInfo = entry.getValue();
 				qps += Long.valueOf(applyServerInfo.getAsNumQuery());
@@ -1489,7 +1489,7 @@ public class DatabaseDashboardEditor extends
 		if (databaseInfo != null) {
 			//compute Qps
 			long qps = 0;
-			for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoLst) {
+			for (HashMap<String, ApplyServerInfo> brokerValueMap : asinfoList) {
 				for (Entry<String, ApplyServerInfo> entry : brokerValueMap.entrySet()) {
 					ApplyServerInfo applyServerInfo = entry.getValue();
 					qps += Long.valueOf(applyServerInfo.getAsNumQuery());

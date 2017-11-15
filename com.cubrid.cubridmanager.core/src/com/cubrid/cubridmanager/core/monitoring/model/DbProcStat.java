@@ -46,11 +46,11 @@ public class DbProcStat implements
 	private String dbname;
 	private String status;
 	private String note;
-	private List<DbSysStat> dbProcLst;
+	private List<DbSysStat> dbProcList;
 
 	//Constructor
 	public DbProcStat() {
-		dbProcLst = new ArrayList<DbSysStat>();
+		dbProcList = new ArrayList<DbSysStat>();
 	}
 
 	/* (non-Javadoc)
@@ -67,11 +67,11 @@ public class DbProcStat implements
 	 */
 	public void copyFrom(DbProcStat clone) {
 		dbname = clone.dbname;
-		dbProcLst.clear();
-		for (DbSysStat dssClone : clone.getDbProcLst()) {
+		dbProcList.clear();
+		for (DbSysStat dssClone : clone.getDbProcList()) {
 			DbSysStat dss = new DbSysStat();
 			dss.copyFrom(dssClone);
-			dbProcLst.add(dss);
+			dbProcList.add(dss);
 		}
 	}
 
@@ -81,23 +81,23 @@ public class DbProcStat implements
 	 * @param dsp DbStatProc
 	 */
 	public void addDbstat(DbSysStat dsp) {
-		if (dbProcLst == null) {
-			dbProcLst = new ArrayList<DbSysStat>();
+		if (dbProcList == null) {
+			dbProcList = new ArrayList<DbSysStat>();
 		}
-		if (!dbProcLst.contains(dsp)) {
-			dbProcLst.add(dsp);
+		if (!dbProcList.contains(dsp)) {
+			dbProcList.add(dsp);
 		}
 	}
 
 	/**
-	 * Remove all the elements in the dbProcLst.
+	 * Remove all the elements in the dbProcList.
 	 * 
 	 */
 	public void clearDbstat() {
-		if (dbProcLst == null) {
+		if (dbProcList == null) {
 			return;
 		} else {
-			dbProcLst.clear();
+			dbProcList.clear();
 		}
 	}
 
@@ -155,10 +155,10 @@ public class DbProcStat implements
 	/**
 	 * Get all the database process info
 	 * 
-	 * @return the dbProcLst
+	 * @return the dbProcList
 	 */
-	public List<DbSysStat> getDbProcLst() {
-		return dbProcLst;
+	public List<DbSysStat> getDbProcList() {
+		return dbProcList;
 	}
 
 }

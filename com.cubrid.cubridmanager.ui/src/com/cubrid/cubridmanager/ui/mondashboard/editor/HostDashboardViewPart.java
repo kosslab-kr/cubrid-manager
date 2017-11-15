@@ -196,14 +196,14 @@ public class HostDashboardViewPart extends
 			isNewBrokerDiag = CompatibleUtil.isNewBrokerDiag(serverInfo);
 		}
 
-		List<String> typeLst = new ArrayList<String>();
+		List<String> typeList = new ArrayList<String>();
 		for (HostStatEnum hostEnum : HostStatEnum.values()) {
-			typeLst.add(hostEnum.getName());
+			typeList.add(hostEnum.getName());
 		}
 		for (BrokerDiagEnum brokerEnum : BrokerDiagEnum.values()) {
-			typeLst.add(brokerEnum.getName());
+			typeList.add(brokerEnum.getName());
 		}
-		typeNames = typeLst.toArray(new String[typeLst.size()]);
+		typeNames = typeList.toArray(new String[typeList.size()]);
 
 		DataGeneratorPool pool = DataGeneratorPool.getInstance();
 		String generatorName = hostNode.getUserName() + "@" + hostNode.getIp() + ":"
@@ -739,7 +739,7 @@ public class HostDashboardViewPart extends
 		chartSettingDlg.setHistoryFileName(historyFileName);
 
 		// chart selection
-		chartSettingDlg.setChartSelectionLst(getSelectedCharts());
+		chartSettingDlg.setChartSelectionList(getSelectedCharts());
 
 		if (chartSettingDlg.open() == Dialog.OK) {
 			// plot appearance
@@ -825,7 +825,7 @@ public class HostDashboardViewPart extends
 				brokerChartPart.updateSettingSeries();
 			}
 			//chart Selection
-			fireChartSelection(chartSettingDlg.getChartSelectionLst());
+			fireChartSelection(chartSettingDlg.getChartSelectionList());
 		}
 	}
 
@@ -836,40 +836,40 @@ public class HostDashboardViewPart extends
 	 * @return List<ChartShowingProp>
 	 */
 	private List<ChartShowingProp> getSelectedCharts() {
-		List<ChartShowingProp> chartSelectionLst = new ArrayList<ChartShowingProp>();
+		List<ChartShowingProp> chartSelectionList = new ArrayList<ChartShowingProp>();
 
 		boolean isSysInfoVisible = sysInfoComp.isVisible();
 		ChartShowingProp sysInfoShowingProp = new ChartShowingProp();
 		sysInfoShowingProp.setName(Messages.hostSelectedSysInfo);
 		sysInfoShowingProp.setShowing(isSysInfoVisible);
-		chartSelectionLst.add(sysInfoShowingProp);
+		chartSelectionList.add(sysInfoShowingProp);
 
 		boolean isCpuVisible = cpuChart.getBasicComposite().isVisible();
 		ChartShowingProp cpuShowingProp = new ChartShowingProp();
 		cpuShowingProp.setName(Messages.hostSelectedChartCpu);
 		cpuShowingProp.setShowing(isCpuVisible);
-		chartSelectionLst.add(cpuShowingProp);
+		chartSelectionList.add(cpuShowingProp);
 
 		boolean isMemoryVisible = memoryChart.getBasicComposite().isVisible();
 		ChartShowingProp memoryShowingProp = new ChartShowingProp();
 		memoryShowingProp.setName(Messages.hostSelectedChartMemory);
 		memoryShowingProp.setShowing(isMemoryVisible);
-		chartSelectionLst.add(memoryShowingProp);
+		chartSelectionList.add(memoryShowingProp);
 
 		boolean isIowaitVisible = iowaitChart.getBasicComposite().isVisible();
 		ChartShowingProp iowaitShowingProp = new ChartShowingProp();
 		iowaitShowingProp.setName(Messages.hostSelectedChartIowait);
 		iowaitShowingProp.setShowing(isIowaitVisible);
-		chartSelectionLst.add(iowaitShowingProp);
+		chartSelectionList.add(iowaitShowingProp);
 
 		if (brokerComp != null) {
 			boolean isBrokerVisible = brokerComp.isVisible();
 			ChartShowingProp brokerShowingProp = new ChartShowingProp();
 			brokerShowingProp.setName(Messages.hostSelectedChartBroker);
 			brokerShowingProp.setShowing(isBrokerVisible);
-			chartSelectionLst.add(brokerShowingProp);
+			chartSelectionList.add(brokerShowingProp);
 		}
-		return chartSelectionLst;
+		return chartSelectionList;
 	}
 
 	/**

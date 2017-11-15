@@ -210,17 +210,17 @@ public class DatabaseDashboardViewPart extends
 			historyFileHelp = new HistoryFileHelp();
 			historyFileHelp.setHistoryPath(historyPath);
 		}
-		List<String> typeLst = new ArrayList<String>();
+		List<String> typeList = new ArrayList<String>();
 		for (DbProcStatEnum dbProcEnum : DbProcStatEnum.values()) {
-			typeLst.add(dbProcEnum.getName());
+			typeList.add(dbProcEnum.getName());
 		}
 		for (StandbyServerStatEnum standbyEnum : StandbyServerStatEnum.values()) {
-			typeLst.add(standbyEnum.getName());
+			typeList.add(standbyEnum.getName());
 		}
 		for (DbStatDumpEnum dbDumpEnum : DbStatDumpEnum.values()) {
-			typeLst.add(dbDumpEnum.getName());
+			typeList.add(dbDumpEnum.getName());
 		}
-		typeNames = typeLst.toArray(new String[typeLst.size()]);
+		typeNames = typeList.toArray(new String[typeList.size()]);
 		DataGeneratorPool pool = DataGeneratorPool.getInstance();
 		String generatorName = hostNode.getUserName() + "@" + hostNode.getIp() + ":"
 				+ hostNode.getPort();
@@ -955,7 +955,7 @@ public class DatabaseDashboardViewPart extends
 		chartSettingDlg.setHistoryFileName(historyFileName);
 
 		// chart selection
-		chartSettingDlg.setChartSelectionLst(getSelectedCharts());
+		chartSettingDlg.setChartSelectionList(getSelectedCharts());
 
 		if (chartSettingDlg.open() == Dialog.OK) {
 			// plot appearance
@@ -1049,7 +1049,7 @@ public class DatabaseDashboardViewPart extends
 			dbStatChartPart.updateSettingSeries();
 
 			//chart Selection
-			fireChartSelection(chartSettingDlg.getChartSelectionLst());
+			fireChartSelection(chartSettingDlg.getChartSelectionList());
 		}
 	}
 
@@ -1060,44 +1060,44 @@ public class DatabaseDashboardViewPart extends
 	 * @return List<ChartShowingProp>
 	 */
 	private List<ChartShowingProp> getSelectedCharts() {
-		List<ChartShowingProp> chartSelectionLst = new ArrayList<ChartShowingProp>();
+		List<ChartShowingProp> chartSelectionList = new ArrayList<ChartShowingProp>();
 
 		boolean isSysInfoVisible = sysInfoComp.isVisible();
 		ChartShowingProp sysInfoShowingProp = new ChartShowingProp();
 		sysInfoShowingProp.setName(Messages.dbSelectedSysInfo);
 		sysInfoShowingProp.setShowing(isSysInfoVisible);
-		chartSelectionLst.add(sysInfoShowingProp);
+		chartSelectionList.add(sysInfoShowingProp);
 
 		boolean isCpuVisible = cpuChart.getBasicComposite().isVisible();
 		ChartShowingProp cpuShowingProp = new ChartShowingProp();
 		cpuShowingProp.setName(Messages.dbSelectedChartCpu);
 		cpuShowingProp.setShowing(isCpuVisible);
-		chartSelectionLst.add(cpuShowingProp);
+		chartSelectionList.add(cpuShowingProp);
 
 		boolean isMemoryVisible = memoryChart.getBasicComposite().isVisible();
 		ChartShowingProp memoryShowingProp = new ChartShowingProp();
 		memoryShowingProp.setName(Messages.dbSelectedChartMemory);
 		memoryShowingProp.setShowing(isMemoryVisible);
-		chartSelectionLst.add(memoryShowingProp);
+		chartSelectionList.add(memoryShowingProp);
 
 		boolean isDelayVisible = delayChart.getBasicComposite().isVisible();
 		ChartShowingProp delayShowingProp = new ChartShowingProp();
 		delayShowingProp.setName(Messages.dbSelectedChartDelay);
 		delayShowingProp.setShowing(isDelayVisible);
-		chartSelectionLst.add(delayShowingProp);
+		chartSelectionList.add(delayShowingProp);
 
 		boolean isCountVisible = countChart.getBasicComposite().isVisible();
 		ChartShowingProp countShowingProp = new ChartShowingProp();
 		countShowingProp.setName(Messages.dbSelectedChartCount);
 		countShowingProp.setShowing(isCountVisible);
-		chartSelectionLst.add(countShowingProp);
+		chartSelectionList.add(countShowingProp);
 
 		boolean isDbstatVisible = dbStatComp.isVisible();
 		ChartShowingProp dbStatShowingProp = new ChartShowingProp();
 		dbStatShowingProp.setName(Messages.dbSelectedChartBroker);
 		dbStatShowingProp.setShowing(isDbstatVisible);
-		chartSelectionLst.add(dbStatShowingProp);
-		return chartSelectionLst;
+		chartSelectionList.add(dbStatShowingProp);
+		return chartSelectionList;
 	}
 
 	/**

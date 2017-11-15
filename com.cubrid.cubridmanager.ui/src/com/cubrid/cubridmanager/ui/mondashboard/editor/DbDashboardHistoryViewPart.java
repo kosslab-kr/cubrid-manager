@@ -444,7 +444,7 @@ public class DbDashboardHistoryViewPart extends
 		chartSettingDlg.setSettingMap(dbStatChartPart.getSettingMap());
 
 		// chart selection
-		chartSettingDlg.setChartSelectionLst(getSelectedCharts());
+		chartSettingDlg.setChartSelectionList(getSelectedCharts());
 		// history path
 		chartSettingDlg.setHistoryPath(historyPath);
 		chartSettingDlg.setHistoryFileName(historyFileName);
@@ -521,7 +521,7 @@ public class DbDashboardHistoryViewPart extends
 			dbStatChartPart.updateSettingSeries();
 
 			//chart Selection
-			fireChartSelection(chartSettingDlg.getChartSelectionLst());
+			fireChartSelection(chartSettingDlg.getChartSelectionList());
 		}
 	}
 
@@ -532,37 +532,37 @@ public class DbDashboardHistoryViewPart extends
 	 * @return List<ChartShowingProp>
 	 */
 	private List<ChartShowingProp> getSelectedCharts() {
-		List<ChartShowingProp> chartSelectionLst = new ArrayList<ChartShowingProp>();
+		List<ChartShowingProp> chartSelectionList = new ArrayList<ChartShowingProp>();
 		boolean isCpuVisible = cpuChart.getBasicComposite().isVisible();
 		ChartShowingProp cpuShowingProp = new ChartShowingProp();
 		cpuShowingProp.setName(Messages.dbSelectedChartCpu);
 		cpuShowingProp.setShowing(isCpuVisible);
-		chartSelectionLst.add(cpuShowingProp);
+		chartSelectionList.add(cpuShowingProp);
 
 		boolean isMemoryVisible = memoryChart.getBasicComposite().isVisible();
 		ChartShowingProp memoryShowingProp = new ChartShowingProp();
 		memoryShowingProp.setName(Messages.dbSelectedChartMemory);
 		memoryShowingProp.setShowing(isMemoryVisible);
-		chartSelectionLst.add(memoryShowingProp);
+		chartSelectionList.add(memoryShowingProp);
 
 		boolean isDelayVisible = delayChart.getBasicComposite().isVisible();
 		ChartShowingProp delayShowingProp = new ChartShowingProp();
 		delayShowingProp.setName(Messages.dbSelectedChartDelay);
 		delayShowingProp.setShowing(isDelayVisible);
-		chartSelectionLst.add(delayShowingProp);
+		chartSelectionList.add(delayShowingProp);
 
 		boolean isCountVisible = countChart.getBasicComposite().isVisible();
 		ChartShowingProp countShowingProp = new ChartShowingProp();
 		countShowingProp.setName(Messages.dbSelectedChartCount);
 		countShowingProp.setShowing(isCountVisible);
-		chartSelectionLst.add(countShowingProp);
+		chartSelectionList.add(countShowingProp);
 
 		boolean isDbstatVisible = dbStatComp.isVisible();
 		ChartShowingProp dbStatShowingProp = new ChartShowingProp();
 		dbStatShowingProp.setName(Messages.dbSelectedChartBroker);
 		dbStatShowingProp.setShowing(isDbstatVisible);
-		chartSelectionLst.add(dbStatShowingProp);
-		return chartSelectionLst;
+		chartSelectionList.add(dbStatShowingProp);
+		return chartSelectionList;
 	}
 
 	/**

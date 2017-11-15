@@ -63,7 +63,7 @@ public class BrokerDiagData implements
 	private String cas_mon_long_tran;
 	private String cas_mon_error_query;
 	private final TreeMap<IDiagPara, String> diagStatusResultMap;
-	private List<BrokerDiagData> subBrokerDiagLst;
+	private List<BrokerDiagData> subBrokerDiagList;
 
 	/* (non-Javadoc)
 	 * @see com.cubrid.cubridmanager.core.common.model.IModel#getTaskName()
@@ -83,7 +83,7 @@ public class BrokerDiagData implements
 		cas_mon_long_tran = "0";
 		cas_mon_error_query = "0";
 		diagStatusResultMap = new TreeMap<IDiagPara, String>();
-		subBrokerDiagLst = new ArrayList<BrokerDiagData>();
+		subBrokerDiagList = new ArrayList<BrokerDiagData>();
 		putVauleInMap();
 	}
 
@@ -97,7 +97,7 @@ public class BrokerDiagData implements
 		cas_mon_long_query = clone.cas_mon_long_query;
 		cas_mon_long_tran = clone.cas_mon_long_tran;
 		cas_mon_error_query = clone.cas_mon_error_query;
-		subBrokerDiagLst = clone.getBrokerList();
+		subBrokerDiagList = clone.getBrokerList();
 		diagStatusResultMap = new TreeMap<IDiagPara, String>();
 		putVauleInMap();
 	}
@@ -117,7 +117,7 @@ public class BrokerDiagData implements
 		cas_mon_long_query = clone.cas_mon_long_query;
 		cas_mon_long_tran = clone.cas_mon_long_tran;
 		cas_mon_error_query = clone.cas_mon_error_query;
-		subBrokerDiagLst = clone.getBrokerList();
+		subBrokerDiagList = clone.getBrokerList();
 		putVauleInMap();
 	}
 
@@ -563,7 +563,7 @@ public class BrokerDiagData implements
 	 * @param brokerDiagData the instance of BrokerDiagData
 	 */
 	public void addBroker(BrokerDiagData brokerDiagData) {
-		subBrokerDiagLst.add(brokerDiagData);
+		subBrokerDiagList.add(brokerDiagData);
 	}
 
 	/**
@@ -572,7 +572,7 @@ public class BrokerDiagData implements
 	 * @return List<BrokerDiagData>
 	 */
 	public List<BrokerDiagData> getBrokerList() {
-		return subBrokerDiagLst;
+		return subBrokerDiagList;
 	}
 
 	/**
@@ -583,10 +583,10 @@ public class BrokerDiagData implements
 	 */
 	public BrokerDiagData getSubBrokerByName(String bname) {
 		BrokerDiagData brokerDiagData = new BrokerDiagData();
-		if (subBrokerDiagLst.isEmpty() || bname == null) {
+		if (subBrokerDiagList.isEmpty() || bname == null) {
 			return brokerDiagData;
 		}
-		for (BrokerDiagData bdd : subBrokerDiagLst) {
+		for (BrokerDiagData bdd : subBrokerDiagList) {
 			if (bname.equals(bdd.getBname())) {
 				return bdd;
 			}
