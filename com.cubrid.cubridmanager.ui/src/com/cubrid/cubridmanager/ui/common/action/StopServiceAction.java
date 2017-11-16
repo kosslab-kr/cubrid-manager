@@ -203,27 +203,6 @@ public class StopServiceAction extends
 				new ExecTaskWithProgress(taskExcutor).exec();
 			}
 		}
-//		for(CubridServer server : servers) {
-//			final JobFamily jobFamily = new JobFamily();
-//			final String serverName = server.getName();
-//			String dbName = JobFamily.ALL_DB;
-//			jobFamily.setServerName(serverName);
-//			jobFamily.setDbName(dbName);
-//			Job[] jobs = Job.getJobManager().find(jobFamily);
-//			if (jobs.length > 0) {
-//				CommonUITool.openWarningBox(Messages.bind(
-//						Messages.msgStopServiceWithJob, serverName));
-//				return;
-//			}
-//
-//			TaskExecutor taskExcutor = new StopServiceExecutor(server, getShell(),
-//					viewer);
-//			ServerInfo serverInfo = server.getServerInfo();
-//			GetCubridConfParameterTask task = new GetCubridConfParameterTask(
-//					serverInfo);
-//			taskExcutor.addTask(task);
-//			new ExecTaskWithProgress(taskExcutor).exec();
-//		}
 	}
 
 	/**

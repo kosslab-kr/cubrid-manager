@@ -132,15 +132,11 @@ public class NavigatorTreeLabelProvider extends
 		} else if (element instanceof CubridShardFolder) {
 			// TODO shard
 			CubridShardFolder shardFolder = (CubridShardFolder) element;
-			// if (shardFolder.isEnable()) {
 			if (shardFolder.isRunning()) {
 				iconPath = shardFolder.getStartedIconPath();
 			} else {
 				iconPath = shardFolder.getStopedIconPath();
 			}
-			// } else {
-			// iconPath = shardFolder.getDisableIconPath();
-			// }
 		} else if (element instanceof CubridShard) {
 			CubridShard shard = (CubridShard) element;
 			if (shard.isRunning()) {

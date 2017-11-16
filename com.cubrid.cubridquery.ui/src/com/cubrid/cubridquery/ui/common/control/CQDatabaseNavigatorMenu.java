@@ -94,10 +94,6 @@ public class CQDatabaseNavigatorMenu extends
 
 		int count = 0;
 		for (CubridGroupNode groupNode : groupList) {
-//			if (NodeFilterManager.getInstance().isHidden(groupNode)) {
-//				continue;
-//			}
-
 			List<ICubridNode> nodeList = groupNode.getChildren();
 			if (nodeList == null || nodeList.isEmpty()) {
 				continue;
@@ -129,9 +125,6 @@ public class CQDatabaseNavigatorMenu extends
 
 			int itemCountInGroup = 0;
 			for (ICubridNode node : nodeList) {
-//				if (NodeFilterManager.getInstance().isHidden(node)) {
-//					continue;
-//				}
 				if (node instanceof CubridDatabase) {
 					CubridDatabase database = (CubridDatabase) node;
 					if (!database.isLogined()) {

@@ -122,9 +122,6 @@ public class ActionBuilder {
 		cubridMenuMgr.add(ActionManager.getInstance().getAction(
 				NewTableAction.ID));
 		cubridMenuMgr.add(new Separator());
-//		cubridMenuMgr.add(ActionManager.getInstance().getAction(
-//				OpenSchemaEditorAction.ID));
-//		cubridMenuMgr.add(new Separator());
 		cubridMenuMgr.add(ActionManager.getInstance().getAction(
 				UserManagementAction.ID));
 		cubridMenuMgr.add(new Separator());
