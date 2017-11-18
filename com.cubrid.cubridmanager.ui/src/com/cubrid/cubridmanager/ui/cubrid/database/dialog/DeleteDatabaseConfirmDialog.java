@@ -107,8 +107,10 @@ public class DeleteDatabaseConfirmDialog extends
 		clabel1.setLayoutData(gdClabel1);
 		clabel1.setText(Messages.msgInputDbaPassword);
 		text = new Text(composite, SWT.BORDER | SWT.PASSWORD);
-		text.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-
+		//text.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		GridData passwordData = new GridData(SWT.BEGINNING, SWT.CENTER, false, false);
+		passwordData.widthHint = 300;
+		text.setLayoutData(passwordData);
 	}
 
 	/**
