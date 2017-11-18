@@ -83,7 +83,7 @@ public class DeleteDatabaseConfirmDialog extends
 		glSourceDBComposite.marginWidth = convertHorizontalDLUsToPixels(IDialogConstants.HORIZONTAL_MARGIN);
 		glSourceDBComposite.verticalSpacing = convertVerticalDLUsToPixels(IDialogConstants.VERTICAL_SPACING);
 		glSourceDBComposite.horizontalSpacing = convertHorizontalDLUsToPixels(IDialogConstants.HORIZONTAL_SPACING);
-		glSourceDBComposite.numColumns = 2;
+		glSourceDBComposite.numColumns = 1;
 		composite.setLayout(glSourceDBComposite);
 		composite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
