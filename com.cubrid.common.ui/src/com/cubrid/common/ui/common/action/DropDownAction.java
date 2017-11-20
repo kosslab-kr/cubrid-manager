@@ -64,8 +64,7 @@ public class DropDownAction extends Action {
 		setImageDescriptor(newImage);
 	}
 
-	public void runWithEvent(Event event) { // FIXME remove commented code if don't need it anymore.
-		//if (event.detail == SWT.ARROW) {
+	public void runWithEvent(Event event) { 
 			Widget widget = event.widget;
 			if (widget instanceof ToolItem) {
 				ToolItem toolItem = (ToolItem) widget;
@@ -77,16 +76,10 @@ public class DropDownAction extends Action {
 				contextMenu.setLocation(pt.x, pt.y);
 				contextMenu.setVisible(true);
 			}
-//		} else {
-//			run();
-//		}
+
 	}
 
 	public void run() {
-//		if (editor == null || editor.getConfigurationInfo() == null) {
-//			CommonTool.openErrorBox(Messages.errInvalidNLuceneEnv);
-//		} else {
-//			UtilHelper.startAdminServer(editor);
-//		}
+
 	}
 }

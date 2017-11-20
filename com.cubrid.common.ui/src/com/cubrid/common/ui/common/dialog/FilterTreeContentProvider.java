@@ -123,7 +123,6 @@ public class FilterTreeContentProvider implements
 	 * is disposed.
 	 */
 	public void dispose() {
-		// ignore
 	}
 
 	/**
@@ -137,7 +136,6 @@ public class FilterTreeContentProvider implements
 	 *        does not have an input
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		//ignore
 	}
 
 }
